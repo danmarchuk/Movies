@@ -16,6 +16,10 @@
 		93E3296A2A98C9E400991843 /* MoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E329692A98C9E400991843 /* MoviesTests.swift */; };
 		93E329742A98C9E400991843 /* MoviesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E329732A98C9E400991843 /* MoviesUITests.swift */; };
 		93E329762A98C9E400991843 /* MoviesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E329752A98C9E400991843 /* MoviesUITestsLaunchTests.swift */; };
+		93E329832A98CAB200991843 /* MoviesLaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E329822A98CAB200991843 /* MoviesLaunchScreen.swift */; };
+		93E329852A98F3AD00991843 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E329842A98F3AD00991843 /* Constants.swift */; };
+		93E329872A98F45300991843 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E329862A98F45300991843 /* Extensions.swift */; };
+		93E3298A2A98F56400991843 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 93E329892A98F56400991843 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,9 @@
 		93E3296F2A98C9E400991843 /* MoviesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93E329732A98C9E400991843 /* MoviesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesUITests.swift; sourceTree = "<group>"; };
 		93E329752A98C9E400991843 /* MoviesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		93E329822A98CAB200991843 /* MoviesLaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesLaunchScreen.swift; sourceTree = "<group>"; };
+		93E329842A98F3AD00991843 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		93E329862A98F45300991843 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93E3298A2A98F56400991843 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +110,9 @@
 				93E329522A98C9E200991843 /* AppDelegate.swift */,
 				93E329542A98C9E200991843 /* SceneDelegate.swift */,
 				93E329562A98C9E200991843 /* ViewController.swift */,
+				93E3298B2A98F79700991843 /* View */,
+				93E329842A98F3AD00991843 /* Constants.swift */,
+				93E329862A98F45300991843 /* Extensions.swift */,
 				93E329582A98C9E200991843 /* Main.storyboard */,
 				93E3295B2A98C9E300991843 /* Assets.xcassets */,
 				93E3295D2A98C9E300991843 /* LaunchScreen.storyboard */,
@@ -127,6 +138,14 @@
 			path = MoviesUITests;
 			sourceTree = "<group>";
 		};
+		93E3298B2A98F79700991843 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				93E329822A98CAB200991843 /* MoviesLaunchScreen.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +162,9 @@
 			dependencies = (
 			);
 			name = Movies;
+			packageProductDependencies = (
+				93E329892A98F56400991843 /* SnapKit */,
+			);
 			productName = Movies;
 			productReference = 93E3294F2A98C9E200991843 /* Movies.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +237,9 @@
 				Base,
 			);
 			mainGroup = 93E329462A98C9E200991843;
+			packageReferences = (
+				93E329882A98F56400991843 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 93E329502A98C9E200991843 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -258,7 +283,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93E329852A98F3AD00991843 /* Constants.swift in Sources */,
+				93E329872A98F45300991843 /* Extensions.swift in Sources */,
 				93E329572A98C9E200991843 /* ViewController.swift in Sources */,
+				93E329832A98CAB200991843 /* MoviesLaunchScreen.swift in Sources */,
 				93E329532A98C9E200991843 /* AppDelegate.swift in Sources */,
 				93E329552A98C9E200991843 /* SceneDelegate.swift in Sources */,
 			);
@@ -602,6 +630,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		93E329882A98F56400991843 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		93E329892A98F56400991843 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 93E329882A98F56400991843 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 93E329472A98C9E200991843 /* Project object */;
 }

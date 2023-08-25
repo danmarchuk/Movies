@@ -8,12 +8,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    let launchScreen = MoviesLaunchScreen()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        view = launchScreen
     }
 
-    // this is the dev branch
 }
 
