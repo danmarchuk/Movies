@@ -9,11 +9,12 @@ import UIKit
 
 class ViewController: UIViewController {
     let launchScreen = MoviesLaunchScreen()
+    let welcomeScreen = WelcomeScreen()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        view = launchScreen
+        view = welcomeScreen
     }
 
 }
