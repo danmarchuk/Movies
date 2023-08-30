@@ -10,11 +10,12 @@ import UIKit
 class ViewController: UIViewController {
     let launchScreen = MoviesLaunchScreen()
     let welcomeScreen = WelcomeScreen()
+    let searchScreen = SearchScreen()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        view = welcomeScreen
+        view = searchScreen
     }
 
 }
