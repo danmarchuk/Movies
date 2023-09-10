@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 import SnapKit
 
-class SearchCell: UICollectionViewCell {
-    static let identifier = "SearchCell"
+class TrendingCell: UICollectionViewCell {
+    static let identifier = "TrendingCell"
     
     override init(frame: CGRect) {
         super.init(frame: frame)

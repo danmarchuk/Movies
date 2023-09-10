@@ -20,7 +20,6 @@ final class MoviesLaunchScreen: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 
     let tmdbImage = UIImageView().apply {
         $0.contentMode = .scaleAspectFill
@@ -41,6 +40,4 @@ final class MoviesLaunchScreen: UIView {
         }
         
     }
-    
-    
 }

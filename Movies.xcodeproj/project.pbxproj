@@ -3,18 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		25269EA5DC7D7F2725B973A6 /* Pods_Movies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7657DF2D2A0A46E91AFA343D /* Pods_Movies.framework */; };
 		92840E0FB07EBEB104C78BE4 /* Pods_MoviesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F924BBF71308E5119AD1382 /* Pods_MoviesTests.framework */; };
 		9335DF882A9E449700B36397 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9335DF872A9E449700B36397 /* OpenSans-ExtraBold.ttf */; };
-		9335DF8A2A9E57D300B36397 /* SearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9335DF892A9E57D300B36397 /* SearchScreen.swift */; };
-		936A404B2A9F8ECE00470194 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936A404A2A9F8ECE00470194 /* SearchCell.swift */; };
+		9335DF8A2A9E57D300B36397 /* SearchInnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9335DF892A9E57D300B36397 /* SearchInnerCell.swift */; };
+		9349EDD82AABC1CC00F8D960 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9349EDD72AABC1CC00F8D960 /* Movie.swift */; };
+		936A404B2A9F8ECE00470194 /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936A404A2A9F8ECE00470194 /* TrendingCell.swift */; };
 		936ABBC62A9A463500A8466B /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 936ABBC32A9A463500A8466B /* OpenSans-Bold.ttf */; };
 		936ABBC72A9A463500A8466B /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 936ABBC42A9A463500A8466B /* OpenSans-SemiBold.ttf */; };
 		936ABBC82A9A463500A8466B /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 936ABBC52A9A463500A8466B /* OpenSans-Regular.ttf */; };
+		93DFD0D02AA7A6920097F9B9 /* SearchMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93DFD0CF2AA7A6920097F9B9 /* SearchMainCell.swift */; };
 		93E329532A98C9E200991843 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E329522A98C9E200991843 /* AppDelegate.swift */; };
 		93E329552A98C9E200991843 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E329542A98C9E200991843 /* SceneDelegate.swift */; };
 		93E329572A98C9E200991843 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E329562A98C9E200991843 /* ViewController.swift */; };
@@ -56,11 +58,14 @@
 		6F924BBF71308E5119AD1382 /* Pods_MoviesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoviesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7657DF2D2A0A46E91AFA343D /* Pods_Movies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9335DF872A9E449700B36397 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
-		9335DF892A9E57D300B36397 /* SearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreen.swift; sourceTree = "<group>"; };
-		936A404A2A9F8ECE00470194 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
+		9335DF892A9E57D300B36397 /* SearchInnerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInnerCell.swift; sourceTree = "<group>"; };
+		9349EDD62AA7BDB100F8D960 /* Movies-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Movies-Bridging-Header.h"; sourceTree = "<group>"; };
+		9349EDD72AABC1CC00F8D960 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		936A404A2A9F8ECE00470194 /* TrendingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCell.swift; sourceTree = "<group>"; };
 		936ABBC32A9A463500A8466B /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		936ABBC42A9A463500A8466B /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		936ABBC52A9A463500A8466B /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		93DFD0CF2AA7A6920097F9B9 /* SearchMainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMainCell.swift; sourceTree = "<group>"; };
 		93E3294F2A98C9E200991843 /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93E329522A98C9E200991843 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93E329542A98C9E200991843 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -177,12 +182,14 @@
 				93E329562A98C9E200991843 /* ViewController.swift */,
 				93E3298B2A98F79700991843 /* View */,
 				93E329842A98F3AD00991843 /* Constants.swift */,
+				9349EDD72AABC1CC00F8D960 /* Movie.swift */,
 				93E329862A98F45300991843 /* Extensions.swift */,
 				93E329582A98C9E200991843 /* Main.storyboard */,
 				93E3295B2A98C9E300991843 /* Assets.xcassets */,
 				93E3295D2A98C9E300991843 /* LaunchScreen.storyboard */,
 				93E329602A98C9E300991843 /* Info.plist */,
 				936ABBC22A9A462300A8466B /* Fonts */,
+				9349EDD62AA7BDB100F8D960 /* Movies-Bridging-Header.h */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -208,9 +215,10 @@
 			isa = PBXGroup;
 			children = (
 				93E329822A98CAB200991843 /* MoviesLaunchScreen.swift */,
+				93DFD0CF2AA7A6920097F9B9 /* SearchMainCell.swift */,
 				93E3298C2A98F81300991843 /* WelcomeScreen.swift */,
-				9335DF892A9E57D300B36397 /* SearchScreen.swift */,
-				936A404A2A9F8ECE00470194 /* SearchCell.swift */,
+				9335DF892A9E57D300B36397 /* SearchInnerCell.swift */,
+				936A404A2A9F8ECE00470194 /* TrendingCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -303,7 +311,7 @@
 				};
 			};
 			buildConfigurationList = 93E3294A2A98C9E200991843 /* Build configuration list for PBXProject "Movies" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -465,13 +473,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				93E329852A98F3AD00991843 /* Constants.swift in Sources */,
+				93DFD0D02AA7A6920097F9B9 /* SearchMainCell.swift in Sources */,
 				93E329872A98F45300991843 /* Extensions.swift in Sources */,
 				93E329572A98C9E200991843 /* ViewController.swift in Sources */,
-				9335DF8A2A9E57D300B36397 /* SearchScreen.swift in Sources */,
-				936A404B2A9F8ECE00470194 /* SearchCell.swift in Sources */,
+				9335DF8A2A9E57D300B36397 /* SearchInnerCell.swift in Sources */,
+				936A404B2A9F8ECE00470194 /* TrendingCell.swift in Sources */,
 				93E329832A98CAB200991843 /* MoviesLaunchScreen.swift in Sources */,
 				93E3298D2A98F81300991843 /* WelcomeScreen.swift in Sources */,
 				93E329532A98C9E200991843 /* AppDelegate.swift in Sources */,
+				9349EDD82AABC1CC00F8D960 /* Movie.swift in Sources */,
 				93E329552A98C9E200991843 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -666,6 +676,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.testapp.Movies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/danik/Desktop/IOS PROGRAMMING/Movies/Movies/Movies-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -695,6 +706,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.testapp.Movies;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/danik/Desktop/IOS PROGRAMMING/Movies/Movies/Movies-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -9,23 +9,27 @@ import Foundation
 import MBCircularProgressBar
 import SnapKit
 
-@IBDesignable
-class SearchScreen: UIView {
+class SearchInnerCell: UICollectionViewCell {
     
-    init() {
-        super.init(frame: UIScreen.main.bounds)
+    static let identifier = "SearchInnerCell"
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupView()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        setupView()
     }
-    
     
     // uiCollectionViewInnerCell
     let moviePoster = UIImageView().apply {
         $0.layer.cornerRadius = 15
         $0.image = UIImage(named: "welcomeScreenBackgroundImage")
+        $0.layer.cornerRadius = 15
+        $0.clipsToBounds = true // this needs to be true to see the rounded corners
+
     }
     
     let circularProgressBar = MBCircularProgressBarView().apply {
@@ -53,10 +57,17 @@ class SearchScreen: UIView {
         $0.textColor = K.percentageGray
     }
     
-    let titleLabel = UILabel().apply {
-        $0.text = "Amongus sus"
+    var titleLabel = UILabel().apply {
+        $0.text = "66%"
         $0.font = UIFont(name: "OpenSans-Semibold", size: 14)
         $0.textColor = K.titleGray
+        $0.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    func configure(withImage image: UIImage, withTitle title: String, withRating rating: Int ) {
+        moviePoster.image = image
+        titleLabel.text = title
+        circularProgressBar.value = CGFloat(rating)
     }
     
     func setupView() {
@@ -79,11 +90,15 @@ class SearchScreen: UIView {
         percentageLabel.snp.makeConstraints { make in
             make.left.equalTo(circularProgressBar.snp.right).offset(4)
             make.top.equalTo(moviePoster.snp.bottom).offset(10)
+            make.height.equalTo(18)
+//            make.width.equalTo(27)
         }
         
         titleLabel.snp.makeConstraints { make in
             make.left.equalToSuperview()
-            make.top.equalTo(circularProgressBar.snp.bottom).offset(5)
+            make.top.equalTo(percentageLabel.snp.bottom).offset(4)
+            make.bottom.equalToSuperview()
+            make.height.equalTo(18)
         }
 
     }

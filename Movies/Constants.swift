@@ -21,7 +21,11 @@ struct K {
     static let percentageGray =  UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1.0)
     static let titleGray = UIColor(red: 0.31, green: 0.33, blue: 0.36, alpha: 1.0)
     
-    // SearchCell constants
+    // TrendingCell constants
     static let searchBlack =  UIColor(red: 0.01, green: 0.15, blue: 0.25, alpha: 1.0)
-
+    
+    // SearchCell constants
+    static let seeAllColor = UIColor(red: 0.0, green: 0.7, blue: 0.9, alpha: 1.0)
+    static let gradientColorOne =  UIColor(red: 0.56, green: 0.81, blue: 0.63, alpha: 1.0)
+    static let gradientColorTwo =  UIColor(red: 0.24, green: 0.75, blue: 0.79, alpha: 1.0)
 }
