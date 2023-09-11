@@ -39,18 +39,11 @@ class SearchMainCell: UICollectionViewCell {
     
     let segmentedControll = LUNSegmentedControl()
     
-    let collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = .white
-        return cv
-    }()
+    let innerHorizontalCollectionView = InnerHorizontalViewController()
     
     func configure(withTitle title: String, withSegmentedControl: [String], withMovies movies: [Movie]) {
         
     }
-    
     
     func setupView() {
         segmentedControll.delegate = self
@@ -65,13 +58,9 @@ class SearchMainCell: UICollectionViewCell {
 //        segmentedControll.applyCornerRadiusToSelectorView = true
         segmentedControll.selectedStateTextColor = .black
         segmentedControll.reloadData()
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(SearchInnerCell.self, forCellWithReuseIdentifier: SearchInnerCell.identifier)
-        
+                
         backgroundColor = .white
-        addSubview(collectionView)
+        addSubview(innerHorizontalCollectionView.view)
         addSubview(mainLabel)
         addSubview(seeAllLabel)
         addSubview(segmentedControll)
@@ -90,7 +79,7 @@ class SearchMainCell: UICollectionViewCell {
             make.height.equalTo(44)
         }
         
-        collectionView.snp.makeConstraints { make in
+        innerHorizontalCollectionView.view.snp.makeConstraints { make in
             make.top.equalTo(segmentedControll.snp.bottom).offset(16)
             make.left.right.equalToSuperview()
             make.height.equalTo(300)
@@ -119,31 +108,3 @@ extension SearchMainCell: LUNSegmentedControlDelegate, LUNSegmentedControlDataSo
         
     }
 }
-
-extension SearchMainCell: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        6
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchInnerCell.identifier, for: indexPath) as? SearchInnerCell else {
-            return UICollectionViewCell()
-        }
-        guard let image = UIImage(named: "welcomeScreenBackgroundImage") else {return UICollectionViewCell()}
-        cell.configure(withImage: image , withTitle: "Hello", withRating: 12)
-        return cell
-    }
-}
-
-
-extension SearchMainCell: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-//        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-//            layout.minimumLineSpacing = 20
-//        }
-        return CGSize(width: frame.size.width / 2.5 , height: frame.size.height / 3)
-    }
-}
-
-

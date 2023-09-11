@@ -6,36 +6,39 @@
 //
 
 import UIKit
+import SnapKit
 
-class ViewController: UIViewController {
-    let launchScreen = MoviesLaunchScreen()
-    let welcomeScreen = WelcomeScreen()
-    let searchScreen = SearchInnerCell()
-    let searchCell = SearchMainCell()
+
+class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        view = searchCell
         setupTheCollectionView()
-
     }
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
+        layout.scrollDirection = .vertical
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.backgroundColor = .white
+        cv.register(SearchMainCell.self, forCellWithReuseIdentifier: SearchMainCell.identifier)
         return cv
     }()
 
     func setupTheCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
+        view.addSubview(collectionView)
+        
+        collectionView.snp.makeConstraints { make in
+            make.left.right.top.bottom.equalToSuperview()
+        }
+
     }
 }
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         5
     }
@@ -45,10 +48,15 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         guard let image = UIImage(named: "welcomeScreenBackgroundImage") else {return UICollectionViewCell()}
-        cell.configure(withTitle: <#T##String#>, withSegmentedControl: <#T##[String]#>, withMovies: <#T##[Movie]#>)
+//        cell.configure(withTitle: <#T##String#>, withSegmentedControl: <#T##[String]#>, withMovies: <#T##[Movie]#>)
+        cell.innerHorizontalCollectionView.collectionView.
         return cell
     }
-    
-    
+}
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return .init(width: view.frame.width, height: view.frame.height / 2)
+    }
 }
 
