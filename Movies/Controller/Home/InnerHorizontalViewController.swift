@@ -8,6 +8,8 @@
 import UIKit
 
 class InnerHorizontalViewController: BaseListController {
+    var contents: [Content] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .white
@@ -22,15 +24,14 @@ class InnerHorizontalViewController: BaseListController {
 // MARK: - Delegate and Datasource methods
 extension InnerHorizontalViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        50
+        contents.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchInnerCell.identifier, for: indexPath) as? SearchInnerCell else {
             return UICollectionViewCell()
         }
-        guard let image = UIImage(named: "welcomeScreenBackgroundImage") else {return UICollectionViewCell()}
-        cell.configure(withImage: image , withTitle: "Hello", withRating: 12)
+        cell.configure(withMovie: contents[indexPath.row])
         return cell
     }
 }

@@ -7,6 +7,12 @@
 
 import Foundation
 
-struct Section: Decodable, Hashable {
-    
+struct Section {
+    var name: String
+    var categories: [Category]
+}
+
+struct Category {
+    var name: String
+    var movies: [Content]
 }

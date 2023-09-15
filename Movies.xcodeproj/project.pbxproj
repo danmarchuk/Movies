@@ -9,9 +9,11 @@
 /* Begin PBXBuildFile section */
 		25269EA5DC7D7F2725B973A6 /* Pods_Movies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7657DF2D2A0A46E91AFA343D /* Pods_Movies.framework */; };
 		92840E0FB07EBEB104C78BE4 /* Pods_MoviesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F924BBF71308E5119AD1382 /* Pods_MoviesTests.framework */; };
+		931A43C72AB148BF002AEFEB /* ContentNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A43C62AB148BF002AEFEB /* ContentNetworkManager.swift */; };
+		931A43CA2AB148EA002AEFEB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 931A43C92AB148EA002AEFEB /* Alamofire */; };
 		9335DF882A9E449700B36397 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9335DF872A9E449700B36397 /* OpenSans-ExtraBold.ttf */; };
 		9335DF8A2A9E57D300B36397 /* SearchInnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9335DF892A9E57D300B36397 /* SearchInnerCell.swift */; };
-		9349EDD82AABC1CC00F8D960 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9349EDD72AABC1CC00F8D960 /* Movie.swift */; };
+		9349EDD82AABC1CC00F8D960 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9349EDD72AABC1CC00F8D960 /* Content.swift */; };
 		936A404B2A9F8ECE00470194 /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936A404A2A9F8ECE00470194 /* TrendingCell.swift */; };
 		936ABBC62A9A463500A8466B /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 936ABBC32A9A463500A8466B /* OpenSans-Bold.ttf */; };
 		936ABBC72A9A463500A8466B /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 936ABBC42A9A463500A8466B /* OpenSans-SemiBold.ttf */; };
@@ -60,10 +62,11 @@
 		4A2C6C5368BD9B6E0EB66E96 /* Pods-MoviesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoviesTests.debug.xcconfig"; path = "Target Support Files/Pods-MoviesTests/Pods-MoviesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6F924BBF71308E5119AD1382 /* Pods_MoviesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoviesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7657DF2D2A0A46E91AFA343D /* Pods_Movies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		931A43C62AB148BF002AEFEB /* ContentNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentNetworkManager.swift; sourceTree = "<group>"; };
 		9335DF872A9E449700B36397 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
 		9335DF892A9E57D300B36397 /* SearchInnerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInnerCell.swift; sourceTree = "<group>"; };
 		9349EDD62AA7BDB100F8D960 /* Movies-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Movies-Bridging-Header.h"; sourceTree = "<group>"; };
-		9349EDD72AABC1CC00F8D960 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		9349EDD72AABC1CC00F8D960 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		936A404A2A9F8ECE00470194 /* TrendingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCell.swift; sourceTree = "<group>"; };
 		936ABBC32A9A463500A8466B /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		936ABBC42A9A463500A8466B /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -100,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				931A43CA2AB148EA002AEFEB /* Alamofire in Frameworks */,
 				93E3298A2A98F56400991843 /* SnapKit in Frameworks */,
 				25269EA5DC7D7F2725B973A6 /* Pods_Movies.framework in Frameworks */,
 			);
@@ -161,7 +165,8 @@
 		93744B742AAE510100A78E00 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9349EDD72AABC1CC00F8D960 /* Movie.swift */,
+				9349EDD72AABC1CC00F8D960 /* Content.swift */,
+				931A43C62AB148BF002AEFEB /* ContentNetworkManager.swift */,
 				93744B752AAE510E00A78E00 /* Section.swift */,
 			);
 			path = Model;
@@ -276,6 +281,7 @@
 			name = Movies;
 			packageProductDependencies = (
 				93E329892A98F56400991843 /* SnapKit */,
+				931A43C92AB148EA002AEFEB /* Alamofire */,
 			);
 			productName = Movies;
 			productReference = 93E3294F2A98C9E200991843 /* Movies.app */;
@@ -354,6 +360,7 @@
 			mainGroup = 93E329462A98C9E200991843;
 			packageReferences = (
 				93E329882A98F56400991843 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				931A43C82AB148EA002AEFEB /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 93E329502A98C9E200991843 /* Products */;
 			projectDirPath = "";
@@ -508,6 +515,7 @@
 				93E329852A98F3AD00991843 /* Constants.swift in Sources */,
 				93DFD0D02AA7A6920097F9B9 /* SearchMainCell.swift in Sources */,
 				93E329872A98F45300991843 /* Extensions.swift in Sources */,
+				931A43C72AB148BF002AEFEB /* ContentNetworkManager.swift in Sources */,
 				93E329572A98C9E200991843 /* HomeViewController.swift in Sources */,
 				9335DF8A2A9E57D300B36397 /* SearchInnerCell.swift in Sources */,
 				936A404B2A9F8ECE00470194 /* TrendingCell.swift in Sources */,
@@ -516,7 +524,7 @@
 				93E329532A98C9E200991843 /* AppDelegate.swift in Sources */,
 				93744B762AAE510E00A78E00 /* Section.swift in Sources */,
 				93744B7B2AAF600400A78E00 /* BaseListController.swift in Sources */,
-				9349EDD82AABC1CC00F8D960 /* Movie.swift in Sources */,
+				9349EDD82AABC1CC00F8D960 /* Content.swift in Sources */,
 				93E329552A98C9E200991843 /* SceneDelegate.swift in Sources */,
 				93744B792AAF5EA500A78E00 /* InnerHorizontalViewController.swift in Sources */,
 			);
@@ -870,6 +878,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		931A43C82AB148EA002AEFEB /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		93E329882A98F56400991843 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -881,6 +897,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		931A43C92AB148EA002AEFEB /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 931A43C82AB148EA002AEFEB /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		93E329892A98F56400991843 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 93E329882A98F56400991843 /* XCRemoteSwiftPackageReference "SnapKit" */;

@@ -12,17 +12,24 @@ import LUNSegmentedControl
 
 @IBDesignable
 class SearchMainCell: UICollectionViewCell {
+    var segmentedControlElements: [String]? {
+        didSet {
+            segmentedControll.reloadData()
+        }
+    }
     
     static let identifier = "SearchMainCell"
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
+        segmentedControll.reloadData()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupView()
+        segmentedControll.reloadData()
     }
     
     let mainLabel = UILabel().apply {
@@ -41,8 +48,14 @@ class SearchMainCell: UICollectionViewCell {
     
     let innerHorizontalCollectionView = InnerHorizontalViewController()
     
-    func configure(withTitle title: String, withSegmentedControl: [String], withMovies movies: [Movie]) {
-        
+    func configure(withTitle title: String, withContents contents: [Content]) {
+        mainLabel.text = title
+        // Assuming segmentedControl has a function to set titles, just an example
+//        segmentedControlElements = withSegmentedControl // Set here
+//        segmentedControll.reloadData()
+        innerHorizontalCollectionView.contents = contents
+        innerHorizontalCollectionView.collectionView.reloadData()
+        segmentedControll.reloadData()
     }
     
     func setupView() {
@@ -90,11 +103,14 @@ class SearchMainCell: UICollectionViewCell {
 
 extension SearchMainCell: LUNSegmentedControlDelegate, LUNSegmentedControlDataSource {
     func numberOfStates(in segmentedControl: LUNSegmentedControl!) -> Int {
-        2
+        return segmentedControlElements?.count ?? 1
     }
 
     func segmentedControl(_ segmentedControl: LUNSegmentedControl!, titleForStateAt index: Int) -> String! {
-        return "HEY"
+        if let elements = segmentedControlElements, index < elements.count {
+            return elements[index]
+        }
+        return "Default Title"
     }
 
 
@@ -103,8 +119,8 @@ extension SearchMainCell: LUNSegmentedControlDelegate, LUNSegmentedControlDataSo
     }
 
     func segmentedControl(_ segmentedControl: LUNSegmentedControl!, didChangeStateFromStateAt fromIndex: Int, toStateAt toIndex: Int) {
-        segmentedControl.textFont = UIFont(name: "OpenSans-Bold", size: 14)
-//        segmentedControl.reloadData()
+//        segmentedControl.textFont = UIFont(name: "OpenSans-Bold", size: 14)
+        print("5")
         
     }
 }

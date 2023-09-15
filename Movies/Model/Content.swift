@@ -6,8 +6,10 @@
 //
 
 import Foundation
-struct Movie {
+struct Content {
     var posterUrl: String
     var title: String
-    var rating: Int
+    var rating: Double
+    var id: Int
+    var movie: Bool
 }
