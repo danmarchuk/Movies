@@ -30,4 +30,10 @@ struct K {
     static let seeAllColor = UIColor(red: 0.0, green: 0.7, blue: 0.9, alpha: 1.0)
     static let gradientColorOne =  UIColor(red: 0.56, green: 0.81, blue: 0.63, alpha: 1.0)
     static let gradientColorTwo =  UIColor(red: 0.24, green: 0.75, blue: 0.79, alpha: 1.0)
+    
+    // TabBar
+    static let tabBarSelectedItemColor = UIColor(red: 0/255, green: 179/255, blue: 229/255, alpha: 1)
+    static let tabBarTintColor = UIColor(red: 242.0/255.0, green: 242.0/255.0, blue: 247.0/255.0, alpha: 1.0)
+
+
 }

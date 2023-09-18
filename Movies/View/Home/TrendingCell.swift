@@ -70,6 +70,5 @@ class TrendingCell: UICollectionViewCell {
             make.left.equalTo(moviePoster.snp.right).offset(16)
             make.right.equalToSuperview()
         }
-        
     }
 }

@@ -46,6 +46,12 @@ class SearchMainCell: UICollectionViewCell {
     
     let segmentedControll = LUNSegmentedControl()
     
+    let transparentView = UIView().apply {
+        $0.backgroundColor = .clear
+        $0.tintColor = .clear
+    }
+    
+    
     let innerHorizontalCollectionView = InnerHorizontalViewController()
     
     func configure(withTitle title: String, withContents contents: [Content]) {
@@ -73,28 +79,41 @@ class SearchMainCell: UICollectionViewCell {
         segmentedControll.reloadData()
                 
         backgroundColor = .white
+        addSubview(transparentView)
         addSubview(innerHorizontalCollectionView.view)
         addSubview(mainLabel)
         addSubview(seeAllLabel)
         addSubview(segmentedControll)
+
         
         mainLabel.snp.makeConstraints { make in
-            make.top.left.equalToSuperview()
+            make.top.equalToSuperview()
+            make.left.right.equalToSuperview().offset(16)
         }
         
         seeAllLabel.snp.makeConstraints { make in
-            make.top.right.equalToSuperview()
+            make.top.equalToSuperview()
+            make.right.equalToSuperview().inset(16)
         }
         
         segmentedControll.snp.makeConstraints { make in
             make.top.equalTo(mainLabel.snp.bottom).offset(16)
-            make.left.right.equalToSuperview()
+            make.left.right.equalToSuperview().offset(16)
+            make.right.equalToSuperview().inset(16)
             make.height.equalTo(44)
+        }
+        
+        transparentView.snp.makeConstraints { make in
+            make.top.equalTo(segmentedControll.snp.bottom).offset(16)
+            make.width.equalTo(16) // or whatever width you desire
+            make.left.equalToSuperview()
+            make.bottom.equalToSuperview()
         }
         
         innerHorizontalCollectionView.view.snp.makeConstraints { make in
             make.top.equalTo(segmentedControll.snp.bottom).offset(16)
-            make.left.right.equalToSuperview()
+            make.left.equalTo(transparentView.snp.right)
+            make.right.equalToSuperview()
             make.height.equalTo(300)
         }
     }
