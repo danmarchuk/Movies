@@ -10,7 +10,6 @@ import UIKit
 import SnapKit
 import LUNSegmentedControl
 
-@IBDesignable
 class SearchMainCell: UICollectionViewCell {
     var segmentedControlElements: [String]? {
         didSet {
@@ -56,9 +55,6 @@ class SearchMainCell: UICollectionViewCell {
     
     func configure(withTitle title: String, withContents contents: [Content]) {
         mainLabel.text = title
-        // Assuming segmentedControl has a function to set titles, just an example
-//        segmentedControlElements = withSegmentedControl // Set here
-//        segmentedControll.reloadData()
         innerHorizontalCollectionView.contents = contents
         innerHorizontalCollectionView.collectionView.reloadData()
         segmentedControll.reloadData()

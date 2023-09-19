@@ -8,7 +8,11 @@
 import Foundation
 
 class SearchViewController: UIViewController {
+    
+    let movie = MovieScreen()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view = movie
     }
 }

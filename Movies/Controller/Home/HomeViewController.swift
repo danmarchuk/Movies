@@ -136,10 +136,13 @@ class HomeViewController: UIViewController {
     }()
 
     func setupTheCollectionView() {
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         view.addSubview(collectionView)
-        
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.minimumLineSpacing = 30
+        }
         collectionView.snp.makeConstraints { make in
             make.left.right.top.bottom.equalToSuperview()
         }

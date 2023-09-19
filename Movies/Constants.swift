@@ -34,6 +34,13 @@ struct K {
     // TabBar
     static let tabBarSelectedItemColor = UIColor(red: 0/255, green: 179/255, blue: 229/255, alpha: 1)
     static let tabBarTintColor = UIColor(red: 242.0/255.0, green: 242.0/255.0, blue: 247.0/255.0, alpha: 1.0)
-
+    
+    // movie screen
+    static let movieScreenDarkBlueTextColor = UIColor(red: 0.012, green: 0.145, blue: 0.255, alpha: 1)
+    static let movieScreenGray2 = UIColor(red: 0.314, green: 0.333, blue: 0.361, alpha: 1)
+    static let movieScreenBorderColor = UIColor(red: 0.887, green: 0.887, blue: 0.887, alpha: 1).cgColor
+    
+    // actor cell
+    static let characterGrayTextColor = UIColor(red: 0.39, green: 0.39, blue: 0.4, alpha: 1)
 
 }

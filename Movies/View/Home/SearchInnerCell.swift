@@ -24,11 +24,9 @@ class SearchInnerCell: UICollectionViewCell {
         setupView()
     }
     
-    // uiCollectionViewInnerCell
     let moviePoster = UIImageView().apply {
         $0.layer.cornerRadius = 15
         $0.image = UIImage(named: "welcomeScreenBackgroundImage")
-        $0.layer.cornerRadius = 15
         $0.clipsToBounds = true // this needs to be true to see the rounded corners
     }
     

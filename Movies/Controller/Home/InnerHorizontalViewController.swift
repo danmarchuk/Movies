@@ -41,5 +41,3 @@ extension InnerHorizontalViewController: UICollectionViewDelegateFlowLayout {
         return .init(width: view.frame.width / 2.5, height: view.frame.height)
     }
 }
-
-
