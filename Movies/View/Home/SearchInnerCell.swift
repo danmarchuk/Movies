@@ -28,6 +28,7 @@ class SearchInnerCell: UICollectionViewCell {
         $0.layer.cornerRadius = 15
         $0.image = UIImage(named: "welcomeScreenBackgroundImage")
         $0.clipsToBounds = true // this needs to be true to see the rounded corners
+        $0.contentMode = .scaleAspectFill
     }
     
     let circularProgressBar = MBCircularProgressBarView().apply {
@@ -67,7 +68,7 @@ class SearchInnerCell: UICollectionViewCell {
         moviePoster.sd_setImage(with: URL(string: movie.posterUrl))
         titleLabel.text = movie.title
         circularProgressBar.value = CGFloat(movie.rating)
-        percentageLabel.text = "\(movie.rating * 10)%"
+        percentageLabel.text = "\(Int(movie.rating * 10))%"
         configureTheCircularProgressBar(withRating: Double(movie.rating))
     }
     

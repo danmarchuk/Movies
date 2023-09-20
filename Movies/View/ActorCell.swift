@@ -6,6 +6,9 @@
 //
 
 import Foundation
+import SnapKit
+import UIKit
+import SDWebImage
 
 class ActorCell: UICollectionViewCell {
     static let identifier = "ActorCell"
@@ -21,7 +24,9 @@ class ActorCell: UICollectionViewCell {
     }
     
     let photo = UIImageView().apply {
-        $0.image = UIImage(named: "tomHiddlestonPhoto")
+        $0.image = UIImage(named: "welcomeScreenBackgroundImage")
+        $0.contentMode = .scaleAspectFill
+        $0.clipsToBounds = true // this needs to be true to see the rounded corners
     }
     
     let nameAndSurnameLabel = UILabel().apply {
@@ -60,18 +65,21 @@ class ActorCell: UICollectionViewCell {
         
         photo.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview()
-            make.width.equalTo(UIScreen.main.bounds.width / 4)
+//            make.width.equalTo(UIScreen.main.bounds.width / 4)
+//            make.height.equalTo(UIScreen.main.bounds.height / 6)
         }
         
         nameAndSurnameLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.left.equalTo(photo.snp.right).offset(16)
+            make.top.equalTo(photo.snp.bottom)
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
         }
         
         characterNameLabel.snp.makeConstraints { make in
             make.top.equalTo(nameAndSurnameLabel.snp.bottom).offset(4)
-            make.left.equalTo(nameAndSurnameLabel.snp.right).offset(16)
+            make.left.equalToSuperview()
             make.right.equalToSuperview()
+            make.bottom.equalToSuperview()
         }
     }
 }

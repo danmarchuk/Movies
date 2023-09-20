@@ -14,6 +14,7 @@
 		9335DF882A9E449700B36397 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9335DF872A9E449700B36397 /* OpenSans-ExtraBold.ttf */; };
 		9335DF8A2A9E57D300B36397 /* SearchInnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9335DF892A9E57D300B36397 /* SearchInnerCell.swift */; };
 		9349EDD82AABC1CC00F8D960 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9349EDD72AABC1CC00F8D960 /* Content.swift */; };
+		93615E822ABA1D9900998D55 /* CastHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93615E812ABA1D9900998D55 /* CastHorizontalController.swift */; };
 		936A404B2A9F8ECE00470194 /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936A404A2A9F8ECE00470194 /* TrendingCell.swift */; };
 		936ABBC62A9A463500A8466B /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 936ABBC32A9A463500A8466B /* OpenSans-Bold.ttf */; };
 		936ABBC72A9A463500A8466B /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 936ABBC42A9A463500A8466B /* OpenSans-SemiBold.ttf */; };
@@ -79,6 +80,7 @@
 		9335DF892A9E57D300B36397 /* SearchInnerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInnerCell.swift; sourceTree = "<group>"; };
 		9349EDD62AA7BDB100F8D960 /* Movies-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Movies-Bridging-Header.h"; sourceTree = "<group>"; };
 		9349EDD72AABC1CC00F8D960 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		93615E812ABA1D9900998D55 /* CastHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastHorizontalController.swift; sourceTree = "<group>"; };
 		936A404A2A9F8ECE00470194 /* TrendingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCell.swift; sourceTree = "<group>"; };
 		936ABBC32A9A463500A8466B /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		936ABBC42A9A463500A8466B /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -208,7 +210,7 @@
 				93C3E1312AB8F21500471FDF /* Search */,
 				93C3E1332AB8F25600471FDF /* Plus */,
 				93C3E12F2AB8D7DB00471FDF /* ProfileViewController.swift */,
-				93C3E1432ABA1CA000471FDF /* MovieInfoViewController.swift */,
+				93C3E1452ABA1D0900471FDF /* Movie Info */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -218,7 +220,6 @@
 			children = (
 				93E329562A98C9E200991843 /* HomeViewController.swift */,
 				93744B782AAF5EA500A78E00 /* InnerHorizontalViewController.swift */,
-				93C3E13B2AB90E3800471FDF /* GenreHorizontalControler.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -245,6 +246,16 @@
 				93C3E12D2AB8D7BD00471FDF /* PlusViewController.swift */,
 			);
 			path = Plus;
+			sourceTree = "<group>";
+		};
+		93C3E1452ABA1D0900471FDF /* Movie Info */ = {
+			isa = PBXGroup;
+			children = (
+				93C3E1432ABA1CA000471FDF /* MovieInfoViewController.swift */,
+				93C3E13B2AB90E3800471FDF /* GenreHorizontalControler.swift */,
+				93615E812ABA1D9900998D55 /* CastHorizontalController.swift */,
+			);
+			path = "Movie Info";
 			sourceTree = "<group>";
 		};
 		93E329462A98C9E200991843 = {
@@ -589,6 +600,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93615E822ABA1D9900998D55 /* CastHorizontalController.swift in Sources */,
 				93C3E1352AB8F86E00471FDF /* MovieScreen.swift in Sources */,
 				93C3E1442ABA1CA000471FDF /* MovieInfoViewController.swift in Sources */,
 				93F25CE52AB60DC400028E44 /* BaseTabBarController.swift in Sources */,

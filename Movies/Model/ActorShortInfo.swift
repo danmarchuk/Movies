@@ -11,4 +11,5 @@ struct ActorShortInfo {
     var imageUrl: String
     var nameAndSurname: String
     var character: String
+    var id: Int
 }
