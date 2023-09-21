@@ -10,7 +10,7 @@ import MBCircularProgressBar
 import SnapKit
 import SDWebImage
 
-class SearchInnerCell: UICollectionViewCell {
+class HomeInnerCell: UICollectionViewCell {
     
     static let identifier = "SearchInnerCell"
     
@@ -64,7 +64,7 @@ class SearchInnerCell: UICollectionViewCell {
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func configure(withMovie movie: Content) {
+    func configure(withMovie movie: MovieOrTvInfo) {
         moviePoster.sd_setImage(with: URL(string: movie.posterUrl))
         titleLabel.text = movie.title
         circularProgressBar.value = CGFloat(movie.rating)

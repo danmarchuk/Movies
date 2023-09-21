@@ -8,8 +8,8 @@
 import Foundation
 import Alamofire
 
-class ContentNetworkManager {
-    func fetchContent(from url: String, completion: @escaping ([Content]) -> Void) {
+class HomeNetworkManager {
+    func fetchContent(from url: String, completion: @escaping ([MovieOrTvInfo]) -> Void) {
         let apiKey = "b029500d19bf2e8230d0496bad4302ab"
         let fullURL = "\(url)?api_key=\(apiKey)"
         
@@ -20,7 +20,7 @@ class ContentNetworkManager {
                 if let jsonDict = value as? [String: Any],
                    let results = jsonDict["results"] as? [[String: Any]] {
                     
-                    var contentList = [Content]()
+                    var contentList = [MovieOrTvInfo]()
                     
                     for result in results {
                         let id = result["id"] as? Int ?? 0
@@ -40,7 +40,7 @@ class ContentNetworkManager {
                             isMovie = (mediaType == "movie")
                         }
                         
-                        let content = Content(posterUrl: posterPath, title: title, rating: rating, id: id, movie: isMovie)
+                        let content = MovieOrTvInfo(posterUrl: posterPath, title: title, rating: rating, id: id, movie: isMovie)
                         contentList.append(content)
                     }
                     

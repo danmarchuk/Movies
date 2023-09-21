@@ -188,10 +188,12 @@ final class MovieScreen: UIView {
     
     // custom segmented control
     
-    let seeAllSocialLabel = UILabel().apply {
-        $0.text = "See All"
-        $0.font = UIFont(name: "OpenSans-Semibold", size: 14)
-        $0.textColor = K.seeAllColor
+    let seeAllSocialButton = UIButton(type: .system).apply {
+        $0.setTitle("See All", for: .normal)
+        $0.titleLabel?.font = UIFont(name: "OpenSans-Semibold", size: 14)
+        $0.setTitleColor(K.seeAllColor, for: .normal)
+        // Add more configurations if needed
+        // E.g., $0.addTarget(self, action: #selector(yourFunction), for: .touchUpInside)
     }
     
     let socialDescriptionLabel = UILabel().apply {
@@ -363,7 +365,7 @@ final class MovieScreen: UIView {
             make.left.equalToSuperview().offset(16)
         }
 
-        seeAllSocialLabel.snp.makeConstraints { make in
+        seeAllSocialButton.snp.makeConstraints { make in
             make.top.equalTo(grayDivider.snp.bottom).offset(24)
             make.right.equalToSuperview().inset(16)
         }
@@ -403,8 +405,6 @@ final class MovieScreen: UIView {
             make.bottom.equalTo(contentView.snp.bottom).offset(-16)
             make.height.equalTo(UIScreen.main.bounds.height / 3)
         }
-        
-        
     }
     
     func addSubviews() {
@@ -412,7 +412,7 @@ final class MovieScreen: UIView {
         addSubview(scrollView)
         scrollView.addSubview(contentView)
         
-        // Add other subviews to contentView instead of self
+        // Add other subviews to contentView
         contentView.addSubview(fitstStackView)
         contentView.addSubview(thirdStackView)
         contentView.addSubview(ageRestrictionLabel)
@@ -433,7 +433,7 @@ final class MovieScreen: UIView {
         contentView.addSubview(yearAndEpisodesLabel)
         contentView.addSubview(grayDivider)
         contentView.addSubview(socialLabel)
-        contentView.addSubview(seeAllSocialLabel)
+        contentView.addSubview(seeAllSocialButton)
         contentView.addSubview(socialDescriptionLabel)
         contentView.addSubview(mediaLabel)
         contentView.addSubview(moviePoster2)

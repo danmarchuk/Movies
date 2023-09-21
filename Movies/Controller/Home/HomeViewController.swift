@@ -24,23 +24,23 @@ class HomeViewController: UIViewController {
     func fetchData(completion: @escaping () -> Void) {
         let group = DispatchGroup()
         // popular movies
-        var popularStreaming : [Content] = []
-        var popularOnTv : [Content] = []
-        var forRent : [Content] = []
-        var popularInTheatre : [Content] = []
+        var popularStreaming : [MovieOrTvInfo] = []
+        var popularOnTv : [MovieOrTvInfo] = []
+        var forRent : [MovieOrTvInfo] = []
+        var popularInTheatre : [MovieOrTvInfo] = []
         // trending movies
-        var trendingDay : [Content] = []
-        var trendingWeek : [Content] = []
+        var trendingDay : [MovieOrTvInfo] = []
+        var trendingWeek : [MovieOrTvInfo] = []
         // latest movies and tv shows
-        var freeMovies : [Content] = []
-        var freeTvs : [Content] = []
+        var freeMovies : [MovieOrTvInfo] = []
+        var freeTvs : [MovieOrTvInfo] = []
         // trailers
-        var trailersStreaming: [Content] = []
-        var trailersOnTv: [Content] = []
-        var trailersForRent: [Content] = []
-        var trailersInTheatres: [Content] = []
+        var trailersStreaming: [MovieOrTvInfo] = []
+        var trailersOnTv: [MovieOrTvInfo] = []
+        var trailersForRent: [MovieOrTvInfo] = []
+        var trailersInTheatres: [MovieOrTvInfo] = []
         
-        let networkManager = ContentNetworkManager()
+        let networkManager = HomeNetworkManager()
                     
         group.enter()
         networkManager.fetchContent(from: "https://api.themoviedb.org/3/tv/popular") { contents in
@@ -177,4 +177,3 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         return .init(width: view.frame.width, height: view.frame.height / 2)
     }
 }
-

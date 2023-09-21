@@ -41,21 +41,11 @@ class ActorCell: UICollectionViewCell {
         $0.textColor = K.characterGrayTextColor
     }
     
-    
-//    func configure(withMovie movie: Movie) {
-//        dateAndSourceLabel.text = dateAndSource
-//        titleLabel.text = article.title
-//        let placeholderImage = UIImage(named: "16and9")
-//        imageView.kf.setImage(with: URL(string: article.pictureLink), placeholder: placeholderImage)
-//        bookmarkButton.tintColor = article.isSaved ? .red : .white
-//    }
-    
     func configure(withActor actor: ActorShortInfo) {
         photo.sd_setImage(with: URL(string: actor.imageUrl))
         nameAndSurnameLabel.text = actor.nameAndSurname
         characterNameLabel.text = actor.character
     }
-    
     
     private func setupView() {
         self.backgroundColor = .clear
@@ -65,8 +55,6 @@ class ActorCell: UICollectionViewCell {
         
         photo.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview()
-//            make.width.equalTo(UIScreen.main.bounds.width / 4)
-//            make.height.equalTo(UIScreen.main.bounds.height / 6)
         }
         
         nameAndSurnameLabel.snp.makeConstraints { make in

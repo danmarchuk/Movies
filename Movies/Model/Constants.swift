@@ -42,5 +42,14 @@ struct K {
     
     // actor cell
     static let characterGrayTextColor = UIColor(red: 0.39, green: 0.39, blue: 0.4, alpha: 1)
+    
+    // Acting cell
+    static let lightGrayColor = UIColor(red: 116/255.0, green: 116/255.0, blue: 116/255.0, alpha: 1.0)
+    static let darkGrayColor = UIColor(red: 80/255.0, green: 85/255.0, blue: 93/255.0, alpha: 1.0)
+    static let veryLightGraycolor = UIColor(red: 151/255.0, green: 151/255.0, blue: 151/255.0, alpha: 1.0)
+
+
+
+
 
 }

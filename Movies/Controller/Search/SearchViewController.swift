@@ -9,22 +9,22 @@ import Foundation
 
 class SearchViewController: UIViewController {
     
-    let movie = MovieScreen()
-    var contents: [Content] = []
+    let actor = ActorScreen()
+    var contents: [MovieOrTvInfo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = movie
+        view = actor
         fetchData {
-            self.movie.recomendationsController.contents = self.contents
-            self.movie.recomendationsController.collectionView.reloadData()
+            self.actor.knownForController.contents = self.contents
+            self.actor.knownForController.collectionView.reloadData()
         }
     }
     
     func fetchData(completion: @escaping () -> Void) {
         let group = DispatchGroup()
-        var trendingDay : [Content] = []
-        let networkManager = ContentNetworkManager()
+        var trendingDay : [MovieOrTvInfo] = []
+        let networkManager = HomeNetworkManager()
         group.enter()
         networkManager.fetchContent(from: "https://api.themoviedb.org/3/trending/all/day") { contents in
             trendingDay = contents

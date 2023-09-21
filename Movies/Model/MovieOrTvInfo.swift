@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct Content {
+struct MovieOrTvInfo {
     var posterUrl: String
     var title: String
     var rating: Double

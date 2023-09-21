@@ -14,5 +14,5 @@ struct Section {
 
 struct Category {
     var name: String
-    var movies: [Content]
+    var movies: [MovieOrTvInfo]
 }

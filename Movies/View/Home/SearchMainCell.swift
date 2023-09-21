@@ -53,7 +53,7 @@ class SearchMainCell: UICollectionViewCell {
     
     let innerHorizontalCollectionView = InnerHorizontalViewController()
     
-    func configure(withTitle title: String, withContents contents: [Content]) {
+    func configure(withTitle title: String, withContents contents: [MovieOrTvInfo]) {
         mainLabel.text = title
         innerHorizontalCollectionView.contents = contents
         innerHorizontalCollectionView.collectionView.reloadData()
