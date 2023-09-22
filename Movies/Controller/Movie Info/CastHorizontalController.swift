@@ -9,7 +9,11 @@ import Foundation
 import UIKit
 
 class CastHorizontalController: BaseListController {
-    var actors: [ActorShortInfo] = [ActorShortInfo(imageUrl: "https://image.tmdb.org/t/p/w500/euDPyqLnuwaWMHajcU3oZ9uZezR.jpg", nameAndSurname: "Margot Robbie", character: "Barbie", id: 234352), ActorShortInfo(imageUrl: "https://image.tmdb.org/t/p/w500/lyUyVARQKhGxaxy0FbPJCQRpiaW.jpg", nameAndSurname: "Ryan Gosling", character: "Ken", id: 30614), ActorShortInfo(imageUrl: "https://image.tmdb.org/t/p/w500/dhiUliLE7dFaqj5BKNQ6x7Wm9uR.jpg", nameAndSurname: "America Ferrera", character: "Gloria", id: 59174), ActorShortInfo(imageUrl: "https://image.tmdb.org/t/p/w500/2cNetzianFcxPQbyOQnkAIkKUZE.jpg", nameAndSurname: "Kate McKinnon", character: "Barbie", id: 1240487)]
+    var actors: [ActorShortInfo] = [] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

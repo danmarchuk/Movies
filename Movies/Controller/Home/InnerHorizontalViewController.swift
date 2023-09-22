@@ -8,7 +8,11 @@
 import UIKit
 
 class InnerHorizontalViewController: BaseListController {
-    var contents: [MovieOrTvInfo] = []
+    var contents: [MovieOrTvInfo] = [] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +49,13 @@ extension InnerHorizontalViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - didSelectItemAt
 extension InnerHorizontalViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
+        let movieInfoViewController = MovieInfoViewController()
+        let chosenMovieId = contents[indexPath.row].id
+        movieInfoViewController.movieId = String(chosenMovieId)
+        
+        let navController = UINavigationController(rootViewController: movieInfoViewController)
+        navController.modalPresentationStyle = .fullScreen
+        present(navController, animated: true)
+        
     }
 }

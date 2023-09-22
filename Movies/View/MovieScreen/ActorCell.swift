@@ -25,8 +25,8 @@ class ActorCell: UICollectionViewCell {
     
     let photo = UIImageView().apply {
         $0.image = UIImage(named: "welcomeScreenBackgroundImage")
-        $0.contentMode = .scaleAspectFill
-        $0.clipsToBounds = true // this needs to be true to see the rounded corners
+        $0.contentMode = .scaleAspectFit
+        $0.clipsToBounds = false // this needs to be true to see the rounded corners
     }
     
     let nameAndSurnameLabel = UILabel().apply {
@@ -39,6 +39,7 @@ class ActorCell: UICollectionViewCell {
         $0.text = "Amongus"
         $0.font = UIFont(name: "OpenSans-Regular", size: 10)
         $0.textColor = K.characterGrayTextColor
+        $0.numberOfLines = 2
     }
     
     func configure(withActor actor: ActorShortInfo) {
@@ -55,6 +56,7 @@ class ActorCell: UICollectionViewCell {
         
         photo.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview()
+            make.height.equalTo(UIScreen.main.bounds.height / 5.5)
         }
         
         nameAndSurnameLabel.snp.makeConstraints { make in

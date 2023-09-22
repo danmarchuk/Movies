@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SnapKit
+import MBCircularProgressBar
 
 struct FuncManager {
     static func createCustomButton(withImage image: UIImage, withText text: String) -> UIButton {
@@ -55,4 +56,37 @@ struct FuncManager {
         
         return button
     }
+    
+    static func configureProgressBar(_ progressBar: MBCircularProgressBarView, withRating rating: Double) {
+        if rating >= 7.0 {
+            progressBar.progressColor = .green
+            progressBar.progressStrokeColor = .green
+            progressBar.emptyLineColor = K.lightGreenProgresColor
+            progressBar.emptyLineStrokeColor = K.lightGreenProgresColor
+        } else if rating >= 5.0 {
+            progressBar.progressColor = .orange
+            progressBar.progressStrokeColor = .orange
+            progressBar.emptyLineColor = K.lightOrangeProgressColor
+            progressBar.emptyLineStrokeColor = K.lightOrangeProgressColor
+        } else {
+            progressBar.progressColor = .red
+            progressBar.progressStrokeColor = .red
+            progressBar.emptyLineColor = K.lightRedProgressColor
+            progressBar.emptyLineStrokeColor = K.lightRedProgressColor
+        }
+        
+        progressBar.value = CGFloat(rating * 10)
+    }
+    
+    static func calculateMovieLength(_ minutes: Int) -> String {
+        let hours = minutes / 60
+        let remainingMinutes = minutes % 60
+        
+        if hours > 0 {
+            return "\(hours)h \(remainingMinutes)m"
+        } else {
+            return "\(remainingMinutes)m"
+        }
+    }
+
 }

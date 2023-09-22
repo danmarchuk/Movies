@@ -69,7 +69,7 @@ class HomeInnerCell: UICollectionViewCell {
         titleLabel.text = movie.title
         circularProgressBar.value = CGFloat(movie.rating)
         percentageLabel.text = "\(Int(movie.rating * 10))%"
-        configureTheCircularProgressBar(withRating: Double(movie.rating))
+        FuncManager.configureProgressBar(circularProgressBar, withRating: Double(movie.rating))
     }
     
     func setupView() {
@@ -102,31 +102,5 @@ class HomeInnerCell: UICollectionViewCell {
             make.bottom.equalToSuperview()
             make.height.equalTo(18)
         }
-    }
-    
-    func configureTheCircularProgressBar(withRating rating: Double) {
-        // Set the circular progress bar color based on the rating
-        if rating >= 7.0 {
-            // Green for high-rated movies
-            circularProgressBar.progressColor = .green
-            circularProgressBar.progressStrokeColor = .green
-            circularProgressBar.emptyLineColor = K.lightGreenProgresColor
-            circularProgressBar.emptyLineStrokeColor = K.lightGreenProgresColor
-        } else if rating >= 5.0 {
-            // Orange for moderately rated movies
-            circularProgressBar.progressColor = .orange
-            circularProgressBar.progressStrokeColor = .orange
-            circularProgressBar.emptyLineColor = K.lightOrangeProgressColor
-            circularProgressBar.emptyLineStrokeColor = K.lightOrangeProgressColor
-        } else {
-            // Red for low-rated movies
-            circularProgressBar.progressColor = .red
-            circularProgressBar.progressStrokeColor = .red
-            circularProgressBar.emptyLineColor = K.lightRedProgressColor
-            circularProgressBar.emptyLineStrokeColor = K.lightRedProgressColor
-        }
-        
-        // Update the progress value and percentage label
-        circularProgressBar.value = CGFloat(rating * 10)
     }
 }

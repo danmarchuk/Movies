@@ -114,7 +114,7 @@ final class MovieScreen: UIView {
         $0.clipsToBounds = false
     }
     
-    let gernres = GenreHorizontalControler()
+    let genres = GenreHorizontalControler()
     
     let descriptionLabel = UILabel().apply {
         $0.text = "After stealing the Tesseract during the events of “Avengers: Endgame,” an alternate version of Loki is brought to the mysterious Time Variance Authority."
@@ -230,6 +230,36 @@ final class MovieScreen: UIView {
     
     let recomendationsController = InnerHorizontalViewController()
     
+    func configure(withMovieFullInfo info: MovieOrTVFullInfo) {
+        titleLabel.text = info.title
+        yearLabel.text = "(\(info.releaseYear))"
+        ageRestrictionLabel.text = info.ageRestriction
+        FuncManager.configureProgressBar(circularProgressBar, withRating: info.rating)
+        percentageLabel.text = "\(Int(info.rating))%"
+        movieLengthLabel.text = FuncManager.calculateMovieLength(info.length)
+        moviePoster.sd_setImage(with: URL(string: info.posterUrl))
+        genres.listOfGenres = info.genres
+        descriptionLabel.text = info.description
+        moviePoster2.sd_setImage(with: URL(string: info.posterUrl))
+        castController.actors = info.actors
+        
+        if info.isMovie {
+            currentSeasonLabel.isHidden = true
+            seeAllSeasonsLabel.isHidden = true
+            currentSeasonImage.isHidden = true
+            currentSeasonCountLabel.isHidden = true
+            yearAndEpisodesLabel.isHidden = true
+        } else {
+//            configureCurrentSeason(withInfo: info.currentSeasonDetails, withUrlString: info.posterUrl)
+        }
+    }
+    
+    func configureCurrentSeason(withInfo info: CurrentSeason, withUrlString urlString: String) {
+        currentSeasonImage.sd_setImage(with: URL(string: urlString))
+        currentSeasonCountLabel.text = "Season \(info.seasonNumber)"
+        yearAndEpisodesLabel.text = "\(info.airYear) | \(info.episodeNumber) Episodes"
+    }
+    
     func createButtons() {
         for button in buttons {
             let button = FuncManager.createCustomButton(withImage: UIImage(named: "rate") ?? UIImage(), withText: button)
@@ -289,7 +319,7 @@ final class MovieScreen: UIView {
             make.height.equalTo(UIScreen.main.bounds.height / 4)
         }
         
-        gernres.view.snp.makeConstraints { make in
+        genres.view.snp.makeConstraints { make in
             make.top.equalTo(moviePoster.snp.bottom).offset(12)
             make.left.equalToSuperview().offset(16)
             make.right.equalToSuperview()
@@ -297,7 +327,7 @@ final class MovieScreen: UIView {
         }
         
         descriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(gernres.view.snp.bottom).offset(12)
+            make.top.equalTo(genres.view.snp.bottom).offset(12)
             make.left.equalToSuperview().offset(16)
             make.right.equalToSuperview().inset(16)
         }
@@ -420,7 +450,7 @@ final class MovieScreen: UIView {
         contentView.addSubview(percentageLabel)
         contentView.addSubview(movieLengthLabel)
         contentView.addSubview(moviePoster)
-        contentView.addSubview(gernres.view)
+        contentView.addSubview(genres.view)
         contentView.addSubview(descriptionLabel)
         contentView.addSubview(buttonsStackView)
         contentView.addSubview(seriesCastLabel)

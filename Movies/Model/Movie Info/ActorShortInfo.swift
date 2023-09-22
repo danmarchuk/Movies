@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ActorShortInfo {
+struct ActorShortInfo: Codable {
     var imageUrl: String
     var nameAndSurname: String
     var character: String

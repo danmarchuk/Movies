@@ -10,7 +10,11 @@ import UIKit
 
 class GenreHorizontalControler: BaseListController {
     
-    var genres: [String] = ["Trailer", "Drama", "Sci Fi", "Drama & Sci Fi"]
+    var listOfGenres: [String] = ["Trailer", "Drama", "Sci Fi", "Drama & Sci Fi"] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,14 +33,14 @@ class GenreHorizontalControler: BaseListController {
 // MARK: - Delegate and Datasource methods
 extension GenreHorizontalControler {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        genres.count
+        listOfGenres.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GenreCell.identifier, for: indexPath) as? GenreCell else {
             return UICollectionViewCell()
         }
-        cell.configure(withGenges: genres[indexPath.row])
+        cell.configure(withGenges: listOfGenres[indexPath.row])
         return cell
     }
 }
@@ -45,7 +49,7 @@ extension GenreHorizontalControler {
 extension GenreHorizontalControler: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // Calculate the size of the text label
-        let text = genres[indexPath.row]
+        let text = listOfGenres[indexPath.row]
         let textSize = (text as NSString).size(withAttributes: [
             NSAttributedString.Key.font: UIFont(name: "OpenSans-Regular", size: 14) ?? UIFont.systemFont(ofSize: 14)
         ])
