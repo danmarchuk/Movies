@@ -57,7 +57,7 @@ final class ActorScreen: UIView {
     let biographyLabel = UILabel().apply {
         $0.text = "Gugulethu Sophia Mbatha-Raw MBE is an English actress, known for her role as Kelly in Black Mirror, Dido Elizabeth Belle in Belle, Noni Jean in Beyond the Lights, and Plumette in Beauty and the Beast."
         $0.font = UIFont(name: "OpenSans-Regular", size: 14)
-        $0.numberOfLines = 0
+        $0.numberOfLines = 7
         $0.textColor = K.movieScreenGray2
     }
     
@@ -149,7 +149,7 @@ final class ActorScreen: UIView {
             make.top.equalTo(knownForLabel.snp.bottom).offset(8)
             make.left.equalToSuperview().offset(16)
             make.right.equalToSuperview()
-            make.height.equalTo(UIScreen.main.bounds.height / 5)
+            make.height.equalTo(UIScreen.main.bounds.height / 4)
         }
         
         actingLabel.snp.makeConstraints { make in

@@ -19,10 +19,10 @@
 		9342646E2ABBA7FC00E80FDD /* KnownForCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9342646D2ABBA7FC00E80FDD /* KnownForCell.swift */; };
 		934264702ABBC28200E80FDD /* ActingVerticalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9342646F2ABBC28200E80FDD /* ActingVerticalController.swift */; };
 		934264722ABBC2BE00E80FDD /* ActingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934264712ABBC2BE00E80FDD /* ActingCell.swift */; };
-		934264742ABBCA9400E80FDD /* ActingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934264732ABBCA9300E80FDD /* ActingInfo.swift */; };
 		934264782ABD002400E80FDD /* ActorFullInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934264772ABD002400E80FDD /* ActorFullInfo.swift */; };
 		9342647B2ABD07FD00E80FDD /* MovieOrTVFullInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9342647A2ABD07FD00E80FDD /* MovieOrTVFullInfo.swift */; };
 		9342647F2ABDE6A900E80FDD /* MovieInfoNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9342647E2ABDE6A900E80FDD /* MovieInfoNetworkManager.swift */; };
+		934264812ABE2B9B00E80FDD /* ActorInfoNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934264802ABE2B9B00E80FDD /* ActorInfoNetworkManager.swift */; };
 		9349EDD82AABC1CC00F8D960 /* MovieOrTvInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9349EDD72AABC1CC00F8D960 /* MovieOrTvInfo.swift */; };
 		93615E822ABA1D9900998D55 /* CastHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93615E812ABA1D9900998D55 /* CastHorizontalController.swift */; };
 		936A404B2A9F8ECE00470194 /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936A404A2A9F8ECE00470194 /* TrendingCell.swift */; };
@@ -94,10 +94,10 @@
 		9342646D2ABBA7FC00E80FDD /* KnownForCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownForCell.swift; sourceTree = "<group>"; };
 		9342646F2ABBC28200E80FDD /* ActingVerticalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActingVerticalController.swift; sourceTree = "<group>"; };
 		934264712ABBC2BE00E80FDD /* ActingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActingCell.swift; sourceTree = "<group>"; };
-		934264732ABBCA9300E80FDD /* ActingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActingInfo.swift; sourceTree = "<group>"; };
 		934264772ABD002400E80FDD /* ActorFullInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorFullInfo.swift; sourceTree = "<group>"; };
 		9342647A2ABD07FD00E80FDD /* MovieOrTVFullInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieOrTVFullInfo.swift; sourceTree = "<group>"; };
 		9342647E2ABDE6A900E80FDD /* MovieInfoNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoNetworkManager.swift; sourceTree = "<group>"; };
+		934264802ABE2B9B00E80FDD /* ActorInfoNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorInfoNetworkManager.swift; sourceTree = "<group>"; };
 		9349EDD62AA7BDB100F8D960 /* Movies-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Movies-Bridging-Header.h"; sourceTree = "<group>"; };
 		9349EDD72AABC1CC00F8D960 /* MovieOrTvInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieOrTvInfo.swift; sourceTree = "<group>"; };
 		93615E812ABA1D9900998D55 /* CastHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastHorizontalController.swift; sourceTree = "<group>"; };
@@ -249,7 +249,7 @@
 		9342647D2ABDE65300E80FDD /* Actor Info */ = {
 			isa = PBXGroup;
 			children = (
-				934264732ABBCA9300E80FDD /* ActingInfo.swift */,
+				934264802ABE2B9B00E80FDD /* ActorInfoNetworkManager.swift */,
 				934264772ABD002400E80FDD /* ActorFullInfo.swift */,
 			);
 			path = "Actor Info";
@@ -678,6 +678,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				934264812ABE2B9B00E80FDD /* ActorInfoNetworkManager.swift in Sources */,
 				93615E822ABA1D9900998D55 /* CastHorizontalController.swift in Sources */,
 				93C3E1352AB8F86E00471FDF /* MovieScreen.swift in Sources */,
 				93C3E1442ABA1CA000471FDF /* MovieInfoViewController.swift in Sources */,
@@ -693,7 +694,6 @@
 				93E329572A98C9E200991843 /* HomeViewController.swift in Sources */,
 				93C3E1422ABA1B4100471FDF /* ActorShortInfo.swift in Sources */,
 				9335DF8A2A9E57D300B36397 /* HomeInnerCell.swift in Sources */,
-				934264742ABBCA9400E80FDD /* ActingInfo.swift in Sources */,
 				934264702ABBC28200E80FDD /* ActingVerticalController.swift in Sources */,
 				93C3E12E2AB8D7BD00471FDF /* PlusViewController.swift in Sources */,
 				9342646B2ABBA76000E80FDD /* KnownForHorizontalViewController.swift in Sources */,

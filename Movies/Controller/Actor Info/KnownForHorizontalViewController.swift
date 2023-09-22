@@ -9,7 +9,11 @@ import Foundation
 import UIKit
 
 class KnownForHorizontalViewController: BaseListController {
-    var contents: [MovieOrTvInfo] = []
+    var contents: [MovieOrTvInfo] = [] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

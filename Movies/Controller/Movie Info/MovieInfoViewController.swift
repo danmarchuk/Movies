@@ -8,8 +8,6 @@
 import Foundation
 import UIKit
 
-// ... [Your previous imports and class definition]
-
 class MovieInfoViewController: UIViewController {
     
     private var backButton: UIBarButtonItem!

@@ -73,7 +73,7 @@ class ActingCell: UICollectionViewCell {
         moviePoster.sd_setImage(with: URL(string: info.posterUrl))
         movieTitleLabel.text = info.title
         
-        if info.movie {
+        if info.isMovie {
             numberOfEpisodesLabel.isHidden = true
         } else {
             if info.episodeCount <= 1 {

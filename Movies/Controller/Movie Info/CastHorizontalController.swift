@@ -50,3 +50,17 @@ extension CastHorizontalController: UICollectionViewDelegateFlowLayout {
         return .init(width: view.frame.width / 4, height: view.frame.height)
     }
 }
+
+// MARK: - didSelectItemAt
+extension CastHorizontalController {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let actorInfoViewController = ActorInfoViewController()
+        let chosenActorId = actors[indexPath.row].id
+        actorInfoViewController.actorId = String(chosenActorId)
+        
+        let navController = UINavigationController(rootViewController: actorInfoViewController)
+        navController.modalPresentationStyle = .fullScreen
+        present(navController, animated: true)
+        
+    }
+}

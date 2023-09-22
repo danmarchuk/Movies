@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class ActingVerticalController: BaseListController {
-    var contents: [ActingInfo] = [ActingInfo(posterUrl: "https://image.tmdb.org/t/p/w500/euDPyqLnuwaWMHajcU3oZ9uZezR.jpg", title: "This is a movie", id: 1111, movie: true, releaseDate: "1990", character: "Obama", episodeCount: 3), ActingInfo(posterUrl: "https://image.tmdb.org/t/p/w500/euDPyqLnuwaWMHajcU3oZ9uZezR.jpg", title: "This is a movie", id: 1111, movie: true, releaseDate: "1990", character: "Obama", episodeCount: 3), ActingInfo(posterUrl: "https://image.tmdb.org/t/p/w500/euDPyqLnuwaWMHajcU3oZ9uZezR.jpg", title: "This is a TV with one episode", id: 1111, movie: false, releaseDate: "1992", character: "Thor", episodeCount: 1), ActingInfo(posterUrl: "https://image.tmdb.org/t/p/w500/euDPyqLnuwaWMHajcU3oZ9uZezR.jpg", title: "This is a TV", id: 1111, movie: false, releaseDate: "1902", character: "Thlkmor", episodeCount: 6)]
+    var contents: [ActingInfo] = [ActingInfo(posterUrl: "https://image.tmdb.org/t/p/w500/euDPyqLnuwaWMHajcU3oZ9uZezR.jpg", title: "This is a movie", id: 1111, isMovie: true, releaseDate: "1990", character: "Obama", episodeCount: 3), ActingInfo(posterUrl: "https://image.tmdb.org/t/p/w500/euDPyqLnuwaWMHajcU3oZ9uZezR.jpg", title: "This is a movie", id: 1111, isMovie: true, releaseDate: "1990", character: "Obama", episodeCount: 3), ActingInfo(posterUrl: "https://image.tmdb.org/t/p/w500/euDPyqLnuwaWMHajcU3oZ9uZezR.jpg", title: "This is a TV with one episode", id: 1111, isMovie: false, releaseDate: "1992", character: "Thor", episodeCount: 1), ActingInfo(posterUrl: "https://image.tmdb.org/t/p/w500/euDPyqLnuwaWMHajcU3oZ9uZezR.jpg", title: "This is a TV", id: 1111, isMovie: false, releaseDate: "1902", character: "Thlkmor", episodeCount: 6)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,3 +42,5 @@ extension ActingVerticalController: UICollectionViewDelegateFlowLayout {
         return .init(width: view.frame.width, height: view.frame.height / 5)
     }
 }
+
+
