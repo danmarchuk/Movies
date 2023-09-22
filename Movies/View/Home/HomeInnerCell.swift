@@ -70,6 +70,7 @@ class HomeInnerCell: UICollectionViewCell {
         circularProgressBar.value = CGFloat(movie.rating)
         percentageLabel.text = "\(Int(movie.rating * 10))%"
         FuncManager.configureProgressBar(circularProgressBar, withRating: Double(movie.rating))
+        setupView()
     }
     
     func setupView() {

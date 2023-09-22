@@ -58,6 +58,7 @@ class SearchMainCell: UICollectionViewCell {
         innerHorizontalCollectionView.contents = contents
         innerHorizontalCollectionView.collectionView.reloadData()
         segmentedControll.reloadData()
+        setupView()
     }
     
     func setupView() {
@@ -94,7 +95,7 @@ class SearchMainCell: UICollectionViewCell {
         
         segmentedControll.snp.makeConstraints { make in
             make.top.equalTo(mainLabel.snp.bottom).offset(16)
-            make.left.right.equalToSuperview().offset(16)
+            make.left.equalToSuperview().offset(16)
             make.right.equalToSuperview().inset(16)
             make.height.equalTo(44)
         }

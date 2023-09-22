@@ -14,11 +14,12 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         setupTheCollectionView()
         fetchData{
             self.collectionView.reloadData()
         }
+        collectionView.reloadData()
+        
     }
     
     func fetchData(completion: @escaping () -> Void) {
