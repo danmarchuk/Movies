@@ -23,6 +23,9 @@
 		9342647B2ABD07FD00E80FDD /* MovieOrTVFullInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9342647A2ABD07FD00E80FDD /* MovieOrTVFullInfo.swift */; };
 		9342647F2ABDE6A900E80FDD /* MovieInfoNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9342647E2ABDE6A900E80FDD /* MovieInfoNetworkManager.swift */; };
 		934264812ABE2B9B00E80FDD /* ActorInfoNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934264802ABE2B9B00E80FDD /* ActorInfoNetworkManager.swift */; };
+		934264832ABEBC1A00E80FDD /* SearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934264822ABEBC1A00E80FDD /* SearchScreen.swift */; };
+		934264862ABECB9F00E80FDD /* SearchVerticalTrendingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934264852ABECB9F00E80FDD /* SearchVerticalTrendingController.swift */; };
+		934264882ABEF9E500E80FDD /* TvInfoNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934264872ABEF9E500E80FDD /* TvInfoNetworkManager.swift */; };
 		9349EDD82AABC1CC00F8D960 /* MovieOrTvInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9349EDD72AABC1CC00F8D960 /* MovieOrTvInfo.swift */; };
 		93615E822ABA1D9900998D55 /* CastHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93615E812ABA1D9900998D55 /* CastHorizontalController.swift */; };
 		936A404B2A9F8ECE00470194 /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936A404A2A9F8ECE00470194 /* TrendingCell.swift */; };
@@ -98,6 +101,9 @@
 		9342647A2ABD07FD00E80FDD /* MovieOrTVFullInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieOrTVFullInfo.swift; sourceTree = "<group>"; };
 		9342647E2ABDE6A900E80FDD /* MovieInfoNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoNetworkManager.swift; sourceTree = "<group>"; };
 		934264802ABE2B9B00E80FDD /* ActorInfoNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorInfoNetworkManager.swift; sourceTree = "<group>"; };
+		934264822ABEBC1A00E80FDD /* SearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreen.swift; sourceTree = "<group>"; };
+		934264852ABECB9F00E80FDD /* SearchVerticalTrendingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVerticalTrendingController.swift; sourceTree = "<group>"; };
+		934264872ABEF9E500E80FDD /* TvInfoNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvInfoNetworkManager.swift; sourceTree = "<group>"; };
 		9349EDD62AA7BDB100F8D960 /* Movies-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Movies-Bridging-Header.h"; sourceTree = "<group>"; };
 		9349EDD72AABC1CC00F8D960 /* MovieOrTvInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieOrTvInfo.swift; sourceTree = "<group>"; };
 		93615E812ABA1D9900998D55 /* CastHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastHorizontalController.swift; sourceTree = "<group>"; };
@@ -240,6 +246,7 @@
 			children = (
 				93C3E1412ABA1B4100471FDF /* ActorShortInfo.swift */,
 				9342647E2ABDE6A900E80FDD /* MovieInfoNetworkManager.swift */,
+				934264872ABEF9E500E80FDD /* TvInfoNetworkManager.swift */,
 				9342647A2ABD07FD00E80FDD /* MovieOrTVFullInfo.swift */,
 				9349EDD72AABC1CC00F8D960 /* MovieOrTvInfo.swift */,
 			);
@@ -253,6 +260,15 @@
 				934264772ABD002400E80FDD /* ActorFullInfo.swift */,
 			);
 			path = "Actor Info";
+			sourceTree = "<group>";
+		};
+		934264842ABEBC2D00E80FDD /* SearchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				934264822ABEBC1A00E80FDD /* SearchScreen.swift */,
+				936A404A2A9F8ECE00470194 /* TrendingCell.swift */,
+			);
+			path = SearchScreen;
 			sourceTree = "<group>";
 		};
 		936ABBC22A9A462300A8466B /* Fonts */ = {
@@ -270,6 +286,7 @@
 		93744B742AAE510100A78E00 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				93E329862A98F45300991843 /* Extensions.swift */,
 				93E329842A98F3AD00991843 /* Constants.swift */,
 				93744B7A2AAF600400A78E00 /* BaseListController.swift */,
 				9342647D2ABDE65300E80FDD /* Actor Info */,
@@ -308,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				93C3E12B2AB8D79800471FDF /* SearchViewController.swift */,
+				934264852ABECB9F00E80FDD /* SearchVerticalTrendingController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -368,7 +386,6 @@
 				93744B772AAF5E7F00A78E00 /* Controller */,
 				93E3298B2A98F79700991843 /* View */,
 				93744B742AAE510100A78E00 /* Model */,
-				93E329862A98F45300991843 /* Extensions.swift */,
 				93E329582A98C9E200991843 /* Main.storyboard */,
 				93E3295B2A98C9E300991843 /* Assets.xcassets */,
 				93E3295D2A98C9E300991843 /* LaunchScreen.storyboard */,
@@ -399,6 +416,7 @@
 		93E3298B2A98F79700991843 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				934264842ABEBC2D00E80FDD /* SearchScreen */,
 				934264642ABB3FD100E80FDD /* MovieScreen */,
 				93F25CE02AB60AB300028E44 /* Welcome Screen */,
 				93F25CE12AB60AEC00028E44 /* Home */,
@@ -421,7 +439,6 @@
 			children = (
 				93DFD0CF2AA7A6920097F9B9 /* SearchMainCell.swift */,
 				9335DF892A9E57D300B36397 /* HomeInnerCell.swift */,
-				936A404A2A9F8ECE00470194 /* TrendingCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -678,6 +695,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				934264882ABEF9E500E80FDD /* TvInfoNetworkManager.swift in Sources */,
 				934264812ABE2B9B00E80FDD /* ActorInfoNetworkManager.swift in Sources */,
 				93615E822ABA1D9900998D55 /* CastHorizontalController.swift in Sources */,
 				93C3E1352AB8F86E00471FDF /* MovieScreen.swift in Sources */,
@@ -695,6 +713,7 @@
 				93C3E1422ABA1B4100471FDF /* ActorShortInfo.swift in Sources */,
 				9335DF8A2A9E57D300B36397 /* HomeInnerCell.swift in Sources */,
 				934264702ABBC28200E80FDD /* ActingVerticalController.swift in Sources */,
+				934264862ABECB9F00E80FDD /* SearchVerticalTrendingController.swift in Sources */,
 				93C3E12E2AB8D7BD00471FDF /* PlusViewController.swift in Sources */,
 				9342646B2ABBA76000E80FDD /* KnownForHorizontalViewController.swift in Sources */,
 				93C3E1402ABA186D00471FDF /* ActorCell.swift in Sources */,
@@ -707,6 +726,7 @@
 				93E3298D2A98F81300991843 /* WelcomeScreen.swift in Sources */,
 				93E329532A98C9E200991843 /* AppDelegate.swift in Sources */,
 				93744B762AAE510E00A78E00 /* Section.swift in Sources */,
+				934264832ABEBC1A00E80FDD /* SearchScreen.swift in Sources */,
 				93744B7B2AAF600400A78E00 /* BaseListController.swift in Sources */,
 				934264722ABBC2BE00E80FDD /* ActingCell.swift in Sources */,
 				9342646E2ABBA7FC00E80FDD /* KnownForCell.swift in Sources */,

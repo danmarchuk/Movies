@@ -19,6 +19,7 @@ class ActingVerticalController: BaseListController {
             layout.minimumInteritemSpacing = 10
             layout.scrollDirection = .vertical
         }
+        collectionView.isScrollEnabled = false
     }
 }
 

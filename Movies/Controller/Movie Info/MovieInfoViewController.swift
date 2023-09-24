@@ -12,19 +12,20 @@ class MovieInfoViewController: UIViewController {
     
     private var backButton: UIBarButtonItem!
 
-    let movie = MovieScreen()
+    let movieScreen = MovieScreen()
     var contents: [MovieOrTvInfo] = []
-    var movieId: String?
+    var movieOrTvId: String?
+    var isMovie: Bool?
     
-    var movieFullInfo: MovieOrTVFullInfo?
+    var movieOrTvFullInfo: MovieOrTVFullInfo?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = movie
+        view = movieScreen
         fetchData {
-            self.movie.recomendationsController.contents = self.contents
-            if let movieInfo = self.movieFullInfo {
-                self.movie.configure(withMovieFullInfo: movieInfo)
+            self.movieScreen.recomendationsController.contents = self.contents
+            if let movieInfo = self.movieOrTvFullInfo {
+                self.movieScreen.configure(withMovieFullInfo: movieInfo)
             }
         }
         setupNavigationBar()
@@ -36,6 +37,7 @@ class MovieInfoViewController: UIViewController {
         let networkManager = HomeNetworkManager()
         
         let movieNetworkManager = MovieInfoNetworkManager()
+        let tvNetworkManager = TvInfoNetworkManager()
         
         group.enter()
         networkManager.fetchContent(from: "https://api.themoviedb.org/3/trending/all/day") { contents in
@@ -44,9 +46,17 @@ class MovieInfoViewController: UIViewController {
         }
         
         group.enter()
-        movieNetworkManager.fetchAMovie(withMovieId: movieId ?? "666") { movieInfo in
-            self.movieFullInfo = movieInfo
-            group.leave()
+        guard let isMovieUnwrapped = isMovie else {return}
+        if isMovieUnwrapped {
+            movieNetworkManager.fetchAMovie(withMovieId: movieOrTvId ?? "666") { movieInfo in
+                self.movieOrTvFullInfo = movieInfo
+                group.leave()
+            }
+        } else {
+            tvNetworkManager.fetchATvSeries(withMovieId: movieOrTvId ?? "666") { tvInfo in
+                self.movieOrTvFullInfo = tvInfo
+                group.leave()
+            }
         }
         
         group.notify(queue: .main) {

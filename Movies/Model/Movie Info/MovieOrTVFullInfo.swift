@@ -27,4 +27,5 @@ struct CurrentSeason: Codable {
     var seasonNumber: Int
     var airYear: String
     var episodeNumber: Int
+    var posterUrl: String
 }

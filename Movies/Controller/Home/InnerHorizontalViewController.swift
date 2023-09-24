@@ -50,12 +50,14 @@ extension InnerHorizontalViewController: UICollectionViewDelegateFlowLayout {
 extension InnerHorizontalViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let movieInfoViewController = MovieInfoViewController()
-        let chosenMovieId = contents[indexPath.row].id
-        movieInfoViewController.movieId = String(chosenMovieId)
+        let chosenMovie = contents[indexPath.row]
+        movieInfoViewController.movieOrTvId = String(chosenMovie.id)
+        movieInfoViewController.isMovie = chosenMovie.movie
+        
+        print(chosenMovie.movie)
         
         let navController = UINavigationController(rootViewController: movieInfoViewController)
         navController.modalPresentationStyle = .fullScreen
         present(navController, animated: true)
-        
     }
 }

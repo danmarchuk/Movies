@@ -12,4 +12,5 @@ struct MovieOrTvInfo {
     var rating: Double
     var id: Int
     var movie: Bool
+    var description: String
 }

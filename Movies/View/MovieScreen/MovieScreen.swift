@@ -160,6 +160,7 @@ final class MovieScreen: UIView {
         $0.image = UIImage(named: "loki")
         $0.clipsToBounds = false
         $0.layer.cornerRadius = 5
+        $0.contentMode = .scaleAspectFill
     }
     
     let currentSeasonCountLabel = UILabel().apply {
@@ -250,12 +251,13 @@ final class MovieScreen: UIView {
             currentSeasonCountLabel.isHidden = true
             yearAndEpisodesLabel.isHidden = true
         } else {
-//            configureCurrentSeason(withInfo: info.currentSeasonDetails, withUrlString: info.posterUrl)
+            guard let unwrappedCurrentSeasonDetails = info.currentSeasonDetails else {return}
+            configureCurrentSeason(withInfo: unwrappedCurrentSeasonDetails)
         }
     }
     
-    func configureCurrentSeason(withInfo info: CurrentSeason, withUrlString urlString: String) {
-        currentSeasonImage.sd_setImage(with: URL(string: urlString))
+    func configureCurrentSeason(withInfo info: CurrentSeason) {
+        currentSeasonImage.sd_setImage(with: URL(string: info.posterUrl))
         currentSeasonCountLabel.text = "Season \(info.seasonNumber)"
         yearAndEpisodesLabel.text = "\(info.airYear) | \(info.episodeNumber) Episodes"
     }

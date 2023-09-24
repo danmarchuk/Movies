@@ -1,20 +1,22 @@
 //
-//  MovieInfoNetworkManager.swift
+//  TvInfoNetworkManager.swift
 //  Movies
 //
-//  Created by Данік on 22/09/2023.
+//  Created by Данік on 23/09/2023.
 //
 
 import Foundation
 import Alamofire
 
-class MovieInfoNetworkManager {
+import Alamofire
+
+class TvInfoNetworkManager {
     
-    func fetchAMovie(withMovieId id: String, completion: @escaping (MovieOrTVFullInfo?) -> Void) {
-        let url = "https://api.themoviedb.org/3/movie/"
+    func fetchATvSeries(withMovieId id: String, completion: @escaping (MovieOrTVFullInfo?) -> Void) {
+        let url = "https://api.themoviedb.org/3/tv/"
         let apiKey = "b029500d19bf2e8230d0496bad4302ab"
         
-        let fullURL = "\(url)\(id)?api_key=\(apiKey)&append_to_response=videos,release_dates,credits"
+        let fullURL = "\(url)\(id)?api_key=\(apiKey)&append_to_response=videos,release_dates,credits,content_ratings"
         
         AF.request(fullURL).responseJSON { response in
             guard let data = response.data else {
@@ -29,18 +31,21 @@ class MovieInfoNetworkManager {
                     return
                 }
 
-                let title = jsonDict["original_title"] as? String ?? ""
-                let releaseYear = (jsonDict["release_date"] as? String)?.prefix(4) ?? ""
+                let title = jsonDict["name"] as? String ?? ""
+                let releaseYear = (jsonDict["first_air_date"] as? String)?.prefix(4) ?? ""
                 var rating = jsonDict["vote_average"] as? Double ?? 0.0
                 rating = rating * 10
-                let length = jsonDict["runtime"] as? Int ?? 0
+                // length
+                guard let lastEpisodeToAirDict = jsonDict["last_episode_to_air"] as? [String: Any] else {return}
+                let length = lastEpisodeToAirDict["runtime"] as? Int ?? 0
+
                 let poster = jsonDict["backdrop_path"] as? String ?? ""
                 let posterUrl = "https://www.themoviedb.org/t/p/w500/\(poster)"
                 let genres = (jsonDict["genres"] as? [[String: Any]])?.compactMap { $0["name"] } ?? []
                 
                 guard let genresUnwrapped = genres as? [String] else {return}
                 
-                let description = jsonDict["overview"] as? String ?? ""
+                let description = jsonDict["overview"] as? String ?? "No description"
                 let id = jsonDict["id"] as? Int ?? 0
                 
                 let videos = jsonDict["videos"] as? [String: [[String: Any]]]
@@ -82,6 +87,15 @@ class MovieInfoNetworkManager {
                     print("Data inconsistency detected!")
                 }
                 
+                let seasonNumber = lastEpisodeToAirDict["season_number"] as? Int ?? 0
+                let airYear = (lastEpisodeToAirDict["air_date"] as? String)?.prefix(4) ?? ""
+                let episodeNumber = lastEpisodeToAirDict["episode_number"] as? Int ?? 0
+                
+                let currentSeasonPoster = jsonDict["poster_path"] as? String ?? ""
+                let currentSeasonPosterUrl = "https://www.themoviedb.org/t/p/w500\(currentSeasonPoster)"
+                
+                let currentSeasonDetails = CurrentSeason(seasonNumber: seasonNumber, airYear: String(airYear), episodeNumber: episodeNumber, posterUrl: currentSeasonPosterUrl)
+                
                 let movieInfo = MovieOrTVFullInfo(
                     title: title,
                     releaseYear: String(releaseYear),
@@ -91,10 +105,10 @@ class MovieInfoNetworkManager {
                     posterUrl: posterUrl,
                     genres: genresUnwrapped,
                     description: description,
-                    currentSeasonDetails: nil,
+                    currentSeasonDetails: currentSeasonDetails,
                     id: id,
                     videoUrls: videoUrls,
-                    isMovie: true, actors: actors
+                    isMovie: false, actors: actors
                 )
                 completion(movieInfo)
             } catch {
@@ -104,4 +118,3 @@ class MovieInfoNetworkManager {
         }
     }
 }
-

@@ -11,13 +11,13 @@ class SearchViewController: UIViewController {
     
     let actor = ActorScreen()
     var contents: [MovieOrTvInfo] = []
+    let searchScreen = SearchScreen()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = actor
+        view = searchScreen
         fetchData {
-            self.actor.knownForController.contents = self.contents
-            self.actor.knownForController.collectionView.reloadData()
+            self.searchScreen.verticalCollectionView.contents = self.contents            
         }
     }
     

@@ -25,6 +25,8 @@ class TrendingCell: UICollectionViewCell {
     let moviePoster = UIImageView().apply {
         $0.layer.cornerRadius = 15
         $0.image = UIImage(named: "welcomeScreenBackgroundImage")
+        $0.clipsToBounds = true
+        $0.contentMode = .scaleAspectFill
     }
     
     let movieTitle = UILabel().apply {
@@ -36,17 +38,16 @@ class TrendingCell: UICollectionViewCell {
     let movieDescription = UILabel().apply {
         $0.text = "Amongus sus Amongus sus, Amongus susAmongus sus Amongus sus Amongus sus Amongus susAmongus susAmongus sus"
         $0.numberOfLines = 3
-        $0.font = UIFont(name: "OpenSans-Semibold", size: 14)
-        $0.textColor = K.searchBlack
+        $0.font = UIFont(name: "OpenSans-Regular", size: 14)
+        $0.textColor = K.darkGrayColor
+        $0.clipsToBounds = true
     }
     
-//    func configure(withMovie movie: Movie) {
-//        dateAndSourceLabel.text = dateAndSource
-//        titleLabel.text = article.title
-//        let placeholderImage = UIImage(named: "16and9")
-//        imageView.kf.setImage(with: URL(string: article.pictureLink), placeholder: placeholderImage)
-//        bookmarkButton.tintColor = article.isSaved ? .red : .white
-//    }
+    func configure(withMovieOrTv movieOrTv: MovieOrTvInfo) {
+        moviePoster.sd_setImage(with: URL(string: movieOrTv.posterUrl))
+        movieTitle.text = movieOrTv.title
+        movieDescription.text = movieOrTv.description
+    }
     
     
     private func setupView() {
@@ -56,13 +57,15 @@ class TrendingCell: UICollectionViewCell {
         addSubview(movieDescription)
         
         moviePoster.snp.makeConstraints { make in
-            make.top.left.bottom.equalToSuperview()
+            make.top.left.equalToSuperview()
             make.width.equalTo(UIScreen.main.bounds.width / 3)
+            make.height.equalToSuperview()
         }
         
         movieTitle.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.left.equalTo(moviePoster.snp.right).offset(16)
+            make.right.equalToSuperview()
         }
         
         movieDescription.snp.makeConstraints { make in
@@ -70,5 +73,6 @@ class TrendingCell: UICollectionViewCell {
             make.left.equalTo(moviePoster.snp.right).offset(16)
             make.right.equalToSuperview()
         }
+        
     }
 }

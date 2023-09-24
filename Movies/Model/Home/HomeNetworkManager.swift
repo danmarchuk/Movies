@@ -29,18 +29,25 @@ class HomeNetworkManager {
                         let posterPath = "https://image.tmdb.org/t/p/w500\(poster)"
                         let rating = result["vote_average"] as? Double ?? 0.0
                         let mediaType = result["media_type"] as? String ?? ""
+                        let description = result["overview"] as? String ?? ""
                         
-                        var isMovie = false
+                        var isMovie: Bool?
                         
-                        if url.contains("movie") {
-                            isMovie = true
-                        } else if url.contains("tv") {
+                        if fullURL.contains("all") {
+                            if mediaType == "movie" {
+                                isMovie = true
+                            } else if mediaType == "tv" {
+                                isMovie = false
+                            }
+                        } else if fullURL.contains("tv") {
                             isMovie = false
-                        } else if url.contains("all") {
-                            isMovie = (mediaType == "movie")
+                        } else if fullURL.contains("movie") {
+                            isMovie = true
                         }
                         
-                        let content = MovieOrTvInfo(posterUrl: posterPath, title: title, rating: rating, id: id, movie: isMovie)
+                        guard let unwrappedIsMovie = isMovie else {return}
+                        
+                        let content = MovieOrTvInfo(posterUrl: posterPath, title: title, rating: rating, id: id, movie: unwrappedIsMovie, description: description)
                         contentList.append(content)
                     }
                     

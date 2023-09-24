@@ -161,6 +161,8 @@ final class ActorScreen: UIView {
             make.top.equalTo(knownForController.view.snp.bottom).offset(58)
             make.right.equalToSuperview().inset(16)
         }
+        let itemHeight: CGFloat = 52
+        let totalItemsHeight = CGFloat(actingVerticalController.contents.count) * itemHeight
         
         actingVerticalController.view.snp.makeConstraints { make in
             make.top.equalTo(actingLabel.snp.bottom).offset(13)
