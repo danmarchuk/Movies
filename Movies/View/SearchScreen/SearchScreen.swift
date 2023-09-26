@@ -51,7 +51,7 @@ final class SearchScreen: UIView {
         $0.textColor = K.movieScreenDarkBlueTextColor
     }
     
-    let verticalCollectionView = SearchVerticalTrendingController()
+    let verticalCollectionView = SearchVerticalTrendingControllerNode()
     
     
     func setupView() {
@@ -87,7 +87,7 @@ final class SearchScreen: UIView {
         collectionViewHeightConstraint = verticalCollectionView.view.heightAnchor.constraint(equalToConstant: 250)
         collectionViewHeightConstraint?.isActive = true
         
-        verticalCollectionView.collectionView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
+//        verticalCollectionView.collectionView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
 
         verticalCollectionView.view.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
@@ -102,9 +102,9 @@ final class SearchScreen: UIView {
         }
     }
     
-    deinit {
-        verticalCollectionView.collectionView.removeObserver(self, forKeyPath: "contentSize")
-    }
+//    deinit {
+//        verticalCollectionView.collectionView.removeObserver(self, forKeyPath: "contentSize")
+//    }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "contentSize", let newContentSize = change?[.newKey] as? CGSize {
