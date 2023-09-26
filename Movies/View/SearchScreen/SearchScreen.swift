@@ -91,11 +91,8 @@ final class SearchScreen: UIView {
 
         verticalCollectionView.view.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
-//            make.height.equalTo(200)  // Set your desired fixed height here
         }
-        
-        
-        
+
         searchBar.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
         }

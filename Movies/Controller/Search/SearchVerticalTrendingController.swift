@@ -44,8 +44,7 @@ extension SearchVerticalTrendingController {
 
 extension SearchVerticalTrendingController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.frame.width, height: 80) // or another value that suits your design
-
+        return .init(width: view.frame.width, height: 80)
     }
 }
 

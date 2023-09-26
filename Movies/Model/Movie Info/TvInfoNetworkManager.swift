@@ -53,11 +53,19 @@ class TvInfoNetworkManager {
                     "https://www.youtube.com/watch?v=" + ($0["key"] as? String ?? "")
                 } ?? []
                 
-                let releaseDates = jsonDict["release_dates"] as? [String: [[String: Any]]]
-                let usReleaseDates = releaseDates?["results"]?.first(where: { ($0["iso_3166_1"] as? String) == "US" })
-
-                let restriction = (usReleaseDates?["release_dates"] as? [[String: Any]])?.first?["certification"] ?? ""
-                guard let ageRestriction = restriction as? String else {return}
+                // Age Rating
+                let resultsInsideReleaseDatesDict = jsonDict["content_ratings"] as? [String: [[String: Any]]]
+                var usRating = ""
+                if let resultsArray = resultsInsideReleaseDatesDict?["results"] as? [[String: Any]] {
+                    for result in resultsArray {
+                        if result["iso_3166_1"] as? String == "US" {
+                            usRating = result["rating"] as? String ?? ""
+                            break
+                        }
+                    }
+                } else {
+                    usRating = ""
+                }
                 
                 let credits = jsonDict["credits"] as? [String: [[String: Any]]]
                 let names = credits?["cast"]?.compactMap({ ($0["name"]) as? String
@@ -87,19 +95,18 @@ class TvInfoNetworkManager {
                     print("Data inconsistency detected!")
                 }
                 
+                // CurrentSeasonDetails
                 let seasonNumber = lastEpisodeToAirDict["season_number"] as? Int ?? 0
                 let airYear = (lastEpisodeToAirDict["air_date"] as? String)?.prefix(4) ?? ""
                 let episodeNumber = lastEpisodeToAirDict["episode_number"] as? Int ?? 0
-                
                 let currentSeasonPoster = jsonDict["poster_path"] as? String ?? ""
                 let currentSeasonPosterUrl = "https://www.themoviedb.org/t/p/w500\(currentSeasonPoster)"
-                
                 let currentSeasonDetails = CurrentSeason(seasonNumber: seasonNumber, airYear: String(airYear), episodeNumber: episodeNumber, posterUrl: currentSeasonPosterUrl)
                 
                 let movieInfo = MovieOrTVFullInfo(
                     title: title,
                     releaseYear: String(releaseYear),
-                    ageRestriction: ageRestriction,
+                    ageRestriction: usRating,
                     rating: rating,
                     length: length,
                     posterUrl: posterUrl,
