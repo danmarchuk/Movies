@@ -277,11 +277,11 @@
 		934264842ABEBC2D00E80FDD /* SearchScreen */ = {
 			isa = PBXGroup;
 			children = (
-				934264822ABEBC1A00E80FDD /* SearchScreen.swift */,
-				93C3408B2AC38B050042B8A0 /* SearchBarNode.swift */,
 				93C340892AC387AE0042B8A0 /* SearchScreenNode.swift */,
-				936A404A2A9F8ECE00470194 /* TrendingCell.swift */,
+				93C3408B2AC38B050042B8A0 /* SearchBarNode.swift */,
 				933318722AC23CC700AD3B2A /* TrendingCellNode.swift */,
+				936A404A2A9F8ECE00470194 /* TrendingCell.swift */,
+				934264822ABEBC1A00E80FDD /* SearchScreen.swift */,
 			);
 			path = SearchScreen;
 			sourceTree = "<group>";

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 import AsyncDisplayKit
 
 class TrendingCellNode: ASCellNode {
@@ -25,13 +24,16 @@ class TrendingCellNode: ASCellNode {
         let node = ASTextNode()
         node.placeholderColor = .lightGray
         node.placeholderEnabled = true
+        node.style.flexShrink = 1.0
+        node.truncationMode = .byTruncatingTail
         return node
     }()
     
     let movieDescription: ASTextNode = {
         let node = ASTextNode()
         node.placeholderColor = .lightGray
-        node.maximumNumberOfLines = 3
+        node.maximumNumberOfLines = 4
+        node.style.flexShrink = 1.0
         node.truncationMode = .byTruncatingTail
         return node
     }()
@@ -61,8 +63,12 @@ class TrendingCellNode: ASCellNode {
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        moviePoster.style.preferredSize = CGSize(width: UIScreen.main.bounds.width / 3, height: constrainedSize.max.height)
         
+        let posterRatioSpec = ASRatioLayoutSpec(ratio: 1.0, child: moviePoster)
+        
+        posterRatioSpec.style.flexBasis = ASDimensionMakeWithFraction(0.3)
+
+
         let titleAndDescriptionStack = ASStackLayoutSpec(
             direction: .vertical,
             spacing: 4,
@@ -70,13 +76,15 @@ class TrendingCellNode: ASCellNode {
             alignItems: .stretch,
             children: [movieTitle, movieDescription]
         )
+        titleAndDescriptionStack.style.flexBasis = ASDimensionMakeWithFraction(0.65)
+
         
         let mainStack = ASStackLayoutSpec(
             direction: .horizontal,
             spacing: 16,
             justifyContent: .start,
             alignItems: .stretch,
-            children: [moviePoster, titleAndDescriptionStack]
+            children: [posterRatioSpec, titleAndDescriptionStack]
         )
         
         return mainStack
