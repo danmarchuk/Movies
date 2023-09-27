@@ -8,7 +8,11 @@
 import Foundation
 
 class ProfileViewController: UIViewController {
+    
+    let searchScreen = SearchScreen()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view = searchScreen
     }
 }

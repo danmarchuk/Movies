@@ -7,6 +7,8 @@
 
 import Foundation
 import SnapKit
+import AsyncDisplayKit
+import SHSearchBar
 
 @IBDesignable
 final class SearchScreen: UIView {
@@ -37,10 +39,9 @@ final class SearchScreen: UIView {
     }()
     
     
-    let searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
+    let searchBar: SHSearchBar = {
+        let searchBar = SHSearchBar(config: SHSearchBarConfig())
         searchBar.translatesAutoresizingMaskIntoConstraints = false
-        searchBar.searchBarStyle = .minimal
         searchBar.placeholder = "Search..."
         return searchBar
     }()
@@ -69,7 +70,7 @@ final class SearchScreen: UIView {
 
         // Set constraints for stackView inside the scrollView
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(scrollView)
+            make.top.equalTo(scrollView).offset(200)
             make.left.right.equalTo(self).inset(16)  // Add some padding on the sides
             make.centerX.equalTo(scrollView) // This ensures that the stackView doesn't expand beyond the scrollView's width, minus the side padding
             make.bottom.equalTo(scrollView) // This is important for the scrollView to know its content size
@@ -106,10 +107,10 @@ final class SearchScreen: UIView {
 //        verticalCollectionView.collectionView.removeObserver(self, forKeyPath: "contentSize")
 //    }
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath == "contentSize", let newContentSize = change?[.newKey] as? CGSize {
-            collectionViewHeightConstraint?.constant = newContentSize.height
-        }
-    }
+//    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+//        if keyPath == "contentSize", let newContentSize = change?[.newKey] as? CGSize {
+//            collectionViewHeightConstraint?.constant = newContentSize.height
+//        }
+//    }
 
 }

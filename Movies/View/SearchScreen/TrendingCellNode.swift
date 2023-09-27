@@ -17,12 +17,14 @@ class TrendingCellNode: ASCellNode {
         node.clipsToBounds = true
         node.contentMode = .scaleAspectFill
         node.placeholderColor = .lightGray
+        node.placeholderEnabled = true
         return node
     }()
     
     let movieTitle: ASTextNode = {
         let node = ASTextNode()
         node.placeholderColor = .lightGray
+        node.placeholderEnabled = true
         return node
     }()
     

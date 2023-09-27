@@ -38,7 +38,10 @@
 		93744B792AAF5EA500A78E00 /* InnerHorizontalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93744B782AAF5EA500A78E00 /* InnerHorizontalViewController.swift */; };
 		93744B7B2AAF600400A78E00 /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93744B7A2AAF600400A78E00 /* BaseListController.swift */; };
 		93C340882AC3671E0042B8A0 /* SearchVerticalTrendingControllerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C340872AC3671E0042B8A0 /* SearchVerticalTrendingControllerNode.swift */; };
-		93C3E12C2AB8D79800471FDF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3E12B2AB8D79800471FDF /* SearchViewController.swift */; };
+		93C3408A2AC387AE0042B8A0 /* SearchScreenNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C340892AC387AE0042B8A0 /* SearchScreenNode.swift */; };
+		93C3408C2AC38B050042B8A0 /* SearchBarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3408B2AC38B050042B8A0 /* SearchBarNode.swift */; };
+		93C3408F2AC49EE80042B8A0 /* SHSearchBar in Frameworks */ = {isa = PBXBuildFile; productRef = 93C3408E2AC49EE80042B8A0 /* SHSearchBar */; };
+		93C3E12C2AB8D79800471FDF /* SearchViewControllerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3E12B2AB8D79800471FDF /* SearchViewControllerNode.swift */; };
 		93C3E12E2AB8D7BD00471FDF /* PlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3E12D2AB8D7BD00471FDF /* PlusViewController.swift */; };
 		93C3E1302AB8D7DB00471FDF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3E12F2AB8D7DB00471FDF /* ProfileViewController.swift */; };
 		93C3E1352AB8F86E00471FDF /* MovieScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3E1342AB8F86E00471FDF /* MovieScreen.swift */; };
@@ -120,7 +123,9 @@
 		93744B782AAF5EA500A78E00 /* InnerHorizontalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerHorizontalViewController.swift; sourceTree = "<group>"; };
 		93744B7A2AAF600400A78E00 /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
 		93C340872AC3671E0042B8A0 /* SearchVerticalTrendingControllerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVerticalTrendingControllerNode.swift; sourceTree = "<group>"; };
-		93C3E12B2AB8D79800471FDF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		93C340892AC387AE0042B8A0 /* SearchScreenNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenNode.swift; sourceTree = "<group>"; };
+		93C3408B2AC38B050042B8A0 /* SearchBarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarNode.swift; sourceTree = "<group>"; };
+		93C3E12B2AB8D79800471FDF /* SearchViewControllerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerNode.swift; sourceTree = "<group>"; };
 		93C3E12D2AB8D7BD00471FDF /* PlusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusViewController.swift; sourceTree = "<group>"; };
 		93C3E12F2AB8D7DB00471FDF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		93C3E1342AB8F86E00471FDF /* MovieScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieScreen.swift; sourceTree = "<group>"; };
@@ -162,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				931A43CA2AB148EA002AEFEB /* Alamofire in Frameworks */,
+				93C3408F2AC49EE80042B8A0 /* SHSearchBar in Frameworks */,
 				93E3298A2A98F56400991843 /* SnapKit in Frameworks */,
 				25269EA5DC7D7F2725B973A6 /* Pods_Movies.framework in Frameworks */,
 			);
@@ -272,6 +278,8 @@
 			isa = PBXGroup;
 			children = (
 				934264822ABEBC1A00E80FDD /* SearchScreen.swift */,
+				93C3408B2AC38B050042B8A0 /* SearchBarNode.swift */,
+				93C340892AC387AE0042B8A0 /* SearchScreenNode.swift */,
 				936A404A2A9F8ECE00470194 /* TrendingCell.swift */,
 				933318722AC23CC700AD3B2A /* TrendingCellNode.swift */,
 			);
@@ -331,7 +339,7 @@
 		93C3E1312AB8F21500471FDF /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				93C3E12B2AB8D79800471FDF /* SearchViewController.swift */,
+				93C3E12B2AB8D79800471FDF /* SearchViewControllerNode.swift */,
 				934264852ABECB9F00E80FDD /* SearchVerticalTrendingController.swift */,
 				93C340872AC3671E0042B8A0 /* SearchVerticalTrendingControllerNode.swift */,
 			);
@@ -473,6 +481,7 @@
 			packageProductDependencies = (
 				93E329892A98F56400991843 /* SnapKit */,
 				931A43C92AB148EA002AEFEB /* Alamofire */,
+				93C3408E2AC49EE80042B8A0 /* SHSearchBar */,
 			);
 			productName = Movies;
 			productReference = 93E3294F2A98C9E200991843 /* Movies.app */;
@@ -552,6 +561,7 @@
 			packageReferences = (
 				93E329882A98F56400991843 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				931A43C82AB148EA002AEFEB /* XCRemoteSwiftPackageReference "Alamofire" */,
+				93C3408D2AC49EE80042B8A0 /* XCRemoteSwiftPackageReference "SHSearchBar" */,
 			);
 			productRefGroup = 93E329502A98C9E200991843 /* Products */;
 			projectDirPath = "";
@@ -715,18 +725,20 @@
 				93E329852A98F3AD00991843 /* Constants.swift in Sources */,
 				93DFD0D02AA7A6920097F9B9 /* SearchMainCell.swift in Sources */,
 				934264782ABD002400E80FDD /* ActorFullInfo.swift in Sources */,
-				93C3E12C2AB8D79800471FDF /* SearchViewController.swift in Sources */,
+				93C3E12C2AB8D79800471FDF /* SearchViewControllerNode.swift in Sources */,
 				93C3E13A2AB90BE300471FDF /* GenreCell.swift in Sources */,
 				9342647B2ABD07FD00E80FDD /* MovieOrTVFullInfo.swift in Sources */,
 				93E329872A98F45300991843 /* Extensions.swift in Sources */,
 				931A43C72AB148BF002AEFEB /* HomeNetworkManager.swift in Sources */,
 				93E329572A98C9E200991843 /* HomeViewController.swift in Sources */,
+				93C3408A2AC387AE0042B8A0 /* SearchScreenNode.swift in Sources */,
 				93C3E1422ABA1B4100471FDF /* ActorShortInfo.swift in Sources */,
 				9335DF8A2A9E57D300B36397 /* HomeInnerCell.swift in Sources */,
 				934264702ABBC28200E80FDD /* ActingVerticalController.swift in Sources */,
 				934264862ABECB9F00E80FDD /* SearchVerticalTrendingController.swift in Sources */,
 				93C3E12E2AB8D7BD00471FDF /* PlusViewController.swift in Sources */,
 				9342646B2ABBA76000E80FDD /* KnownForHorizontalViewController.swift in Sources */,
+				93C3408C2AC38B050042B8A0 /* SearchBarNode.swift in Sources */,
 				93C3E1402ABA186D00471FDF /* ActorCell.swift in Sources */,
 				93C3E13E2AB91C8300471FDF /* FuncManager.swift in Sources */,
 				93C3E1302AB8D7DB00471FDF /* ProfileViewController.swift in Sources */,
@@ -1106,6 +1118,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		93C3408D2AC49EE80042B8A0 /* XCRemoteSwiftPackageReference "SHSearchBar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Blackjacx/SHSearchBar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		93E329882A98F56400991843 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -1121,6 +1141,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 931A43C82AB148EA002AEFEB /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		93C3408E2AC49EE80042B8A0 /* SHSearchBar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 93C3408D2AC49EE80042B8A0 /* XCRemoteSwiftPackageReference "SHSearchBar" */;
+			productName = SHSearchBar;
 		};
 		93E329892A98F56400991843 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
