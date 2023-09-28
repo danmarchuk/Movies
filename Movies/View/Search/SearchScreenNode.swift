@@ -16,9 +16,9 @@ final class SearchScreenNode: ASDisplayNode {
 
     private let trendingLabel: ASTextNode = {
         let node = ASTextNode()
-        node.attributedText = NSAttributedString(string: "Trending",
-                                                 attributes: [NSAttributedString.Key.font: UIFont(name: "OpenSans-Semibold", size: 18),
-                                                              NSAttributedString.Key.foregroundColor: K.movieScreenDarkBlueTextColor])
+        node.attributedText =
+        NSAttributedString(string: "Trending", attributes: [NSAttributedString.Key.font: UIFont(name: "OpenSans-Semibold", size: 18), NSAttributedString.Key
+            .foregroundColor: K.movieScreenDarkBlueTextColor])
         return node
     }()
     

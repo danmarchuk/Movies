@@ -10,33 +10,28 @@ import AsyncDisplayKit
 
 class TrendingCellNode: ASCellNode {
     
-    let moviePoster: ASNetworkImageNode = {
-        let node = ASNetworkImageNode()
-        node.cornerRadius = 15
-        node.clipsToBounds = true
-        node.contentMode = .scaleAspectFill
-        node.placeholderColor = .lightGray
-        node.placeholderEnabled = true
-        return node
-    }()
+    let moviePoster = ASNetworkImageNode().apply {
+        $0.cornerRadius = 15
+        $0.clipsToBounds = true
+        $0.contentMode = .scaleAspectFill
+        $0.placeholderColor = .lightGray
+        $0.placeholderEnabled = true
+    }
     
-    let movieTitle: ASTextNode = {
-        let node = ASTextNode()
-        node.placeholderColor = .lightGray
-        node.placeholderEnabled = true
-        node.style.flexShrink = 1.0
-        node.truncationMode = .byTruncatingTail
-        return node
-    }()
+    let movieTitle = ASTextNode().apply {
+        $0.placeholderColor = .lightGray
+        $0.placeholderEnabled = true
+        $0.style.flexShrink = 1.0
+        $0.truncationMode = .byTruncatingTail
+    }
     
-    let movieDescription: ASTextNode = {
-        let node = ASTextNode()
-        node.placeholderColor = .lightGray
-        node.maximumNumberOfLines = 4
-        node.style.flexShrink = 1.0
-        node.truncationMode = .byTruncatingTail
-        return node
-    }()
+    let movieDescription = ASTextNode().apply {
+        $0.placeholderColor = .lightGray
+        $0.placeholderEnabled = true
+        $0.maximumNumberOfLines = 4
+        $0.style.flexShrink = 1.0
+        $0.truncationMode = .byTruncatingTail
+    }
     
     init(movieOrTv: MovieOrTvInfo) {
         super.init()

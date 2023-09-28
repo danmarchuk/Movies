@@ -278,7 +278,7 @@
 			path = "Actor Info";
 			sourceTree = "<group>";
 		};
-		934264842ABEBC2D00E80FDD /* SearchScreen */ = {
+		934264842ABEBC2D00E80FDD /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				93C340892AC387AE0042B8A0 /* SearchScreenNode.swift */,
@@ -287,7 +287,7 @@
 				936A404A2A9F8ECE00470194 /* TrendingCell.swift */,
 				934264822ABEBC1A00E80FDD /* SearchScreen.swift */,
 			);
-			path = SearchScreen;
+			path = Search;
 			sourceTree = "<group>";
 		};
 		936ABBC22A9A462300A8466B /* Fonts */ = {
@@ -305,13 +305,13 @@
 		93744B742AAE510100A78E00 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				934264792ABD071100E80FDD /* Home */,
 				93E329862A98F45300991843 /* Extensions.swift */,
 				93E329842A98F3AD00991843 /* Constants.swift */,
 				93744B7A2AAF600400A78E00 /* BaseListController.swift */,
 				9342647D2ABDE65300E80FDD /* Actor Info */,
 				9342647C2ABDE61A00E80FDD /* Movie Info */,
 				93C3E13D2AB91C8300471FDF /* FuncManager.swift */,
-				934264792ABD071100E80FDD /* Home */,
 				93744B752AAE510E00A78E00 /* Section.swift */,
 			);
 			path = Model;
@@ -320,18 +320,18 @@
 		93744B772AAF5E7F00A78E00 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				93744B7C2AAF6B4F00A78E00 /* Home */,
+				93C340952AC5EFE50042B8A0 /* Search */,
+				93C340942AC5EEFB0042B8A0 /* Home */,
 				93C3E1322AB8F24000471FDF /* Tab */,
-				93C3E1312AB8F21500471FDF /* Search */,
 				93C3E1332AB8F25600471FDF /* Plus */,
-				93C3E12F2AB8D7DB00471FDF /* ProfileViewControllerNode.swift */,
+				93C340962AC5F0E00042B8A0 /* Profile */,
 				934264692ABBA71A00E80FDD /* Actor Info */,
 				93C3E1452ABA1D0900471FDF /* Movie Info */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		93744B7C2AAF6B4F00A78E00 /* Home */ = {
+		93C340942AC5EEFB0042B8A0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				93C340902AC5AF880042B8A0 /* HomeViewControllerNode.swift */,
@@ -341,7 +341,7 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		93C3E1312AB8F21500471FDF /* Search */ = {
+		93C340952AC5EFE50042B8A0 /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				93C3E12B2AB8D79800471FDF /* SearchViewControllerNode.swift */,
@@ -349,6 +349,14 @@
 				93C340872AC3671E0042B8A0 /* SearchVerticalTrendingControllerNode.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		93C340962AC5F0E00042B8A0 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				93C3E12F2AB8D7DB00471FDF /* ProfileViewControllerNode.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		93C3E1322AB8F24000471FDF /* Tab */ = {
@@ -438,10 +446,10 @@
 		93E3298B2A98F79700991843 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				934264842ABEBC2D00E80FDD /* SearchScreen */,
+				934264842ABEBC2D00E80FDD /* Search */,
+				93F25CE12AB60AEC00028E44 /* Home */,
 				934264642ABB3FD100E80FDD /* MovieScreen */,
 				93F25CE02AB60AB300028E44 /* Welcome Screen */,
-				93F25CE12AB60AEC00028E44 /* Home */,
 				9342646C2ABBA7E400E80FDD /* ActorScreen */,
 				934264892AC1FFDB00E80FDD /* GradientSegmentedNode.swift */,
 			);
