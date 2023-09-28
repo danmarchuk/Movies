@@ -7,29 +7,37 @@
 
 import Foundation
 import UIKit
+import AsyncDisplayKit
 
-class BaseTabBarController: UITabBarController {
+class BaseTabBarController: ASTabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Create instances of the view controllers wrapped in navigation controllers
-        let firstVC = UINavigationController(rootViewController: HomeViewController())
-//        let secondVC = UINavigationController(rootViewController: SearchViewController())
-        let thirdVC = UINavigationController(rootViewController: PlusViewController())
-        let fourthVC = UINavigationController(rootViewController: ProfileViewController())
+        // Create instances of the view controllers wrapped in ASNavigationController
+        let homeNode = HomeViewControllerNode()
+        let firstVC = ASDKNavigationController(rootViewController: ASDKViewController(node: homeNode))
+        
+        let searchNode = SearchViewControllerNode()
+        let secondVC = ASDKNavigationController(rootViewController: searchNode)
+        
+        let plusNode = PlusViewControllerNode()
+        let thirdVC = ASDKNavigationController(rootViewController: ASDKViewController(node: plusNode))
+        
+        let profileNode = ProfileViewControllerNode()
+        let fourthVC = ASDKNavigationController(rootViewController: ASDKViewController(node: profileNode))
         
         firstVC.tabBarItem.image = UIImage(named: "homeIcon")?.withRenderingMode(.alwaysTemplate)
-//        secondVC.tabBarItem.image = UIImage(named: "searchIcon")?.withRenderingMode(.alwaysTemplate)
+        secondVC.tabBarItem.image = UIImage(named: "searchIcon")?.withRenderingMode(.alwaysTemplate)
         thirdVC.tabBarItem.image = UIImage(named: "plusIcon")?.withRenderingMode(.alwaysTemplate)
-        // add a rounded image of a user
         fourthVC.tabBarItem.image = UIImage(named: "savedImage")?.withRenderingMode(.alwaysTemplate)
         
         // Set tab bar items, images, etc. for each navigation controller here if needed
-//        viewControllers = [ firstVC, secondVC, thirdVC, fourthVC]
-        tabBar.tintColor = K.tabBarSelectedItemColor // Or some other contrasting color
-        tabBar.unselectedItemTintColor = .darkGray // Or any other color
+        viewControllers = [firstVC, secondVC, thirdVC, fourthVC]
+        tabBar.tintColor = K.tabBarSelectedItemColor
+        tabBar.unselectedItemTintColor = .darkGray
         tabBar.barTintColor = K.tabBarTintColor
-        tabBar.isTranslucent = false
+        tabBar.isTranslucent = true
     }
 }
+

@@ -41,9 +41,11 @@
 		93C3408A2AC387AE0042B8A0 /* SearchScreenNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C340892AC387AE0042B8A0 /* SearchScreenNode.swift */; };
 		93C3408C2AC38B050042B8A0 /* SearchBarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3408B2AC38B050042B8A0 /* SearchBarNode.swift */; };
 		93C3408F2AC49EE80042B8A0 /* SHSearchBar in Frameworks */ = {isa = PBXBuildFile; productRef = 93C3408E2AC49EE80042B8A0 /* SHSearchBar */; };
+		93C340912AC5AF880042B8A0 /* HomeViewControllerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C340902AC5AF880042B8A0 /* HomeViewControllerNode.swift */; };
+		93C340932AC5B01D0042B8A0 /* PlusViewControllerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C340922AC5B01D0042B8A0 /* PlusViewControllerNode.swift */; };
 		93C3E12C2AB8D79800471FDF /* SearchViewControllerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3E12B2AB8D79800471FDF /* SearchViewControllerNode.swift */; };
 		93C3E12E2AB8D7BD00471FDF /* PlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3E12D2AB8D7BD00471FDF /* PlusViewController.swift */; };
-		93C3E1302AB8D7DB00471FDF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3E12F2AB8D7DB00471FDF /* ProfileViewController.swift */; };
+		93C3E1302AB8D7DB00471FDF /* ProfileViewControllerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3E12F2AB8D7DB00471FDF /* ProfileViewControllerNode.swift */; };
 		93C3E1352AB8F86E00471FDF /* MovieScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3E1342AB8F86E00471FDF /* MovieScreen.swift */; };
 		93C3E1382AB8F91100471FDF /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93C3E1372AB8F91100471FDF /* OpenSans-Light.ttf */; };
 		93C3E13A2AB90BE300471FDF /* GenreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3E1392AB90BE300471FDF /* GenreCell.swift */; };
@@ -125,9 +127,11 @@
 		93C340872AC3671E0042B8A0 /* SearchVerticalTrendingControllerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVerticalTrendingControllerNode.swift; sourceTree = "<group>"; };
 		93C340892AC387AE0042B8A0 /* SearchScreenNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenNode.swift; sourceTree = "<group>"; };
 		93C3408B2AC38B050042B8A0 /* SearchBarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarNode.swift; sourceTree = "<group>"; };
+		93C340902AC5AF880042B8A0 /* HomeViewControllerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerNode.swift; sourceTree = "<group>"; };
+		93C340922AC5B01D0042B8A0 /* PlusViewControllerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusViewControllerNode.swift; sourceTree = "<group>"; };
 		93C3E12B2AB8D79800471FDF /* SearchViewControllerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerNode.swift; sourceTree = "<group>"; };
 		93C3E12D2AB8D7BD00471FDF /* PlusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusViewController.swift; sourceTree = "<group>"; };
-		93C3E12F2AB8D7DB00471FDF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		93C3E12F2AB8D7DB00471FDF /* ProfileViewControllerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewControllerNode.swift; sourceTree = "<group>"; };
 		93C3E1342AB8F86E00471FDF /* MovieScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieScreen.swift; sourceTree = "<group>"; };
 		93C3E1372AB8F91100471FDF /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
 		93C3E1392AB90BE300471FDF /* GenreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCell.swift; sourceTree = "<group>"; };
@@ -320,7 +324,7 @@
 				93C3E1322AB8F24000471FDF /* Tab */,
 				93C3E1312AB8F21500471FDF /* Search */,
 				93C3E1332AB8F25600471FDF /* Plus */,
-				93C3E12F2AB8D7DB00471FDF /* ProfileViewController.swift */,
+				93C3E12F2AB8D7DB00471FDF /* ProfileViewControllerNode.swift */,
 				934264692ABBA71A00E80FDD /* Actor Info */,
 				93C3E1452ABA1D0900471FDF /* Movie Info */,
 			);
@@ -330,6 +334,7 @@
 		93744B7C2AAF6B4F00A78E00 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				93C340902AC5AF880042B8A0 /* HomeViewControllerNode.swift */,
 				93E329562A98C9E200991843 /* HomeViewController.swift */,
 				93744B782AAF5EA500A78E00 /* InnerHorizontalViewController.swift */,
 			);
@@ -357,6 +362,7 @@
 		93C3E1332AB8F25600471FDF /* Plus */ = {
 			isa = PBXGroup;
 			children = (
+				93C340922AC5B01D0042B8A0 /* PlusViewControllerNode.swift */,
 				93C3E12D2AB8D7BD00471FDF /* PlusViewController.swift */,
 			);
 			path = Plus;
@@ -725,10 +731,12 @@
 				93E329852A98F3AD00991843 /* Constants.swift in Sources */,
 				93DFD0D02AA7A6920097F9B9 /* SearchMainCell.swift in Sources */,
 				934264782ABD002400E80FDD /* ActorFullInfo.swift in Sources */,
+				93C340932AC5B01D0042B8A0 /* PlusViewControllerNode.swift in Sources */,
 				93C3E12C2AB8D79800471FDF /* SearchViewControllerNode.swift in Sources */,
 				93C3E13A2AB90BE300471FDF /* GenreCell.swift in Sources */,
 				9342647B2ABD07FD00E80FDD /* MovieOrTVFullInfo.swift in Sources */,
 				93E329872A98F45300991843 /* Extensions.swift in Sources */,
+				93C340912AC5AF880042B8A0 /* HomeViewControllerNode.swift in Sources */,
 				931A43C72AB148BF002AEFEB /* HomeNetworkManager.swift in Sources */,
 				93E329572A98C9E200991843 /* HomeViewController.swift in Sources */,
 				93C3408A2AC387AE0042B8A0 /* SearchScreenNode.swift in Sources */,
@@ -741,7 +749,7 @@
 				93C3408C2AC38B050042B8A0 /* SearchBarNode.swift in Sources */,
 				93C3E1402ABA186D00471FDF /* ActorCell.swift in Sources */,
 				93C3E13E2AB91C8300471FDF /* FuncManager.swift in Sources */,
-				93C3E1302AB8D7DB00471FDF /* ProfileViewController.swift in Sources */,
+				93C3E1302AB8D7DB00471FDF /* ProfileViewControllerNode.swift in Sources */,
 				9342647F2ABDE6A900E80FDD /* MovieInfoNetworkManager.swift in Sources */,
 				934264662ABB3FFF00E80FDD /* ActorScreen.swift in Sources */,
 				936A404B2A9F8ECE00470194 /* TrendingCell.swift in Sources */,

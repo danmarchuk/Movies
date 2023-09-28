@@ -6,13 +6,10 @@
 //
 
 import Foundation
+import AsyncDisplayKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewControllerNode: ASDisplayNode {
     
     let searchScreen = SearchScreen()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view = searchScreen
-    }
 }
