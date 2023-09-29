@@ -136,7 +136,6 @@ extension SearchMainCell: LUNSegmentedControlDelegate, LUNSegmentedControlDataSo
 
     func segmentedControl(_ segmentedControl: LUNSegmentedControl!, didChangeStateFromStateAt fromIndex: Int, toStateAt toIndex: Int) {
 //        segmentedControl.textFont = UIFont(name: "OpenSans-Bold", size: 14)
-        print("5")
         
     }
 }

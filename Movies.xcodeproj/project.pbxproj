@@ -37,6 +37,8 @@
 		93744B762AAE510E00A78E00 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93744B752AAE510E00A78E00 /* Section.swift */; };
 		93744B792AAF5EA500A78E00 /* InnerHorizontalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93744B782AAF5EA500A78E00 /* InnerHorizontalViewController.swift */; };
 		93744B7B2AAF600400A78E00 /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93744B7A2AAF600400A78E00 /* BaseListController.swift */; };
+		938AF1F42AC71B9400EF6002 /* HomeInnerCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938AF1F32AC71B9400EF6002 /* HomeInnerCellNode.swift */; };
+		938AF1F62AC71D0600EF6002 /* CircularProgressBarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938AF1F52AC71D0600EF6002 /* CircularProgressBarNode.swift */; };
 		93C340882AC3671E0042B8A0 /* SearchVerticalTrendingControllerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C340872AC3671E0042B8A0 /* SearchVerticalTrendingControllerNode.swift */; };
 		93C3408A2AC387AE0042B8A0 /* SearchScreenNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C340892AC387AE0042B8A0 /* SearchScreenNode.swift */; };
 		93C3408C2AC38B050042B8A0 /* SearchBarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3408B2AC38B050042B8A0 /* SearchBarNode.swift */; };
@@ -124,6 +126,8 @@
 		93744B752AAE510E00A78E00 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		93744B782AAF5EA500A78E00 /* InnerHorizontalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerHorizontalViewController.swift; sourceTree = "<group>"; };
 		93744B7A2AAF600400A78E00 /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
+		938AF1F32AC71B9400EF6002 /* HomeInnerCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInnerCellNode.swift; sourceTree = "<group>"; };
+		938AF1F52AC71D0600EF6002 /* CircularProgressBarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBarNode.swift; sourceTree = "<group>"; };
 		93C340872AC3671E0042B8A0 /* SearchVerticalTrendingControllerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVerticalTrendingControllerNode.swift; sourceTree = "<group>"; };
 		93C340892AC387AE0042B8A0 /* SearchScreenNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenNode.swift; sourceTree = "<group>"; };
 		93C3408B2AC38B050042B8A0 /* SearchBarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarNode.swift; sourceTree = "<group>"; };
@@ -470,6 +474,8 @@
 			children = (
 				93DFD0CF2AA7A6920097F9B9 /* SearchMainCell.swift */,
 				9335DF892A9E57D300B36397 /* HomeInnerCell.swift */,
+				938AF1F32AC71B9400EF6002 /* HomeInnerCellNode.swift */,
+				938AF1F52AC71D0600EF6002 /* CircularProgressBarNode.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -736,11 +742,13 @@
 				93C3E1352AB8F86E00471FDF /* MovieScreen.swift in Sources */,
 				93C3E1442ABA1CA000471FDF /* MovieInfoViewController.swift in Sources */,
 				93F25CE52AB60DC400028E44 /* BaseTabBarController.swift in Sources */,
+				938AF1F62AC71D0600EF6002 /* CircularProgressBarNode.swift in Sources */,
 				93E329852A98F3AD00991843 /* Constants.swift in Sources */,
 				93DFD0D02AA7A6920097F9B9 /* SearchMainCell.swift in Sources */,
 				934264782ABD002400E80FDD /* ActorFullInfo.swift in Sources */,
 				93C340932AC5B01D0042B8A0 /* PlusViewControllerNode.swift in Sources */,
 				93C3E12C2AB8D79800471FDF /* SearchViewControllerNode.swift in Sources */,
+				938AF1F42AC71B9400EF6002 /* HomeInnerCellNode.swift in Sources */,
 				93C3E13A2AB90BE300471FDF /* GenreCell.swift in Sources */,
 				9342647B2ABD07FD00E80FDD /* MovieOrTVFullInfo.swift in Sources */,
 				93E329872A98F45300991843 /* Extensions.swift in Sources */,

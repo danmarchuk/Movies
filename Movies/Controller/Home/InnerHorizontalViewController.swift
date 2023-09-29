@@ -54,8 +54,6 @@ extension InnerHorizontalViewController {
         movieInfoViewController.movieOrTvId = String(chosenMovie.id)
         movieInfoViewController.isMovie = chosenMovie.movie
         
-        print(chosenMovie.movie)
-        
         let navController = UINavigationController(rootViewController: movieInfoViewController)
         navController.modalPresentationStyle = .fullScreen
         present(navController, animated: true)
