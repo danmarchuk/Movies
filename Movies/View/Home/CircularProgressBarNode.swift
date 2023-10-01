@@ -12,6 +12,7 @@ class CircularProgressBarNode: ASDisplayNode {
     
     init(value: CGFloat = 50) {
         super.init()
+        backgroundColor = .white
         self.setViewBlock {
             let progressBar = MBCircularProgressBarView()
             progressBar.value = value
@@ -37,7 +38,7 @@ class CircularProgressBarNode: ASDisplayNode {
     
     func updateValue(to value: CGFloat) {
         if let progressBar = progressBarView {
-            Self.configureProgressBar(progressBar, withRating: Double(value / 10))
+            Self.configureProgressBar(progressBar, withRating: value )
         }
     }
     

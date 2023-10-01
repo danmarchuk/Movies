@@ -16,12 +16,12 @@ class BaseTabBarController: ASTabBarController {
         
         // Create instances of the view controllers wrapped in ASNavigationController
         let homeNode = HomeViewControllerNode()
-        let firstVC = ASDKNavigationController(rootViewController: ASDKViewController(node: homeNode))
+        let firstVC = ASDKNavigationController(rootViewController: homeNode)
         
         let searchNode = SearchViewControllerNode()
         let secondVC = ASDKNavigationController(rootViewController: searchNode)
         
-        let plusNode = PlusViewControllerNode()
+        let plusNode = PlusScreen()
         let thirdVC = ASDKNavigationController(rootViewController: ASDKViewController(node: plusNode))
         
         let profileNode = ProfileViewControllerNode()
@@ -33,7 +33,7 @@ class BaseTabBarController: ASTabBarController {
         fourthVC.tabBarItem.image = UIImage(named: "savedImage")?.withRenderingMode(.alwaysTemplate)
         
         // Set tab bar items, images, etc. for each navigation controller here if needed
-        viewControllers = [firstVC, secondVC, thirdVC, fourthVC]
+        viewControllers = [  firstVC, fourthVC]
         tabBar.tintColor = K.tabBarSelectedItemColor
         tabBar.unselectedItemTintColor = .darkGray
         tabBar.barTintColor = K.tabBarTintColor

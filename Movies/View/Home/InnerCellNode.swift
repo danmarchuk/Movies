@@ -10,18 +10,17 @@ import MBCircularProgressBar
 import SnapKit
 import SDWebImage
 
-class HomeInnerCellNode: ASCellNode {
+class InnerCellNode: ASCellNode {
     
     static let identifier = "SearchInnerCell"
     
-    let moviePoster: ASNetworkImageNode = {
-        let node = ASNetworkImageNode()
-        node.image = UIImage(named: "welcomeScreenBackgroundImage")
-        node.cornerRadius = 15
-        node.clipsToBounds = true
-        node.contentMode = .scaleAspectFill
-        return node
-    }()
+    let moviePoster = ASNetworkImageNode().apply {
+        $0.cornerRadius = 15
+        $0.clipsToBounds = true
+        $0.contentMode = .scaleAspectFill
+        $0.placeholderColor = .lightGray
+        $0.placeholderEnabled = true
+    }
     
     let circularProgressBarNode = CircularProgressBarNode()
     
@@ -44,9 +43,10 @@ class HomeInnerCellNode: ASCellNode {
         return node
     }()
     
-    override init() {
+    init(movie: MovieOrTvInfo) {
         super.init()
         automaticallyManagesSubnodes = true
+        configure(withMovie: movie)
     }
     
     func configure(withMovie movie: MovieOrTvInfo) {
@@ -63,9 +63,9 @@ class HomeInnerCellNode: ASCellNode {
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        // Replace the SnapKit constraints with Texture's layout specs
-        // You'll need to adjust this based on your exact needs
-        
+        moviePoster.style.preferredSize = CGSize(width: 126, height: 190)  // example size
+        circularProgressBarNode.style.preferredSize = CGSize(width: 15, height: 15)  // example size
+
         let progressBarWithPercentageStack = ASStackLayoutSpec.horizontal()
         progressBarWithPercentageStack.children = [circularProgressBarNode, percentageLabel]
         

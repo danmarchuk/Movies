@@ -6,12 +6,11 @@
 //
 
 import Foundation
-
 import AsyncDisplayKit
 
-class SearchVerticalTrendingControllerNode: ASCollectionNode, ASCollectionDataSource, ASCollectionDelegateFlowLayout {
+class SearchVerticalTrendingControllerNode: ASCollectionNode, ASCollectionDataSource, ASCollectionDelegate, ASCollectionDelegateFlowLayout {
     
-    var moviesOrTvs: [MovieOrTvInfo] = [] {
+    var moviesOrTvs: [MovieOrTvInfo] = [MovieOrTvInfo(posterUrl: "https://upload.wikimedia.org/wikipedia/ru/3/33/Mad-men-title-card.jpg", title: "mslkmglkmrglkfd", rating: 9.9, id: 999, movie: true, description: "fvlkamrglkfmadflkmglkadfmglkmdfglkmadflkmg")] {
             didSet {
                 reloadData()
             }
@@ -22,10 +21,10 @@ class SearchVerticalTrendingControllerNode: ASCollectionNode, ASCollectionDataSo
         flowLayout.minimumInteritemSpacing = 10
         flowLayout.scrollDirection = .vertical
         super.init(frame: .zero, collectionViewLayout: flowLayout, layoutFacilitator: nil)
-        self.dataSource = self
-        self.delegate = self
-        self.backgroundColor = .white
-        self.view.isScrollEnabled = false
+        dataSource = self
+        delegate = self
+        backgroundColor = .white
+        view.isScrollEnabled = false
     }
     
     
@@ -41,7 +40,6 @@ class SearchVerticalTrendingControllerNode: ASCollectionNode, ASCollectionDataSo
     
     func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
         let movieOrTv = moviesOrTvs[indexPath.row]
-        print("THE CELL IS BEING CONFIGURED")
         return {
             let cell = TrendingCellNode(movieOrTv: movieOrTv)
             return cell

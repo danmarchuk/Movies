@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import LUNSegmentedControl
 
-class SearchMainCell: UICollectionViewCell {
+class HomeMainCell: UICollectionViewCell {
     var segmentedControlElements: [String]? {
         didSet {
             segmentedControll.reloadData()
@@ -31,7 +31,7 @@ class SearchMainCell: UICollectionViewCell {
         segmentedControll.reloadData()
     }
     
-    let mainLabel = UILabel().apply {
+    let sectionNameLabel = UILabel().apply {
         $0.text = "What's Popular"
         $0.font = UIFont(name: "OpenSans-Semibold", size: 18)
         $0.textColor = K.searchBlack
@@ -54,7 +54,7 @@ class SearchMainCell: UICollectionViewCell {
     let innerHorizontalCollectionView = InnerHorizontalViewController()
     
     func configure(withTitle title: String, withContents contents: [MovieOrTvInfo]) {
-        mainLabel.text = title
+        sectionNameLabel.text = title
         innerHorizontalCollectionView.contents = contents
         innerHorizontalCollectionView.collectionView.reloadData()
         segmentedControll.reloadData()
@@ -71,19 +71,18 @@ class SearchMainCell: UICollectionViewCell {
         segmentedControll.layer.borderWidth = 1
         segmentedControll.layer.borderColor = K.gradientColorTwo.cgColor
         segmentedControll.textFont = UIFont(name: "OpenSans-Regular", size: 14)
-//        segmentedControll.applyCornerRadiusToSelectorView = true
         segmentedControll.selectedStateTextColor = .black
         segmentedControll.reloadData()
                 
         backgroundColor = .white
         addSubview(transparentView)
         addSubview(innerHorizontalCollectionView.view)
-        addSubview(mainLabel)
+        addSubview(sectionNameLabel)
         addSubview(seeAllLabel)
         addSubview(segmentedControll)
 
         
-        mainLabel.snp.makeConstraints { make in
+        sectionNameLabel.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.left.right.equalToSuperview().offset(16)
         }
@@ -94,7 +93,7 @@ class SearchMainCell: UICollectionViewCell {
         }
         
         segmentedControll.snp.makeConstraints { make in
-            make.top.equalTo(mainLabel.snp.bottom).offset(16)
+            make.top.equalTo(sectionNameLabel.snp.bottom).offset(16)
             make.left.equalToSuperview().offset(16)
             make.right.equalToSuperview().inset(16)
             make.height.equalTo(44)
@@ -117,7 +116,7 @@ class SearchMainCell: UICollectionViewCell {
     
 }
 
-extension SearchMainCell: LUNSegmentedControlDelegate, LUNSegmentedControlDataSource {
+extension HomeMainCell: LUNSegmentedControlDelegate, LUNSegmentedControlDataSource {
     func numberOfStates(in segmentedControl: LUNSegmentedControl!) -> Int {
         return segmentedControlElements?.count ?? 1
     }
@@ -135,7 +134,5 @@ extension SearchMainCell: LUNSegmentedControlDelegate, LUNSegmentedControlDataSo
     }
 
     func segmentedControl(_ segmentedControl: LUNSegmentedControl!, didChangeStateFromStateAt fromIndex: Int, toStateAt toIndex: Int) {
-//        segmentedControl.textFont = UIFont(name: "OpenSans-Bold", size: 14)
-        
     }
 }

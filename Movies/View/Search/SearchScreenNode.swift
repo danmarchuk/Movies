@@ -26,6 +26,10 @@ final class SearchScreenNode: ASDisplayNode {
 
     override init() {
         super.init()
+    }
+    
+    override func didLoad() {
+        super.didLoad()
         automaticallyManagesSubnodes = true
     }
     
@@ -47,8 +51,6 @@ final class SearchScreenNode: ASDisplayNode {
             alignItems: .stretch,
             children: [fullwidthSearchBar, trendingLabel, verticalCollectionNodeSpec]
         )
-        
-
         
         searchBarNode.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 40)
 

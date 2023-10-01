@@ -11,7 +11,6 @@ import AsyncDisplayKit
 class SearchViewControllerNode: ASDKViewController<SearchScreenNode>, UISearchBarDelegate {
     let searchScreen = SearchScreenNode()
 
-    let actor = ActorScreen()
     var moviesOrTvs: [MovieOrTvInfo] = []
 
     // We initialize ASViewController with our node

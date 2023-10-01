@@ -19,7 +19,6 @@ class HomeViewController: UIViewController {
             self.collectionView.reloadData()
         }
         collectionView.reloadData()
-        
     }
     
     func fetchData(completion: @escaping () -> Void) {
@@ -132,12 +131,11 @@ class HomeViewController: UIViewController {
         layout.scrollDirection = .vertical
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.backgroundColor = .white
-        cv.register(SearchMainCell.self, forCellWithReuseIdentifier: SearchMainCell.identifier)
+        cv.register(HomeMainCell.self, forCellWithReuseIdentifier: HomeMainCell.identifier)
         return cv
     }()
 
     func setupTheCollectionView() {
-        
         collectionView.dataSource = self
         collectionView.delegate = self
         view.addSubview(collectionView)
@@ -156,7 +154,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchMainCell.identifier, for: indexPath) as? SearchMainCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeMainCell.identifier, for: indexPath) as? HomeMainCell else {
             return UICollectionViewCell()
         }
         let section = sections[indexPath.row]
