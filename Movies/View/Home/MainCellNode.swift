@@ -36,29 +36,30 @@ class MainCellNode: ASCellNode {
     }
 
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        let spacer = ASLayoutSpec()
-        spacer.style.flexGrow = 1.0
-        
-        innerHorizontalCollectionNode.style.flexGrow = 1.0
         let cellHeight: CGFloat = 100 // Assuming a fixed height for the cells
         let collectionHeight = cellHeight * CGFloat(innerHorizontalCollectionNode.moviesOrTvs.count)
         innerHorizontalCollectionNode.style.preferredSize = CGSize(width: constrainedSize.max.width, height: collectionHeight)
-        
+        innerHorizontalCollectionNode.style.flexGrow = 1.0
+
+        let spacer = ASLayoutSpec()
+        spacer.style.flexGrow = 1.0
+
         let horizontalStack = ASStackLayoutSpec(direction: .horizontal,
-                                                spacing: 0,
+                                                spacing: 8, // Some spacing can be added if needed
                                                 justifyContent: .start,
                                                 alignItems: .center,
                                                 children: [sectionNameLabel, spacer, seeAllLabel])
         
         let verticalStack = ASStackLayoutSpec(direction: .vertical,
-                                                spacing: 0,
-                                                justifyContent: .start,
-                                                alignItems: .center,
-                                                children: [horizontalStack, innerHorizontalCollectionNode])
+                                              spacing: 16, // Space between label and collection
+                                              justifyContent: .start,
+                                              alignItems: .stretch, // Make sure to stretch the items to full width
+                                              children: [horizontalStack, innerHorizontalCollectionNode])
 
-        let insets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        let insets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16) // Added some horizontal padding
         return ASInsetLayoutSpec(insets: insets, child: verticalStack)
     }
+
     
 }
 

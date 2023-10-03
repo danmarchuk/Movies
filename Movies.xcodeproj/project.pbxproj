@@ -44,6 +44,7 @@
 		938AF23D2AC8650100EF6002 /* HomeMainDisplayNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938AF23C2AC8650100EF6002 /* HomeMainDisplayNode.swift */; };
 		938AF23F2AC865CA00EF6002 /* HomeViewControllerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938AF23E2AC865CA00EF6002 /* HomeViewControllerNode.swift */; };
 		938AF2412AC8928300EF6002 /* PlusScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938AF2402AC8928300EF6002 /* PlusScreen.swift */; };
+		938AF2432ACB024000EF6002 /* MovieScreenNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938AF2422ACB024000EF6002 /* MovieScreenNode.swift */; };
 		93C340882AC3671E0042B8A0 /* SearchVerticalTrendingControllerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C340872AC3671E0042B8A0 /* SearchVerticalTrendingControllerNode.swift */; };
 		93C3408A2AC387AE0042B8A0 /* SearchScreenNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C340892AC387AE0042B8A0 /* SearchScreenNode.swift */; };
 		93C3408C2AC38B050042B8A0 /* SearchBarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3408B2AC38B050042B8A0 /* SearchBarNode.swift */; };
@@ -138,6 +139,7 @@
 		938AF23C2AC8650100EF6002 /* HomeMainDisplayNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainDisplayNode.swift; sourceTree = "<group>"; };
 		938AF23E2AC865CA00EF6002 /* HomeViewControllerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerNode.swift; sourceTree = "<group>"; };
 		938AF2402AC8928300EF6002 /* PlusScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusScreen.swift; sourceTree = "<group>"; };
+		938AF2422ACB024000EF6002 /* MovieScreenNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieScreenNode.swift; sourceTree = "<group>"; };
 		93C340872AC3671E0042B8A0 /* SearchVerticalTrendingControllerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVerticalTrendingControllerNode.swift; sourceTree = "<group>"; };
 		93C340892AC387AE0042B8A0 /* SearchScreenNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenNode.swift; sourceTree = "<group>"; };
 		93C3408B2AC38B050042B8A0 /* SearchBarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarNode.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				93C3E1342AB8F86E00471FDF /* MovieScreen.swift */,
+				938AF2422ACB024000EF6002 /* MovieScreenNode.swift */,
 				93C3E1392AB90BE300471FDF /* GenreCell.swift */,
 				93C3E13F2ABA186D00471FDF /* ActorCell.swift */,
 			);
@@ -776,6 +779,7 @@
 				93E329572A98C9E200991843 /* HomeViewController.swift in Sources */,
 				938AF23F2AC865CA00EF6002 /* HomeViewControllerNode.swift in Sources */,
 				93C3408A2AC387AE0042B8A0 /* SearchScreenNode.swift in Sources */,
+				938AF2432ACB024000EF6002 /* MovieScreenNode.swift in Sources */,
 				93C3E1422ABA1B4100471FDF /* ActorShortInfo.swift in Sources */,
 				9335DF8A2A9E57D300B36397 /* HomeInnerCell.swift in Sources */,
 				934264702ABBC28200E80FDD /* ActingVerticalController.swift in Sources */,

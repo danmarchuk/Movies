@@ -29,10 +29,14 @@ class HomeMainDisplayNode: ASDisplayNode {
     }
 
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        verticalCollectionNode.style.flexGrow = 1.0
-        let cellHeight: CGFloat = 100 // Assuming a fixed height for the cells
+//        verticalCollectionNode.style.flexGrow = 1.0
+//        verticalCollectionNode.style.flexShrink = 1.0
+        
+        let cellHeight: CGFloat = constrainedSize.max.height / 4 // Assuming a fixed height for the cells
         let collectionHeight = cellHeight * CGFloat(verticalCollectionNode.sections.count)
-           verticalCollectionNode.style.preferredSize = CGSize(width: constrainedSize.max.width, height: collectionHeight)
+        verticalCollectionNode.style.preferredSize = CGSize(width: constrainedSize.max.width, height: collectionHeight)
+        verticalCollectionNode.style.flexGrow = 1.0
+
         let verticalStack = ASStackLayoutSpec(direction: .vertical,
                                               spacing: 16,
                                               justifyContent: .start,
@@ -47,4 +51,5 @@ class HomeMainDisplayNode: ASDisplayNode {
 
         return ASWrapperLayoutSpec(layoutElement: scrollNode)
     }
+
 }

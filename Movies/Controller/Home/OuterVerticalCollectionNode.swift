@@ -37,12 +37,12 @@ class OuterVerticalCollectionNode: ASCollectionNode, ASCollectionDelegate, ASCol
     func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode {
         // For demonstration purposes, passing an empty array for contents
         let section = sections[indexPath.row]
-        print(section.categories[0].movies)
+        print(section.name)
         return MainCellNode(withTitle: section.name, withContents: section.categories[0].movies)
     }
     
     func collectionNode(_ collectionNode: ASCollectionNode, constrainedSizeForItemAt indexPath: IndexPath) -> ASSizeRange {
-        let size = CGSize(width: collectionNode.bounds.width, height: collectionNode.bounds.height / 2.8)
+        let size = CGSize(width: collectionNode.bounds.width, height: collectionNode.bounds.height / 4)
         return ASSizeRange(min: size, max: size)
     }
 }
