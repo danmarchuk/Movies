@@ -30,7 +30,7 @@ final class PlusScreen: ASDisplayNode {
         // Set the InnerHorizontalCollectionNode to scroll horizontally
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        innerHorizontalCollectionNode.collectionViewLayout = flowLayout
+        innerHorizontalCollectionNode.node.collectionViewLayout = flowLayout
         
         // Stack label and collection node vertically
         let verticalStack = ASStackLayoutSpec(
@@ -38,11 +38,11 @@ final class PlusScreen: ASDisplayNode {
             spacing: 10,
             justifyContent: .start,
             alignItems: .stretch,
-            children: [labelNode, innerHorizontalCollectionNode]
+            children: [labelNode, innerHorizontalCollectionNode.node]
         )
         
         // Give the horizontal collection node a preferred height (for example 200). You can adjust this value.
-        innerHorizontalCollectionNode.style.height = ASDimension(unit: .points, value: 200)
+        innerHorizontalCollectionNode.node.style.height = ASDimension(unit: .points, value: 200)
         
         return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10), child: verticalStack)
     }

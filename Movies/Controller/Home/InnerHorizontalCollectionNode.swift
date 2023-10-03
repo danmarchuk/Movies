@@ -8,22 +8,29 @@
 import Foundation
 import AsyncDisplayKit
 
-class InnerHorizontalCollectionNode: ASCollectionNode, ASCollectionDataSource, ASCollectionDelegate {
+class InnerHorizontalCollectionNode: ASDKViewController<ASCollectionNode>, ASCollectionDataSource, ASCollectionDelegate {
     
     var moviesOrTvs: [MovieOrTvInfo] = [] {
         didSet {
-            reloadData()
+            node.reloadData()
         }
     }
     
-    init() {
+    
+    override init() {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        super.init(frame: .zero, collectionViewLayout: flowLayout, layoutFacilitator: nil)
-        self.delegate = self
-        self.dataSource = self
-        self.alwaysBounceHorizontal = true
-        self.backgroundColor = .white
+        let collectionNode = ASCollectionNode(collectionViewLayout: flowLayout)
+        super.init(node: collectionNode)
+        
+        node.delegate = self
+        node.dataSource = self
+        node.alwaysBounceHorizontal = true
+        node.backgroundColor = .white
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - ASCollectionDataSource
@@ -46,6 +53,15 @@ class InnerHorizontalCollectionNode: ASCollectionNode, ASCollectionDataSource, A
     // MARK: - ASCollectionDelegate
     
     func collectionNode(_ collectionNode: ASCollectionNode, didSelectItemAt indexPath: IndexPath) {
-        // Handle cell selection if needed
+
+        let chosenMovie = moviesOrTvs[indexPath.row]
+        let movieOrTvVC = MovieOrTvViewControllerNode()
+        movieOrTvVC.movieOrTvId = String(chosenMovie.id)
+        movieOrTvVC.isMovie = chosenMovie.movie
+        let navigationController = ASDKNavigationController(rootViewController: movieOrTvVC)
+
+        present(navigationController, animated: true, completion: nil)
+
     }
 }
+
