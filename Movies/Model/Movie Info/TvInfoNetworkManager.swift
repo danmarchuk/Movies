@@ -34,7 +34,6 @@ class TvInfoNetworkManager {
                 let title = jsonDict["name"] as? String ?? ""
                 let releaseYear = (jsonDict["first_air_date"] as? String)?.prefix(4) ?? ""
                 var rating = jsonDict["vote_average"] as? Double ?? 0.0
-                rating = rating * 10
                 // length
                 guard let lastEpisodeToAirDict = jsonDict["last_episode_to_air"] as? [String: Any] else {return}
                 let length = lastEpisodeToAirDict["runtime"] as? Int ?? 0
@@ -55,16 +54,16 @@ class TvInfoNetworkManager {
                 
                 // Age Rating
                 let resultsInsideReleaseDatesDict = jsonDict["content_ratings"] as? [String: [[String: Any]]]
-                var usRating = ""
+                var usRating = "Unrated"
                 if let resultsArray = resultsInsideReleaseDatesDict?["results"] as? [[String: Any]] {
                     for result in resultsArray {
                         if result["iso_3166_1"] as? String == "US" {
-                            usRating = result["rating"] as? String ?? ""
+                            usRating = result["rating"] as? String ?? "Unrated"
                             break
                         }
                     }
                 } else {
-                    usRating = ""
+                    usRating = "Unrated"
                 }
                 
                 let credits = jsonDict["credits"] as? [String: [[String: Any]]]

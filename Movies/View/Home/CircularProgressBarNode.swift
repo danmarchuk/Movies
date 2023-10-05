@@ -60,7 +60,7 @@ class CircularProgressBarNode: ASDisplayNode {
             progressBar.emptyLineStrokeColor = K.lightRedProgressColor
         }
         
-        progressBar.value = CGFloat(rating * 10)
+        progressBar.value = CGFloat(rating)
     }
 }
 

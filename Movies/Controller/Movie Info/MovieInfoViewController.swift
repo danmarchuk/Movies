@@ -7,9 +7,11 @@
 
 import Foundation
 import UIKit
+import AsyncDisplayKit
 
 class MovieInfoViewController: UIViewController {
     
+    private var backButtonNode: ASButtonNode!
     private var backButton: UIBarButtonItem!
 
     let movieScreen = MovieScreen()

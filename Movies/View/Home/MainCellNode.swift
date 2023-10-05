@@ -36,10 +36,8 @@ class MainCellNode: ASCellNode {
     }
 
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        let cellHeight: CGFloat = 100 // Assuming a fixed height for the cells
-        let collectionHeight = cellHeight * CGFloat(innerHorizontalCollectionNode.moviesOrTvs.count)
-        innerHorizontalCollectionNode.node.style.preferredSize = CGSize(width: constrainedSize.max.width, height: collectionHeight)
-        innerHorizontalCollectionNode.node.style.flexGrow = 1.0
+        // Use the ASRatioLayoutSpec to define a ratio for the innerHorizontalCollectionNode.
+        let ratio = ASRatioLayoutSpec(ratio: 0.7, child: innerHorizontalCollectionNode.node)
 
         let spacer = ASLayoutSpec()
         spacer.style.flexGrow = 1.0
@@ -54,11 +52,12 @@ class MainCellNode: ASCellNode {
                                               spacing: 16, // Space between label and collection
                                               justifyContent: .start,
                                               alignItems: .stretch, // Make sure to stretch the items to full width
-                                              children: [horizontalStack, innerHorizontalCollectionNode.node])
+                                              children: [horizontalStack, ratio]) // Use ratio instead of innerHorizontalCollectionNode.node
 
         let insets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16) // Added some horizontal padding
         return ASInsetLayoutSpec(insets: insets, child: verticalStack)
     }
+
 
     
 }

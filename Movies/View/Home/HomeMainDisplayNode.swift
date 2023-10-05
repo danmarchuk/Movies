@@ -32,10 +32,9 @@ class HomeMainDisplayNode: ASDisplayNode {
 //        verticalCollectionNode.style.flexGrow = 1.0
 //        verticalCollectionNode.style.flexShrink = 1.0
         
-        let cellHeight: CGFloat = constrainedSize.max.height / 4 // Assuming a fixed height for the cells
-        let collectionHeight = cellHeight * CGFloat(verticalCollectionNode.sections.count)
-        verticalCollectionNode.style.preferredSize = CGSize(width: constrainedSize.max.width, height: collectionHeight)
-        verticalCollectionNode.style.flexGrow = 1.0
+
+        verticalCollectionNode.style.preferredSize = CGSize(width: constrainedSize.max.width, height: constrainedSize.max.height)
+//        verticalCollectionNode.style.flexShrink = 1.0
 
         let verticalStack = ASStackLayoutSpec(direction: .vertical,
                                               spacing: 16,

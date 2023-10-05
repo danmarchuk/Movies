@@ -12,8 +12,8 @@ import AsyncDisplayKit
 class MovieOrTvViewControllerNode: ASDKViewController<MovieScreenNode> {
     
     private var backButton: UIBarButtonItem!
-
-    var contents: [MovieOrTvInfo] = []
+    
+    var moviesOrTvs: [MovieOrTvInfo] = []
     var movieOrTvId: String?
     var isMovie: Bool?
     
@@ -31,7 +31,7 @@ class MovieOrTvViewControllerNode: ASDKViewController<MovieScreenNode> {
         super.viewDidLoad()
         
         fetchData {
-//            self.node.recomendationsController.contents = self.contents
+            self.node.recommendationsController.moviesOrTvs = self.moviesOrTvs
             if let movieInfo = self.movieOrTvFullInfo {
                 self.node.configure(withMovieFullInfo: movieInfo)
             }
@@ -68,12 +68,16 @@ class MovieOrTvViewControllerNode: ASDKViewController<MovieScreenNode> {
         }
         
         group.notify(queue: .main) {
-            self.contents = trendingDay
+            self.moviesOrTvs = trendingDay
             completion()
         }
     }
     
     func setupNavigationBar() {
+        navigationController?.navigationBar.barTintColor = .white
+        navigationController?.navigationBar.backgroundColor = .white
+//        navigationController?.navigationBar.isTranslucent = false  // Make it non-translucent
+        
         backButton = UIBarButtonItem(image: UIImage(named: "chevron.left"), style: .plain, target: self, action: #selector(backButtonTapped))
         
         backButton.accessibilityIdentifier = "backArrowButton"

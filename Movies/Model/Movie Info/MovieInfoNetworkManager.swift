@@ -32,7 +32,6 @@ class MovieInfoNetworkManager {
                 let title = jsonDict["original_title"] as? String ?? ""
                 let releaseYear = (jsonDict["release_date"] as? String)?.prefix(4) ?? ""
                 var rating = jsonDict["vote_average"] as? Double ?? 0.0
-                rating = rating * 10
                 let length = jsonDict["runtime"] as? Int ?? 0
                 let poster = jsonDict["backdrop_path"] as? String ?? ""
                 let posterUrl = "https://www.themoviedb.org/t/p/w500/\(poster)"

@@ -55,15 +55,16 @@ class InnerCellNode: ASCellNode {
             .font: UIFont(name: "OpenSans-Semibold", size: 14)!,
             .foregroundColor: K.titleGray
         ])
+
         percentageLabel.attributedText = NSAttributedString(string: "\(Int(movie.rating * 10))%", attributes: [
             .font: UIFont(name: "OpenSans-Regular", size: 14)!,
             .foregroundColor: K.percentageGray
         ])
-        circularProgressBarNode.updateValue(to: movie.rating)
+        circularProgressBarNode.updateValue(to: movie.rating * 10)
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        moviePoster.style.preferredSize = CGSize(width: 126, height: 190)  // example size
+        moviePoster.style.preferredSize = CGSize(width: 126, height: 140)  // example size
         circularProgressBarNode.style.preferredSize = CGSize(width: 15, height: 15)  // example size
 
         let progressBarWithPercentageStack = ASStackLayoutSpec.horizontal()

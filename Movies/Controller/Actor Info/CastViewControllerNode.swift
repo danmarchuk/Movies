@@ -1,20 +1,21 @@
 //
-//  InnerHorizontalViewControllerNode.swift
+//  ActorInfoViewControllerNode.swift
 //  Movies
 //
-//  Created by Данік on 29/09/2023.
+//  Created by Данік on 05/10/2023.
 //
 
 import Foundation
 import AsyncDisplayKit
 
-class InnerHorizontalCollectionNode: ASDKViewController<ASCollectionNode>, ASCollectionDataSource, ASCollectionDelegate {
+class CastViewControllerNode: ASDKViewController<ASCollectionNode>, ASCollectionDataSource, ASCollectionDelegate {
     
-    var moviesOrTvs: [MovieOrTvInfo] = [] {
+    var actorShortInfo: [ActorShortInfo] = [] {
         didSet {
             node.reloadData()
         }
     }
+    
     
     override init() {
         let flowLayout = UICollectionViewFlowLayout()
@@ -35,12 +36,12 @@ class InnerHorizontalCollectionNode: ASDKViewController<ASCollectionNode>, ASCol
     // MARK: - ASCollectionDataSource
     
     func collectionNode(_ collectionNode: ASCollectionNode, numberOfItemsInSection section: Int) -> Int {
-        return moviesOrTvs.count
+        return actorShortInfo.count
     }
     
     func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode {
-        let movie = moviesOrTvs[indexPath.item]
-        let cellNode = InnerCellNode(movie: movie)
+        let actor = actorShortInfo[indexPath.item]
+        let cellNode = ActorCellNode(actor: actor)
         return cellNode
     }
     
@@ -51,17 +52,17 @@ class InnerHorizontalCollectionNode: ASDKViewController<ASCollectionNode>, ASCol
     
     // MARK: - ASCollectionDelegate
     
-    func collectionNode(_ collectionNode: ASCollectionNode, didSelectItemAt indexPath: IndexPath) {
-
-        let chosenMovie = moviesOrTvs[indexPath.row]
-        let movieOrTvVC = MovieOrTvViewControllerNode()
-        movieOrTvVC.movieOrTvId = String(chosenMovie.id)
-        movieOrTvVC.isMovie = chosenMovie.movie
-        let navigationController = ASDKNavigationController(rootViewController: movieOrTvVC)
-        navigationController.modalPresentationStyle = .fullScreen
-
-        present(navigationController, animated: true, completion: nil)
-
-    }
+//    func collectionNode(_ collectionNode: ASCollectionNode, didSelectItemAt indexPath: IndexPath) {
+//
+//        let chosenMovie = actorShortInfo[indexPath.row]
+//        let movieOrTvVC = MovieOrTvViewControllerNode()
+//        movieOrTvVC.movieOrTvId = String(chosenMovie.id)
+//        movieOrTvVC.isMovie = chosenMovie.movie
+//        let navigationController = ASDKNavigationController(rootViewController: movieOrTvVC)
+//        navigationController.modalPresentationStyle = .fullScreen
+//
+//        present(navigationController, animated: true, completion: nil)
+//
+//    }
 }
 
