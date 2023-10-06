@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 import AsyncDisplayKit
 
 final class MovieScreenNode: ASDisplayNode {

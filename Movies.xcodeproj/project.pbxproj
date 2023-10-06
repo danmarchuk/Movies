@@ -18,6 +18,8 @@
 		933C815A2ACE2B4700161574 /* CastViewControllerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933C81592ACE2B4700161574 /* CastViewControllerNode.swift */; };
 		933C815C2ACF518600161574 /* GenreCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933C815B2ACF518600161574 /* GenreCellNode.swift */; };
 		933C815E2ACF533F00161574 /* GenresCollectionNodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933C815D2ACF533F00161574 /* GenresCollectionNodeController.swift */; };
+		933C81602ACF78FE00161574 /* ActorScreenNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933C815F2ACF78FE00161574 /* ActorScreenNode.swift */; };
+		933C81622ACF79A800161574 /* ActorInfoViewControllerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933C81612ACF79A800161574 /* ActorInfoViewControllerNode.swift */; };
 		934264662ABB3FFF00E80FDD /* ActorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934264652ABB3FFF00E80FDD /* ActorScreen.swift */; };
 		934264682ABBA71500E80FDD /* ActorInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934264672ABBA71500E80FDD /* ActorInfoViewController.swift */; };
 		9342646B2ABBA76000E80FDD /* KnownForHorizontalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9342646A2ABBA76000E80FDD /* KnownForHorizontalViewController.swift */; };
@@ -117,6 +119,8 @@
 		933C81592ACE2B4700161574 /* CastViewControllerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastViewControllerNode.swift; sourceTree = "<group>"; };
 		933C815B2ACF518600161574 /* GenreCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCellNode.swift; sourceTree = "<group>"; };
 		933C815D2ACF533F00161574 /* GenresCollectionNodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresCollectionNodeController.swift; sourceTree = "<group>"; };
+		933C815F2ACF78FE00161574 /* ActorScreenNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorScreenNode.swift; sourceTree = "<group>"; };
+		933C81612ACF79A800161574 /* ActorInfoViewControllerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorInfoViewControllerNode.swift; sourceTree = "<group>"; };
 		934264652ABB3FFF00E80FDD /* ActorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorScreen.swift; sourceTree = "<group>"; };
 		934264672ABBA71500E80FDD /* ActorInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorInfoViewController.swift; sourceTree = "<group>"; };
 		9342646A2ABBA76000E80FDD /* KnownForHorizontalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnownForHorizontalViewController.swift; sourceTree = "<group>"; };
@@ -261,9 +265,9 @@
 		934264692ABBA71A00E80FDD /* Actor Info */ = {
 			isa = PBXGroup;
 			children = (
+				933C81612ACF79A800161574 /* ActorInfoViewControllerNode.swift */,
 				934264672ABBA71500E80FDD /* ActorInfoViewController.swift */,
 				9342646A2ABBA76000E80FDD /* KnownForHorizontalViewController.swift */,
-				933C81592ACE2B4700161574 /* CastViewControllerNode.swift */,
 				9342646F2ABBC28200E80FDD /* ActingVerticalController.swift */,
 			);
 			path = "Actor Info";
@@ -272,6 +276,7 @@
 		9342646C2ABBA7E400E80FDD /* ActorScreen */ = {
 			isa = PBXGroup;
 			children = (
+				933C815F2ACF78FE00161574 /* ActorScreenNode.swift */,
 				934264652ABB3FFF00E80FDD /* ActorScreen.swift */,
 				9342646D2ABBA7FC00E80FDD /* KnownForCell.swift */,
 				934264712ABBC2BE00E80FDD /* ActingCell.swift */,
@@ -413,6 +418,7 @@
 			children = (
 				938AF2442ACC54B800EF6002 /* MovieOrTvViewControllerNode.swift */,
 				933C815D2ACF533F00161574 /* GenresCollectionNodeController.swift */,
+				933C81592ACE2B4700161574 /* CastViewControllerNode.swift */,
 				93C3E1432ABA1CA000471FDF /* MovieInfoViewController.swift */,
 				93C3E13B2AB90E3800471FDF /* GenreHorizontalControler.swift */,
 				93615E812ABA1D9900998D55 /* CastHorizontalController.swift */,
@@ -777,6 +783,7 @@
 				93F25CE52AB60DC400028E44 /* BaseTabBarController.swift in Sources */,
 				938AF1F62AC71D0600EF6002 /* CircularProgressBarNode.swift in Sources */,
 				93E329852A98F3AD00991843 /* Constants.swift in Sources */,
+				933C81622ACF79A800161574 /* ActorInfoViewControllerNode.swift in Sources */,
 				93DFD0D02AA7A6920097F9B9 /* HomeMainCell.swift in Sources */,
 				934264782ABD002400E80FDD /* ActorFullInfo.swift in Sources */,
 				93C340932AC5B01D0042B8A0 /* PlusViewControllerNode.swift in Sources */,
@@ -792,6 +799,7 @@
 				938AF23D2AC8650100EF6002 /* HomeMainDisplayNode.swift in Sources */,
 				938AF2412AC8928300EF6002 /* PlusScreen.swift in Sources */,
 				93C340912AC5AF880042B8A0 /* OuterVerticalCollectionNode.swift in Sources */,
+				933C81602ACF78FE00161574 /* ActorScreenNode.swift in Sources */,
 				931A43C72AB148BF002AEFEB /* HomeNetworkManager.swift in Sources */,
 				93E329572A98C9E200991843 /* HomeViewController.swift in Sources */,
 				938AF23F2AC865CA00EF6002 /* HomeViewControllerNode.swift in Sources */,

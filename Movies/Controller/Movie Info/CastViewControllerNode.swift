@@ -52,17 +52,16 @@ class CastViewControllerNode: ASDKViewController<ASCollectionNode>, ASCollection
     
     // MARK: - ASCollectionDelegate
     
-//    func collectionNode(_ collectionNode: ASCollectionNode, didSelectItemAt indexPath: IndexPath) {
-//
-//        let chosenMovie = actorShortInfo[indexPath.row]
-//        let movieOrTvVC = MovieOrTvViewControllerNode()
-//        movieOrTvVC.movieOrTvId = String(chosenMovie.id)
-//        movieOrTvVC.isMovie = chosenMovie.movie
-//        let navigationController = ASDKNavigationController(rootViewController: movieOrTvVC)
-//        navigationController.modalPresentationStyle = .fullScreen
-//
-//        present(navigationController, animated: true, completion: nil)
-//
-//    }
+    func collectionNode(_ collectionNode: ASCollectionNode, didSelectItemAt indexPath: IndexPath) {
+
+        let chosenActor = actorShortInfo[indexPath.row]
+        let actorVC = ActorInfoViewControllerNode()
+        actorVC.actorId = String(chosenActor.id)
+        let navigationController = ASDKNavigationController(rootViewController: actorVC)
+        navigationController.modalPresentationStyle = .fullScreen
+
+        present(navigationController, animated: true, completion: nil)
+
+    }
 }
 
