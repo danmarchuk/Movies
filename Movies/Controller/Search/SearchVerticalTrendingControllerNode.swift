@@ -10,7 +10,7 @@ import AsyncDisplayKit
 
 class SearchVerticalTrendingControllerNode: ASCollectionNode, ASCollectionDataSource, ASCollectionDelegate, ASCollectionDelegateFlowLayout {
     
-    var moviesOrTvs: [MovieOrTvInfo] = [MovieOrTvInfo(posterUrl: "https://upload.wikimedia.org/wikipedia/ru/3/33/Mad-men-title-card.jpg", title: "mslkmglkmrglkfd", rating: 9.9, id: 999, movie: true, description: "fvlkamrglkfmadflkmglkadfmglkmdfglkmadflkmg")] {
+    var moviesOrTvs: [MovieOrTvInfo] = [] {
             didSet {
                 reloadData()
             }

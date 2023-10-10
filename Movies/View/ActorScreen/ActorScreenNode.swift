@@ -9,7 +9,6 @@ import AsyncDisplayKit
 
 final class ActorScreenNode: ASDisplayNode {
     
-    // Texture Nodes
     let actorPhoto = ASNetworkImageNode()
     let actorNameLabel = ASTextNode()
     let jobLabel = ASTextNode()
@@ -18,9 +17,8 @@ final class ActorScreenNode: ASDisplayNode {
     let knownForController = InnerHorizontalCollectionNode()
     let actingLabel = ASTextNode()
     let seeAllActing = ASTextNode()
+    let actingVerticalControllerNode = ActingVerticalControllerNode()
     
-    // ... Add other necessary nodes such as `knownForController` and `actingVerticalController` if they're Texture nodes.
-
     let scrollView: ASScrollNode = {
         let node = ASScrollNode()
         node.automaticallyManagesContentSize = true
@@ -63,13 +61,14 @@ final class ActorScreenNode: ASDisplayNode {
             .font: UIFont(name: "OpenSans-Semibold", size: 14)!,
             .foregroundColor: K.seeAllColor
         ])
-        // ... Continue setting attributes for other nodes
+        actingVerticalControllerNode.actingInfo = movies
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         actorPhoto.style.preferredSize = CGSize(width: constrainedSize.max.width / 3, height: constrainedSize.max.height / 4.5)
         knownForController.node.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 200)
-        knownForController.node.style.flexGrow = 1.0
+        actingVerticalControllerNode.node.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 200)
+//        knownForController.node.style.flexGrow = 1.0
         
         let verticalStack = ASStackLayoutSpec(
             direction: .vertical,
@@ -89,27 +88,26 @@ final class ActorScreenNode: ASDisplayNode {
             children: [ actorPhoto, verticalStack]
         )
         
-        let horizontalStack2 = ASStackLayoutSpec(
-            direction: .horizontal,
-            spacing: 16,
-            justifyContent: .start,
-            alignItems: .start,
-            children: [ actingLabel, seeAllActing]
-        )
+        let spacer = ASLayoutSpec()
+        spacer.style.flexGrow = 1.0
         
-        horizontalStack2.style.flexShrink = 1.0
-        horizontalStack2.style.flexGrow = 1.0
+        let horizontalStack2 = ASStackLayoutSpec.horizontal()
+        horizontalStack2.spacing = 16
+        horizontalStack2.children = [ actingLabel, spacer, seeAllActing]
+        
         
         let mainVerticalStack = ASStackLayoutSpec(
             direction: .vertical,
             spacing: 16,
             justifyContent: .start,
             alignItems: .start,
-            children: [ horizontalStack, knownForLabel, knownForController.node, horizontalStack2 ]
+            children: [ horizontalStack, knownForLabel, knownForController.node, horizontalStack2, actingVerticalControllerNode.node ]
         )
         
         let layout = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16), child: mainVerticalStack)
         
+        scrollView.automaticallyManagesContentSize = true
+        scrollView.automaticallyManagesSubnodes = true
         scrollView.layoutSpecBlock = { node, constrainedSize in
             return layout
         }

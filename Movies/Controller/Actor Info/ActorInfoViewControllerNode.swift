@@ -12,7 +12,7 @@ class ActorInfoViewControllerNode: ASDKViewController<ActorScreenNode> {
     
     private var backButton: UIBarButtonItem!
 
-    var contents: [MovieOrTvInfo] = []
+    var knownFor: [MovieOrTvInfo] = []
     var actorId: String?
     var actorFullInfo: ActorFullInfo?
     
@@ -28,7 +28,7 @@ class ActorInfoViewControllerNode: ASDKViewController<ActorScreenNode> {
         super.viewDidLoad()
 
         fetchData {
-            self.node.knownForController.moviesOrTvs = self.contents
+            self.node.knownForController.moviesOrTvs = self.knownFor
             if let actorInfo = self.actorFullInfo {
                 self.node.configure(withActorInfo: actorInfo, withMovies: actorInfo.credits)
             }
@@ -56,7 +56,7 @@ class ActorInfoViewControllerNode: ASDKViewController<ActorScreenNode> {
         }
         
         group.notify(queue: .main) {
-            self.contents = trendingDay
+            self.knownFor = trendingDay
             completion()
         }
     }
