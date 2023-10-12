@@ -67,8 +67,13 @@ final class ActorScreenNode: ASDisplayNode {
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         actorPhoto.style.preferredSize = CGSize(width: constrainedSize.max.width / 3, height: constrainedSize.max.height / 4.5)
         knownForController.node.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 200)
-        actingVerticalControllerNode.node.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 200)
-//        knownForController.node.style.flexGrow = 1.0
+
+        let cellHeight = Int(actingVerticalControllerNode.node.bounds.height / K.actingCellHeightDivider)
+        
+        let actingVerticalHeight = CGFloat(actingVerticalControllerNode.actingInfo.count * cellHeight)
+
+        actingVerticalControllerNode.node.style.preferredSize = CGSize(width: constrainedSize.max.width, height: actingVerticalHeight)
+        actingVerticalControllerNode.node.style.flexGrow = 1.0
         
         let verticalStack = ASStackLayoutSpec(
             direction: .vertical,

@@ -32,13 +32,10 @@
 		9342647B2ABD07FD00E80FDD /* MovieOrTVFullInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9342647A2ABD07FD00E80FDD /* MovieOrTVFullInfo.swift */; };
 		9342647F2ABDE6A900E80FDD /* MovieInfoNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9342647E2ABDE6A900E80FDD /* MovieInfoNetworkManager.swift */; };
 		934264812ABE2B9B00E80FDD /* ActorInfoNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934264802ABE2B9B00E80FDD /* ActorInfoNetworkManager.swift */; };
-		934264832ABEBC1A00E80FDD /* SearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934264822ABEBC1A00E80FDD /* SearchScreen.swift */; };
-		934264862ABECB9F00E80FDD /* SearchVerticalTrendingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934264852ABECB9F00E80FDD /* SearchVerticalTrendingController.swift */; };
 		934264882ABEF9E500E80FDD /* TvInfoNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934264872ABEF9E500E80FDD /* TvInfoNetworkManager.swift */; };
 		9342648A2AC1FFDB00E80FDD /* GradientSegmentedNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934264892AC1FFDB00E80FDD /* GradientSegmentedNode.swift */; };
 		9349EDD82AABC1CC00F8D960 /* MovieOrTvInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9349EDD72AABC1CC00F8D960 /* MovieOrTvInfo.swift */; };
 		93615E822ABA1D9900998D55 /* CastHorizontalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93615E812ABA1D9900998D55 /* CastHorizontalController.swift */; };
-		936A404B2A9F8ECE00470194 /* TrendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936A404A2A9F8ECE00470194 /* TrendingCell.swift */; };
 		936ABBC62A9A463500A8466B /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 936ABBC32A9A463500A8466B /* OpenSans-Bold.ttf */; };
 		936ABBC72A9A463500A8466B /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 936ABBC42A9A463500A8466B /* OpenSans-SemiBold.ttf */; };
 		936ABBC82A9A463500A8466B /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 936ABBC52A9A463500A8466B /* OpenSans-Regular.ttf */; };
@@ -135,14 +132,11 @@
 		9342647A2ABD07FD00E80FDD /* MovieOrTVFullInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieOrTVFullInfo.swift; sourceTree = "<group>"; };
 		9342647E2ABDE6A900E80FDD /* MovieInfoNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoNetworkManager.swift; sourceTree = "<group>"; };
 		934264802ABE2B9B00E80FDD /* ActorInfoNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorInfoNetworkManager.swift; sourceTree = "<group>"; };
-		934264822ABEBC1A00E80FDD /* SearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreen.swift; sourceTree = "<group>"; };
-		934264852ABECB9F00E80FDD /* SearchVerticalTrendingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVerticalTrendingController.swift; sourceTree = "<group>"; };
 		934264872ABEF9E500E80FDD /* TvInfoNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvInfoNetworkManager.swift; sourceTree = "<group>"; };
 		934264892AC1FFDB00E80FDD /* GradientSegmentedNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientSegmentedNode.swift; sourceTree = "<group>"; };
 		9349EDD62AA7BDB100F8D960 /* Movies-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Movies-Bridging-Header.h"; sourceTree = "<group>"; };
 		9349EDD72AABC1CC00F8D960 /* MovieOrTvInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieOrTvInfo.swift; sourceTree = "<group>"; };
 		93615E812ABA1D9900998D55 /* CastHorizontalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastHorizontalController.swift; sourceTree = "<group>"; };
-		936A404A2A9F8ECE00470194 /* TrendingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCell.swift; sourceTree = "<group>"; };
 		936ABBC32A9A463500A8466B /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		936ABBC42A9A463500A8466B /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		936ABBC52A9A463500A8466B /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
@@ -257,10 +251,10 @@
 			isa = PBXGroup;
 			children = (
 				938AF2422ACB024000EF6002 /* MovieScreenNode.swift */,
-				93C3E1342AB8F86E00471FDF /* MovieScreen.swift */,
 				933C81572ACE277500161574 /* ActorCellNode.swift */,
 				933C815B2ACF518600161574 /* GenreCellNode.swift */,
 				93C3E1392AB90BE300471FDF /* GenreCell.swift */,
+				93C3E1342AB8F86E00471FDF /* MovieScreen.swift */,
 				93C3E13F2ABA186D00471FDF /* ActorCell.swift */,
 			);
 			path = MovieScreen;
@@ -325,8 +319,6 @@
 				93C340892AC387AE0042B8A0 /* SearchScreenNode.swift */,
 				93C3408B2AC38B050042B8A0 /* SearchBarNode.swift */,
 				933318722AC23CC700AD3B2A /* TrendingCellNode.swift */,
-				936A404A2A9F8ECE00470194 /* TrendingCell.swift */,
-				934264822ABEBC1A00E80FDD /* SearchScreen.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -389,7 +381,6 @@
 			children = (
 				93C3E12B2AB8D79800471FDF /* SearchViewControllerNode.swift */,
 				93C340872AC3671E0042B8A0 /* SearchVerticalTrendingControllerNode.swift */,
-				934264852ABECB9F00E80FDD /* SearchVerticalTrendingController.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -816,7 +807,6 @@
 				93C3E1422ABA1B4100471FDF /* ActorShortInfo.swift in Sources */,
 				9335DF8A2A9E57D300B36397 /* HomeInnerCell.swift in Sources */,
 				934264702ABBC28200E80FDD /* ActingVerticalController.swift in Sources */,
-				934264862ABECB9F00E80FDD /* SearchVerticalTrendingController.swift in Sources */,
 				93C3E12E2AB8D7BD00471FDF /* PlusViewController.swift in Sources */,
 				9342646B2ABBA76000E80FDD /* KnownForHorizontalViewController.swift in Sources */,
 				93C3408C2AC38B050042B8A0 /* SearchBarNode.swift in Sources */,
@@ -825,14 +815,12 @@
 				93C3E1302AB8D7DB00471FDF /* ProfileViewControllerNode.swift in Sources */,
 				9342647F2ABDE6A900E80FDD /* MovieInfoNetworkManager.swift in Sources */,
 				934264662ABB3FFF00E80FDD /* ActorScreen.swift in Sources */,
-				936A404B2A9F8ECE00470194 /* TrendingCell.swift in Sources */,
 				93E329832A98CAB200991843 /* MoviesLaunchScreen.swift in Sources */,
 				933C81582ACE277500161574 /* ActorCellNode.swift in Sources */,
 				93E3298D2A98F81300991843 /* WelcomeScreen.swift in Sources */,
 				93E329532A98C9E200991843 /* AppDelegate.swift in Sources */,
 				93744B762AAE510E00A78E00 /* Section.swift in Sources */,
 				93C340882AC3671E0042B8A0 /* SearchVerticalTrendingControllerNode.swift in Sources */,
-				934264832ABEBC1A00E80FDD /* SearchScreen.swift in Sources */,
 				933C815C2ACF518600161574 /* GenreCellNode.swift in Sources */,
 				93744B7B2AAF600400A78E00 /* BaseListController.swift in Sources */,
 				934264722ABBC2BE00E80FDD /* ActingCell.swift in Sources */,

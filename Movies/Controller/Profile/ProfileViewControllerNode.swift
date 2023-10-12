@@ -10,6 +10,5 @@ import AsyncDisplayKit
 
 class ProfileViewControllerNode: ASDisplayNode {
     
-    let searchScreen = SearchScreen()
     
 }

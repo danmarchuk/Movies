@@ -33,7 +33,7 @@ class BaseTabBarController: ASTabBarController {
         fourthVC.tabBarItem.image = UIImage(named: "savedImage")?.withRenderingMode(.alwaysTemplate)
         
         // Set tab bar items, images, etc. for each navigation controller here if needed
-        viewControllers = [  firstVC, fourthVC]
+        viewControllers = [  firstVC, secondVC, thirdVC, fourthVC]
         tabBar.tintColor = K.tabBarSelectedItemColor
         tabBar.unselectedItemTintColor = .darkGray
         tabBar.barTintColor = K.tabBarTintColor

@@ -49,5 +49,5 @@ struct K {
     static let veryLightGraycolor = UIColor(red: 151/255.0, green: 151/255.0, blue: 151/255.0, alpha: 1.0)
 
 
-
+    static let actingCellHeightDivider = 5.5
 }

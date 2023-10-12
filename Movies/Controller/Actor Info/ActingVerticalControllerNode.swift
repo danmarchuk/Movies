@@ -8,7 +8,7 @@ import Foundation
 import AsyncDisplayKit
 
 class ActingVerticalControllerNode: ASDKViewController<ASCollectionNode>, ASCollectionDataSource, ASCollectionDelegate {
-    
+        
     var actingInfo: [ActingInfo] = [] {
         didSet {
             node.reloadData()
@@ -25,6 +25,7 @@ class ActingVerticalControllerNode: ASDKViewController<ASCollectionNode>, ASColl
         node.alwaysBounceHorizontal = true
         node.backgroundColor = .white
         node.view.isScrollEnabled = false
+
     }
     
     required init?(coder: NSCoder) {
@@ -44,7 +45,7 @@ class ActingVerticalControllerNode: ASDKViewController<ASCollectionNode>, ASColl
     }
     
     func collectionNode(_ collectionNode: ASCollectionNode, constrainedSizeForItemAt indexPath: IndexPath) -> ASSizeRange {
-        let size = CGSize(width: collectionNode.bounds.width, height: collectionNode.bounds.height / 10)
+        let size = CGSize(width: collectionNode.bounds.width, height: collectionNode.bounds.height / K.actingCellHeightDivider)
         return ASSizeRange(min: size, max: size)
     }
     
