@@ -37,7 +37,6 @@ class OuterVerticalCollectionNode: ASCollectionNode, ASCollectionDelegate, ASCol
     func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode {
         // For demonstration purposes, passing an empty array for contents
         let section = sections[indexPath.row]
-        print(section.name)
         return MainCellNode(withTitle: section.name, withContents: section.categories[0].movies)
     }
     

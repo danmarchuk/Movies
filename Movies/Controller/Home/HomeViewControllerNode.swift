@@ -56,6 +56,7 @@ class HomeViewControllerNode: ASDKViewController<HomeMainDisplayNode> {
         group.enter()
         networkManager.fetchContent(from: "https://api.themoviedb.org/3/tv/popular") { contents in
             popularStreaming = contents
+            print(contents)
             group.leave()
         }
         group.enter()

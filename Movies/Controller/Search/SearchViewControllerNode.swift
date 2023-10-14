@@ -10,8 +10,9 @@ import AsyncDisplayKit
 
 class SearchViewControllerNode: ASDKViewController<SearchScreenNode>, UISearchBarDelegate {
     let searchScreen = SearchScreenNode()
-
+    
     var moviesOrTvs: [MovieOrTvInfo] = []
+    var searchSections: [SearchSection] = []
 
     // We initialize ASViewController with our node
     override init() {
@@ -56,10 +57,64 @@ extension SearchViewControllerNode {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = true
+
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            searchScreen.isSearching = false
+        } else {
+            searchScreen.isSearching = true
+            fetchSearchResults(withQuery: searchText) {
+                self.node.searchOuterController.sections = self.searchSections
+            }
+        }
     }
 
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
     }
+    
+    func fetchSearchResults(withQuery query: String, completion: @escaping () -> Void) {
+        let group = DispatchGroup()
+        var sections : [SearchSection] = []
+        let networkManager = SearchMovieNetworkManager()
+        let actorNetworkManager = SearchActorNetworkManager()
+        let companyNetworkManager = SearchCompanyNetworkManager()
+        
+        group.enter()
+        networkManager.fetchAMovieOrTv(withTitle: query, movieOrTv: "movie") { movies in
+            let movieSection = SearchSection(sectionName: "Movies", moviesOrTvs: movies)
+            sections.append(movieSection)
+            group.leave()
+        }
+        
+        group.enter()
+        networkManager.fetchAMovieOrTv(withTitle: query, movieOrTv: "tv") { tvs in
+            let tvSection = SearchSection(sectionName: "TV Shows", moviesOrTvs: tvs)
+            sections.append(tvSection)
+            group.leave()
+        }
+
+        group.enter()
+        actorNetworkManager.fetchPeople(withName: query) { actors in
+            let peopleSection = SearchSection(sectionName: "People", actors: actors)
+            sections.append(peopleSection)
+            group.leave()
+        }
+        
+        group.enter()
+        companyNetworkManager.fetchCompanies(withName: query) { companies in
+            let companiesSection = SearchSection(sectionName: "Companies", companies: companies)
+            sections.append(companiesSection)
+            group.leave()
+        }
+        
+        group.notify(queue: .main) {
+            self.searchSections = sections
+            completion()
+        }
+    }
+    
 }
 

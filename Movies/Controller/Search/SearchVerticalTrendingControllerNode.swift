@@ -48,7 +48,7 @@ class SearchVerticalTrendingControllerNode: ASCollectionNode, ASCollectionDataSo
     
     // MARK: - ASCollectionDelegateFlowLayout methods
     func collectionNode(_ collectionNode: ASCollectionNode, constrainedSizeForItemAt indexPath: IndexPath) -> ASSizeRange {
-        let itemSize = CGSize(width: collectionNode.bounds.width, height: 80)
+        let itemSize = CGSize(width: collectionNode.bounds.width, height: collectionNode.bounds.height / K.searchTrendingCellHeightDivider)
         return ASSizeRange(min: itemSize, max: itemSize)
     }
 }
