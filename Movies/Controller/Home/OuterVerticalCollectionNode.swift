@@ -41,7 +41,7 @@ class OuterVerticalCollectionNode: ASCollectionNode, ASCollectionDelegate, ASCol
     }
     
     func collectionNode(_ collectionNode: ASCollectionNode, constrainedSizeForItemAt indexPath: IndexPath) -> ASSizeRange {
-        let size = CGSize(width: collectionNode.bounds.width, height: collectionNode.bounds.height / 5)
+        let size = CGSize(width: collectionNode.bounds.width, height: collectionNode.bounds.height / 3)
         return ASSizeRange(min: size, max: size)
     }
 }

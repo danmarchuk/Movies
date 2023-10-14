@@ -29,8 +29,6 @@ class HomeMainDisplayNode: ASDisplayNode {
     }
 
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-//        verticalCollectionNode.style.flexGrow = 1.0
-//        verticalCollectionNode.style.flexShrink = 1.0
         
 
         verticalCollectionNode.style.preferredSize = CGSize(width: constrainedSize.max.width, height: constrainedSize.max.height)

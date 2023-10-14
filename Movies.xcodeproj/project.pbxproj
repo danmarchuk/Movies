@@ -13,7 +13,6 @@
 		931A43CA2AB148EA002AEFEB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 931A43C92AB148EA002AEFEB /* Alamofire */; };
 		933318732AC23CC700AD3B2A /* TrendingCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933318722AC23CC700AD3B2A /* TrendingCellNode.swift */; };
 		9335DF882A9E449700B36397 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9335DF872A9E449700B36397 /* OpenSans-ExtraBold.ttf */; };
-		9335DF8A2A9E57D300B36397 /* HomeInnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9335DF892A9E57D300B36397 /* HomeInnerCell.swift */; };
 		933C7FA52AD05E0B00693A15 /* ActingCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933C7FA42AD05E0B00693A15 /* ActingCellNode.swift */; };
 		933C7FA72AD0600B00693A15 /* ActingVerticalControllerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933C7FA62AD0600B00693A15 /* ActingVerticalControllerNode.swift */; };
 		933C81582ACE277500161574 /* ActorCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933C81572ACE277500161574 /* ActorCellNode.swift */; };
@@ -115,7 +114,6 @@
 		931A43C62AB148BF002AEFEB /* HomeNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNetworkManager.swift; sourceTree = "<group>"; };
 		933318722AC23CC700AD3B2A /* TrendingCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCellNode.swift; sourceTree = "<group>"; };
 		9335DF872A9E449700B36397 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
-		9335DF892A9E57D300B36397 /* HomeInnerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInnerCell.swift; sourceTree = "<group>"; };
 		933C7FA42AD05E0B00693A15 /* ActingCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActingCellNode.swift; sourceTree = "<group>"; };
 		933C7FA62AD0600B00693A15 /* ActingVerticalControllerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActingVerticalControllerNode.swift; sourceTree = "<group>"; };
 		933C81572ACE277500161574 /* ActorCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorCellNode.swift; sourceTree = "<group>"; };
@@ -525,7 +523,6 @@
 				938AF23A2AC774CB00EF6002 /* MainCellNode.swift */,
 				938AF1F32AC71B9400EF6002 /* InnerCellNode.swift */,
 				938AF1F52AC71D0600EF6002 /* CircularProgressBarNode.swift */,
-				9335DF892A9E57D300B36397 /* HomeInnerCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -818,7 +815,6 @@
 				938AF2432ACB024000EF6002 /* MovieScreenNode.swift in Sources */,
 				933C7FA52AD05E0B00693A15 /* ActingCellNode.swift in Sources */,
 				93C3E1422ABA1B4100471FDF /* ActorShortInfo.swift in Sources */,
-				9335DF8A2A9E57D300B36397 /* HomeInnerCell.swift in Sources */,
 				93C3E12E2AB8D7BD00471FDF /* PlusViewController.swift in Sources */,
 				93D438C42ADAB5D300784DAF /* SearchActorNetworkManager.swift in Sources */,
 				9342646B2ABBA76000E80FDD /* KnownForHorizontalViewController.swift in Sources */,

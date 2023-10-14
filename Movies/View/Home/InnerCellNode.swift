@@ -64,7 +64,7 @@ class InnerCellNode: ASCellNode {
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        moviePoster.style.preferredSize = CGSize(width: 126, height: 140)  // example size
+        moviePoster.style.preferredSize = CGSize(width: constrainedSize.max.width, height: constrainedSize.max.height / 1.5)
         circularProgressBarNode.style.preferredSize = CGSize(width: 15, height: 15)  // example size
 
         let progressBarWithPercentageStack = ASStackLayoutSpec.horizontal()
