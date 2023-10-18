@@ -28,7 +28,6 @@ class SearchInnerController: ASDKViewController<ASCollectionNode>, ASCollectionD
         }
     }
     
-    
     override init() {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
@@ -39,7 +38,6 @@ class SearchInnerController: ASDKViewController<ASCollectionNode>, ASCollectionD
         node.alwaysBounceHorizontal = true
         node.backgroundColor = .white
         node.view.isScrollEnabled = false
-
     }
     
     required init?(coder: NSCoder) {
@@ -55,7 +53,7 @@ class SearchInnerController: ASDKViewController<ASCollectionNode>, ASCollectionD
     func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode {
         if let movies = movieOrTvInfo, indexPath.item < movies.count {
             let movie = movies[indexPath.item]
-            let cellNode = SearchInnerCellNode(info: movie)
+            let cellNode = MovieOrTvCellNode(info: movie)
             return cellNode
         } else if let people = peopleInfo, indexPath.item < people.count {
             let person = people[indexPath.item]
@@ -77,16 +75,22 @@ class SearchInnerController: ASDKViewController<ASCollectionNode>, ASCollectionD
     
     // MARK: - ASCollectionDelegate
     
-//    func collectionNode(_ collectionNode: ASCollectionNode, didSelectItemAt indexPath: IndexPath) {
-//
-//        let chosenMovie = moviesOrTvs[indexPath.row]
-//        let movieOrTvVC = MovieOrTvViewControllerNode()
-//        movieOrTvVC.movieOrTvId = String(chosenMovie.id)
-//        movieOrTvVC.isMovie = chosenMovie.movie
-//        let navigationController = ASDKNavigationController(rootViewController: movieOrTvVC)
-//        navigationController.modalPresentationStyle = .fullScreen
-//
-//        present(navigationController, animated: true, completion: nil)
-//
-//    }
+    func collectionNode(_ collectionNode: ASCollectionNode, didSelectItemAt indexPath: IndexPath) {
+        if let movies = movieOrTvInfo, indexPath.item < movies.count {
+            let chosenMovie = movies[indexPath.row]
+            let movieOrTvVC = MovieOrTvViewControllerNode()
+            movieOrTvVC.movieOrTvId = String(chosenMovie.id)
+            movieOrTvVC.isMovie = chosenMovie.movie
+            let navigationController = ASDKNavigationController(rootViewController: movieOrTvVC)
+            navigationController.modalPresentationStyle = .fullScreen
+            present(navigationController, animated: true, completion: nil)
+        } else if let people = peopleInfo, indexPath.item < people.count {
+            let chosenPerson = people[indexPath.item]
+            let actorVC = ActorInfoViewControllerNode()
+            actorVC.actorId = String(chosenPerson.id)
+            let navigationController = ASDKNavigationController(rootViewController: actorVC)
+            navigationController.modalPresentationStyle = .fullScreen
+            present(navigationController, animated: true, completion: nil)
+        }
+    }
 }

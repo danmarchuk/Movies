@@ -20,7 +20,7 @@ class GenresCollectionNodeController: ASDKViewController<ASCollectionNode>, ASCo
     override init() {
         // Create a flow layout for the collection
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .vertical
+        flowLayout.scrollDirection = .horizontal
         flowLayout.itemSize = CGSize(width: 100, height: 40) // example item size
         flowLayout.minimumLineSpacing = 10
         flowLayout.minimumInteritemSpacing = 10

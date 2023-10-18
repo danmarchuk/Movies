@@ -7,7 +7,7 @@
 
 import AsyncDisplayKit
 
-class SearchInnerCellNode: ASCellNode {
+class MovieOrTvCellNode: ASCellNode {
     
     // Texture Nodes
     let moviePoster = ASNetworkImageNode().apply {

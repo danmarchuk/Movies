@@ -8,27 +8,32 @@
 import Foundation
 import AsyncDisplayKit
 
-class OuterVerticalCollectionNode: ASCollectionNode, ASCollectionDelegate, ASCollectionDataSource {
+class OuterVerticalCollectionNode: ASDKViewController<ASCollectionNode>, ASCollectionDelegate, ASCollectionDataSource {
     
     var sections: [Section] = [] {
         didSet {
-            reloadData()
+            node.reloadData()
         }
     }
     
-    init() {
+    override init() {
         let flowLayout = UICollectionViewFlowLayout()
-        super.init(frame: .zero, collectionViewLayout: flowLayout, layoutFacilitator: nil)
-        self.delegate = self
-        self.dataSource = self
-        view.isScrollEnabled = false
+        flowLayout.scrollDirection = .vertical
+        let collectionNode = ASCollectionNode(collectionViewLayout: flowLayout)
+        super.init(node: collectionNode)
+        node.delegate = self
+        node.dataSource = self
+        node.alwaysBounceHorizontal = true
+        node.backgroundColor = .white
+        node.view.isScrollEnabled = false
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - ASCollectionDataSource
     
-    func numberOfSections(in collectionNode: ASCollectionNode) -> Int {
-        return 1
-    }
 
     func collectionNode(_ collectionNode: ASCollectionNode, numberOfItemsInSection section: Int) -> Int {
         return sections.count
@@ -41,7 +46,7 @@ class OuterVerticalCollectionNode: ASCollectionNode, ASCollectionDelegate, ASCol
     }
     
     func collectionNode(_ collectionNode: ASCollectionNode, constrainedSizeForItemAt indexPath: IndexPath) -> ASSizeRange {
-        let size = CGSize(width: collectionNode.bounds.width, height: collectionNode.bounds.height / 3)
+        let size = CGSize(width: collectionNode.bounds.width, height: collectionNode.bounds.height / K.homeMainCellHeightDivider)
         return ASSizeRange(min: size, max: size)
     }
 }

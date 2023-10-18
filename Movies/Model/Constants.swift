@@ -53,5 +53,6 @@ struct K {
     static let searchTrendingCellHeightDivider: CGFloat = 20.0
     
     static let searchResultsCellHeightDivider: CGFloat = 4
+    static let homeMainCellHeightDivider: CGFloat = 4
     
 }

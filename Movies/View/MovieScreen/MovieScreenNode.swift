@@ -19,7 +19,15 @@ final class MovieScreenNode: ASDisplayNode {
     let circularProgressBar = CircularProgressBarNode()
     let percentageLabel = ASTextNode()
     let length = ASTextNode()
-    let moviePoster = ASNetworkImageNode()
+    let moviePoster = ASNetworkImageNode().apply {
+        $0.placeholderColor = .lightGray
+        $0.placeholderEnabled = true
+        $0.defaultImage = UIImage(named: "placeholderMovie")
+    }
+    var playButton = ASButtonNode().apply {
+        $0.setImage(UIImage(named: "playButtonImage"), for: .normal)
+    }
+    let moviePosterAndPlayButtonContainer = ASDisplayNode()
     let genres = GenresCollectionNodeController()
     let descriptionLabel = ASTextNode()
     let movieOrSeriesCastLabel = ASTextNode()
@@ -43,7 +51,15 @@ final class MovieScreenNode: ASDisplayNode {
     let seeAllSocialLabel = ASTextNode()
     let socialDescriptionLabel = ASTextNode()
     let mediaLabel = ASTextNode()
-    let moviePoster2 = ASNetworkImageNode()
+    let moviePoster2 = ASNetworkImageNode().apply {
+        $0.placeholderColor = .lightGray
+        $0.placeholderEnabled = true
+        $0.defaultImage = UIImage(named: "placeholderMovie")
+    }
+    var playButton2 = ASButtonNode().apply {
+        $0.setImage(UIImage(named: "playButtonImage"), for: .normal)
+    }
+    let moviePosterAndPlayButtonContainer2 = ASDisplayNode()
     let grayDivider2 = ASDisplayNode()
     let recommendationsLabel = ASTextNode()
     let recommendationsController = InnerHorizontalCollectionNode()
@@ -57,6 +73,11 @@ final class MovieScreenNode: ASDisplayNode {
         favouriteButton = createCustomButtonNode(withImage: UIImage(named: "rate") ?? UIImage(), withText: "Favourite")
         watchlistButton = createCustomButtonNode(withImage: UIImage(named: "rate") ?? UIImage(), withText: "Watchlist")
         rateButton = createCustomButtonNode(withImage: UIImage(named: "rate") ?? UIImage(), withText: "Rate")
+    }
+    
+    
+    @objc func playButtonTapped() {
+        print("Any")
     }
     
     func createCustomButtonNode(withImage image: UIImage, withText text: String) -> ASButtonNode {
@@ -195,11 +216,18 @@ final class MovieScreenNode: ASDisplayNode {
                 .font: UIFont(name: "OpenSans-Semibold", size: 18)!,
                 .foregroundColor: K.movieScreenDarkBlueTextColor
             ])
-            currentSeasonCountLabel.isHidden = true
-            yearAndEpisodesLabel.isHidden = true
-            currentSeasonLabel.isHidden = true
-            currentSeasonImage.isHidden = true
-            seeAllSeasonsLabel.isHidden = true
+            
+            currentSeasonCountLabel.removeFromSupernode()
+            yearAndEpisodesLabel.removeFromSupernode()
+            currentSeasonLabel.removeFromSupernode()
+            currentSeasonImage.removeFromSupernode()
+            seeAllSeasonsLabel.removeFromSupernode()
+            
+//            currentSeasonCountLabel.isHidden = true
+//            yearAndEpisodesLabel.isHidden = true
+//            currentSeasonLabel.isHidden = true
+//            currentSeasonImage.isHidden = true
+//            seeAllSeasonsLabel.isHidden = true
         }
         
         socialLabel.attributedText = NSAttributedString(string: "Social", attributes: [
@@ -226,14 +254,15 @@ final class MovieScreenNode: ASDisplayNode {
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+
         let mainStack = ASStackLayoutSpec.vertical()
         mainStack.spacing = 16
         mainStack.children = [
             titleAndYearSpec(constrainedSize),
             ageAndProgressSpec(constrainedSize),
-            moviePosterSpec(constrainedSize),
+            createMoviePosterWithPlayButton(constrainedSize),
             stackAfterThePosterSpec(constrainedSize),
-            moviePoster2Spec(constrainedSize),
+            createMoviePosterWithPlayButton2(constrainedSize),
             stackAfterThePoster2Spec(constrainedSize)
         ]
 
@@ -245,6 +274,45 @@ final class MovieScreenNode: ASDisplayNode {
         
         return ASWrapperLayoutSpec(layoutElement: scrollNode)
     }
+    
+    
+    func createMoviePosterWithPlayButton(_ constrainedSize: ASSizeRange) -> ASDisplayNode {
+        moviePoster.contentMode = .scaleAspectFill
+        moviePoster.style.preferredSize = CGSize(width: constrainedSize.max.width, height: UIScreen.main.bounds.height * 0.25)
+        
+        // Add the moviePoster and playButton as children to the container
+        moviePosterAndPlayButtonContainer.automaticallyManagesSubnodes = true
+        moviePosterAndPlayButtonContainer.layoutSpecBlock = { _, _ in
+            let centeringStack = ASStackLayoutSpec.vertical()
+            centeringStack.justifyContent = .center
+            centeringStack.alignItems = .center
+            centeringStack.children = [self.playButton]
+
+            return ASOverlayLayoutSpec(child: self.moviePoster, overlay: centeringStack)
+        }
+
+        return moviePosterAndPlayButtonContainer
+    }
+    
+    func createMoviePosterWithPlayButton2(_ constrainedSize: ASSizeRange) -> ASDisplayNode {
+        moviePoster2.contentMode = .scaleAspectFill
+        moviePoster2.style.preferredSize = CGSize(width: constrainedSize.max.width, height: UIScreen.main.bounds.height * 0.25)
+        
+        // Add the moviePoster and playButton as children to the container
+        moviePosterAndPlayButtonContainer2.automaticallyManagesSubnodes = true
+        moviePosterAndPlayButtonContainer2.layoutSpecBlock = { _, _ in
+            let centeringStack = ASStackLayoutSpec.vertical()
+            centeringStack.justifyContent = .center
+            centeringStack.alignItems = .center
+            centeringStack.children = [self.playButton2]
+
+            return ASOverlayLayoutSpec(child: self.moviePoster2, overlay: centeringStack)
+        }
+
+        return moviePosterAndPlayButtonContainer2
+    }
+    
+
 
     private func titleAndYearSpec(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let spec = ASStackLayoutSpec.horizontal()
@@ -271,11 +339,6 @@ final class MovieScreenNode: ASDisplayNode {
         return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16), child: spec)
     }
 
-    private func moviePosterSpec(_ constrainedSize: ASSizeRange) -> ASNetworkImageNode {
-        moviePoster.contentMode = .scaleAspectFill
-        moviePoster.style.preferredSize = CGSize(width: constrainedSize.max.width, height: UIScreen.main.bounds.height * 0.25)
-        return moviePoster
-    }
 
     private func stackAfterThePosterSpec(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let stack = ASStackLayoutSpec.vertical()
@@ -355,10 +418,10 @@ final class MovieScreenNode: ASDisplayNode {
         return spec
     }
 
-    private func moviePoster2Spec(_ constrainedSize: ASSizeRange) -> ASNetworkImageNode {
-        moviePoster2.style.preferredSize = CGSize(width: constrainedSize.max.width, height: UIScreen.main.bounds.height * 0.25)
-        return moviePoster2
-    }
+//    private func moviePoster2Spec(_ constrainedSize: ASSizeRange) -> ASNetworkImageNode {
+//        moviePoster2.style.preferredSize = CGSize(width: constrainedSize.max.width, height: UIScreen.main.bounds.height * 0.25)
+//        return moviePoster2
+//    }
     
     private func stackAfterThePoster2Spec(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let stack = ASStackLayoutSpec.vertical()
@@ -374,7 +437,5 @@ final class MovieScreenNode: ASDisplayNode {
         ]
         return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16), child: stack)
     }
-
-
 }
 

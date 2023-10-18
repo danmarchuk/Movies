@@ -9,7 +9,12 @@ import AsyncDisplayKit
 
 final class ActorScreenNode: ASDisplayNode {
     
-    let actorPhoto = ASNetworkImageNode()
+    let actorPhoto = ASNetworkImageNode().apply {
+        $0.placeholderColor = .lightGray
+        $0.placeholderEnabled = true
+        $0.defaultImage = UIImage(named: "placeholder_image") // Set your placeholder image here
+    }
+    
     let actorNameLabel = ASTextNode()
     let jobLabel = ASTextNode()
     let biographyLabel = ASTextNode()
@@ -69,8 +74,10 @@ final class ActorScreenNode: ASDisplayNode {
         knownForController.node.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 200)
 
         let cellHeight = Int(actingVerticalControllerNode.node.bounds.height / K.actingCellHeightDivider)
+        let totalSpacing: CGFloat = 11 * CGFloat(actingVerticalControllerNode.actingInfo.count) // spacing between cells
         
-        let actingVerticalHeight = CGFloat(actingVerticalControllerNode.actingInfo.count * cellHeight)
+        
+        let actingVerticalHeight = CGFloat(actingVerticalControllerNode.actingInfo.count * cellHeight) + totalSpacing
 
         actingVerticalControllerNode.node.style.preferredSize = CGSize(width: constrainedSize.max.width, height: actingVerticalHeight)
         actingVerticalControllerNode.node.style.flexGrow = 1.0

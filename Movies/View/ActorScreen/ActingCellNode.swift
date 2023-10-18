@@ -9,15 +9,13 @@ import AsyncDisplayKit
 
 class ActingCellNode: ASCellNode {
     
-    // Texture Nodes
-    let moviePoster: ASNetworkImageNode = {
-        let node = ASNetworkImageNode()
-        node.contentMode = .scaleAspectFill
-        node.style.preferredSize = CGSize(width: UIScreen.main.bounds.width / 9, height: 150)
-        node.cornerRadius = 5
-        node.clipsToBounds = true
-        return node
-    }()
+    let moviePoster = ASNetworkImageNode().apply {
+        $0.placeholderColor = .lightGray
+        $0.placeholderEnabled = true
+        $0.contentMode = .scaleAspectFill
+        $0.cornerRadius = 5
+        $0.clipsToBounds = true
+    }
     
     let movieTitleLabel: ASTextNode = {
         let node = ASTextNode()
