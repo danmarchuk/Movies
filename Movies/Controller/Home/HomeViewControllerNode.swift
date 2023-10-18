@@ -28,8 +28,8 @@ class HomeViewControllerNode: ASDKViewController<HomeMainDisplayNode> {
         super.viewDidLoad()
         fetchData {
             self.node.verticalCollectionNode.sections = self.sections
-            
         }
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     func fetchData(completion: @escaping () -> Void) {

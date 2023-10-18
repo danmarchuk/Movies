@@ -12,7 +12,7 @@ class CircularProgressBarNode: ASDisplayNode {
     
     init(value: CGFloat = 50) {
         super.init()
-        backgroundColor = .white
+        backgroundColor = .clear
         self.setViewBlock {
             let progressBar = MBCircularProgressBarView()
             progressBar.value = value

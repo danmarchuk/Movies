@@ -9,6 +9,16 @@ import Foundation
 import AsyncDisplayKit
 
 class HomeMainDisplayNode: ASDisplayNode {
+    
+    let backgroundImageNode = ASImageNode().apply {
+        $0.image = UIImage(named: "rickBackgroundImage")
+        $0.contentMode = .scaleAspectFill
+    }
+    
+    let gradientNode = ASDisplayNode().apply {
+        $0.backgroundColor = .clear
+    }
+    
     let movieButton = ASButtonNode().apply {
         $0.setTitle("Movie", with: UIFont(name: "OpenSans-SemiBold", size: 14), with: K.searchBlack, for: .normal)
     }
@@ -33,9 +43,40 @@ class HomeMainDisplayNode: ASDisplayNode {
         super.init()
         backgroundColor = .white
         automaticallyManagesSubnodes = true
+        addSubnode(backgroundImageNode)
+    }
+    
+    override func layout() {
+        super.layout()
+        applyGradient(to: backgroundImageNode)
+    }
+    
+    // Function to apply gradient to the given node
+    private func applyGradient(to node: ASDisplayNode) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = backgroundImageNode.bounds
+        gradientLayer.colors = [
+            UIColor(red: 0.35, green: 0.78, blue: 0.98, alpha: 0.5).cgColor,
+            UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+        ]
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+
+        backgroundImageNode.layer.addSublayer(gradientLayer)
     }
 
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+        
+        // Calculate the height for the background image (3/5 of the screen height)
+        backgroundImageNode.style.preferredSize = CGSize(width: constrainedSize.max.width, height: constrainedSize.max.height * 3 / 5)
+        
+        let spacer = ASLayoutSpec()
+        spacer.style.flexGrow = 1.0
+        
+        let backgroundSpec = ASStackLayoutSpec()
+
+        backgroundSpec.children = [backgroundImageNode, spacer]
+        let scrollNodeLayoutSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: -70, left: 0, bottom: 0, right: 0), child: backgroundSpec)
         
         let cellHeight = Int(verticalCollectionNode.node.bounds.height / K.homeMainCellHeightDivider)
         let totalSpacing: CGFloat = 100 * CGFloat(4) // spacing between cells
@@ -43,6 +84,7 @@ class HomeMainDisplayNode: ASDisplayNode {
 
         verticalCollectionNode.node.style.preferredSize = CGSize(width: constrainedSize.max.width, height: verticalCollectionNodeHeight)
         verticalCollectionNode.node.style.flexGrow = 1.0
+        verticalCollectionNode.node.backgroundColor = .clear
         
         let horizontalButtonStack = ASStackLayoutSpec(direction: .horizontal,
                                                       spacing: 30,
@@ -55,14 +97,17 @@ class HomeMainDisplayNode: ASDisplayNode {
                                               justifyContent: .start,
                                               alignItems: .stretch,
                                               children: [horizontalButtonStack, verticalCollectionNode.node])
+        
+        let overlaySpec = ASOverlayLayoutSpec(child: scrollNodeLayoutSpec, overlay: verticalStack)
 
         scrollNode.automaticallyManagesContentSize = true
         scrollNode.automaticallyManagesSubnodes = true
         scrollNode.layoutSpecBlock = { (_, _) -> ASLayoutSpec in
-            return verticalStack
+            return overlaySpec
         }
-
+        
         return ASWrapperLayoutSpec(layoutElement: scrollNode)
+
     }
 
 }

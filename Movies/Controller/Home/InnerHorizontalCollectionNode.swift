@@ -25,7 +25,7 @@ class InnerHorizontalCollectionNode: ASDKViewController<ASCollectionNode>, ASCol
         node.delegate = self
         node.dataSource = self
         node.alwaysBounceHorizontal = true
-        node.backgroundColor = .white
+        node.backgroundColor = .clear
     }
     
     required init?(coder: NSCoder) {
