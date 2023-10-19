@@ -20,7 +20,7 @@ class HomeMainDisplayNode: ASDisplayNode {
     }
     
     let movieButton = ASButtonNode().apply {
-        $0.setTitle("Movie", with: UIFont(name: "OpenSans-SemiBold", size: 14), with: K.searchBlack, for: .normal)
+        $0.setTitle("Movies", with: UIFont(name: "OpenSans-SemiBold", size: 14), with: K.searchBlack, for: .normal)
     }
     
     let tvShowsButton = ASButtonNode().apply {

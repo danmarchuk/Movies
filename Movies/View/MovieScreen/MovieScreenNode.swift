@@ -63,61 +63,43 @@ final class MovieScreenNode: ASDisplayNode {
     let grayDivider2 = ASDisplayNode()
     let recommendationsLabel = ASTextNode()
     let recommendationsController = InnerHorizontalCollectionNode()
-    var myLitsButton = ASButtonNode()
-    var favouriteButton = ASButtonNode()
-    var watchlistButton = ASButtonNode()
-    var rateButton = ASButtonNode()
-    
-    func configureButtons() {
-        myLitsButton = createCustomButtonNode(withImage: UIImage(named: "rate") ?? UIImage(), withText: "My Lists")
-        favouriteButton = createCustomButtonNode(withImage: UIImage(named: "rate") ?? UIImage(), withText: "Favourite")
-        watchlistButton = createCustomButtonNode(withImage: UIImage(named: "rate") ?? UIImage(), withText: "Watchlist")
-        rateButton = createCustomButtonNode(withImage: UIImage(named: "rate") ?? UIImage(), withText: "Rate")
+
+    let myLitsButton = ASButtonNode().apply {
+        $0.setTitle("My Lists", with: UIFont(name: "OpenSans-Regular", size: 14), with: K.searchBlack, for: .normal)
+        $0.setImage(UIImage(named: "list"), for: .normal)
+        $0.cornerRadius = 5
+        $0.borderWidth = 1
+        $0.laysOutHorizontally = false
+        $0.borderColor = K.movieScreenBorderColor
+    }
+    var favouriteButton = ASButtonNode().apply {
+        $0.setTitle("Favourite", with: UIFont(name: "OpenSans-Regular", size: 14), with: K.searchBlack, for: .normal)
+        $0.setImage(UIImage(named: "fav"), for: .normal)
+        $0.cornerRadius = 5
+        $0.borderWidth = 1
+        $0.laysOutHorizontally = false
+        $0.borderColor = K.movieScreenBorderColor
+    }
+    var watchlistButton = ASButtonNode().apply {
+        $0.setTitle("Watchlist", with: UIFont(name: "OpenSans-Regular", size: 14), with: K.searchBlack, for: .normal)
+        $0.setImage(UIImage(named: "watch"), for: .normal)
+        $0.cornerRadius = 5
+        $0.borderWidth = 1
+        $0.laysOutHorizontally = false
+        $0.borderColor = K.movieScreenBorderColor
+    }
+    var rateButton = ASButtonNode().apply {
+        $0.setTitle("Rate", with: UIFont(name: "OpenSans-Regular", size: 14), with: K.searchBlack, for: .normal)
+        $0.setImage(UIImage(named: "rate"), for: .normal)
+        $0.cornerRadius = 5
+        $0.borderWidth = 1
+        $0.laysOutHorizontally = false
+        $0.borderColor = K.movieScreenBorderColor
     }
     
-    
-    @objc func playButtonTapped() {
-        print("Any")
-    }
-    
-    func createCustomButtonNode(withImage image: UIImage, withText text: String) -> ASButtonNode {
-        let buttonNode = ASButtonNode()
-        
-        // Set button properties
-        buttonNode.backgroundColor = .clear
-        buttonNode.cornerRadius = 5
-        buttonNode.borderWidth = 1
-        buttonNode.borderColor = K.movieScreenBorderColor
-
-        // Create an image node
-        let imageNode = ASImageNode()
-        imageNode.image = image
-        imageNode.contentMode = .scaleAspectFit
-        imageNode.style.preferredSize = CGSize(width: 20, height: 20)
-
-        // Create a text node for text
-        let textNode = ASTextNode()
-        textNode.attributedText = NSAttributedString(string: text, attributes: [
-            .font: UIFont(name: "OpenSans-Regular", size: 14)!,
-            .foregroundColor: K.movieScreenDarkBlueTextColor
-        ])
-
-        // Create a vertical stack layout
-        let stackLayout = ASStackLayoutSpec.vertical()
-        stackLayout.alignItems = .center
-        stackLayout.spacing = 8.0
-
-        // Add image and text nodes to the stack layout
-        stackLayout.children = [imageNode, textNode]
-        buttonNode.style.preferredSize = CGSize(width: 50, height: 50)
-        // Set the stack layout as the button's content
-
-        return buttonNode
-    }
 
     override init() {
         super.init()
-        configureButtons()
         automaticallyManagesSubnodes = true
         backgroundColor = .white
         
@@ -352,11 +334,18 @@ final class MovieScreenNode: ASDisplayNode {
             rateButton
         ]
 
-        buttonsStack.spacing = 8 // or your desired spacing
+        myLitsButton.style.preferredSize = CGSize(width: constrainedSize.max.width / 5, height: constrainedSize.max.width / 5 - 10)
+        favouriteButton.style.preferredSize = CGSize(width: constrainedSize.max.width / 5, height: constrainedSize.max.width / 5 - 10)
+        watchlistButton.style.preferredSize = CGSize(width: constrainedSize.max.width / 5, height: constrainedSize.max.width / 5 - 10)
+        rateButton.style.preferredSize = CGSize(width: constrainedSize.max.width / 5, height: constrainedSize.max.width / 5 - 10)
+        
+//        buttonsStack.spacing = 15 // or your desired spacing
         buttonsStack.justifyContent = .spaceBetween // space them evenly
         
-        buttonsStack.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 65)
+//        buttonsStack.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 65)
         buttonsStack.style.flexGrow = 1.0
+        
+        let buttonStackSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: buttonsStack)
         
         genres.node.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 30)
         genres.node.style.flexGrow = 1.0
@@ -367,7 +356,7 @@ final class MovieScreenNode: ASDisplayNode {
         stack.children = [
             genres.node,
             descriptionLabel,
-            buttonsStack,
+            buttonStackSpec,
             seriesCastSpec(),
             castController.node,
             currentSeasonSpec(),
