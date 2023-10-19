@@ -339,10 +339,7 @@ final class MovieScreenNode: ASDisplayNode {
         watchlistButton.style.preferredSize = CGSize(width: constrainedSize.max.width / 5, height: constrainedSize.max.width / 5 - 10)
         rateButton.style.preferredSize = CGSize(width: constrainedSize.max.width / 5, height: constrainedSize.max.width / 5 - 10)
         
-//        buttonsStack.spacing = 15 // or your desired spacing
         buttonsStack.justifyContent = .spaceBetween // space them evenly
-        
-//        buttonsStack.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 65)
         buttonsStack.style.flexGrow = 1.0
         
         let buttonStackSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: buttonsStack)
@@ -352,13 +349,14 @@ final class MovieScreenNode: ASDisplayNode {
         
         castController.node.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 200)
         castController.node.style.flexGrow = 1.0
+        let castControllerSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: -16, bottom: 0, right: -16), child: castController.node)
         
         stack.children = [
             genres.node,
             descriptionLabel,
             buttonStackSpec,
             seriesCastSpec(),
-            castController.node,
+            castControllerSpec,
             currentSeasonSpec(),
             seasonImageAndDetailsSpec(),
             dividerSpec(constrainedSize, grayDivider),

@@ -16,6 +16,7 @@ class CastViewControllerNode: ASDKViewController<ASCollectionNode>, ASCollection
         }
     }
     
+    let ghostCell = ASCellNode()
     
     override init() {
         let flowLayout = UICollectionViewFlowLayout()
@@ -26,6 +27,8 @@ class CastViewControllerNode: ASDKViewController<ASCollectionNode>, ASCollection
         node.delegate = self
         node.dataSource = self
         node.alwaysBounceHorizontal = true
+        node.view.showsVerticalScrollIndicator = false
+        node.view.showsHorizontalScrollIndicator = false
         node.backgroundColor = .white
     }
     
@@ -36,32 +39,44 @@ class CastViewControllerNode: ASDKViewController<ASCollectionNode>, ASCollection
     // MARK: - ASCollectionDataSource
     
     func collectionNode(_ collectionNode: ASCollectionNode, numberOfItemsInSection section: Int) -> Int {
-        return actorShortInfo.count
+        return actorShortInfo.count + 1
     }
     
     func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode {
-        let actor = actorShortInfo[indexPath.item]
-        let cellNode = ActorCellNode(actor: actor)
-        return cellNode
+        if indexPath.item == 0 {
+            // Handle the ghost cell, e.g., display a placeholder at the beginning
+            return ghostCell
+        } else if indexPath.item <= actorShortInfo.count {
+            let actor = actorShortInfo[indexPath.item - 1]
+            let cellNode = ActorCellNode(actor: actor)
+            return cellNode
+        } else {
+            return ASCellNode()
+        }
     }
     
     func collectionNode(_ collectionNode: ASCollectionNode, constrainedSizeForItemAt indexPath: IndexPath) -> ASSizeRange {
-        let size = CGSize(width: collectionNode.bounds.width / 3, height: collectionNode.bounds.height)
-        return ASSizeRange(min: size, max: size)
+        if indexPath.item == 0 {
+            let size = CGSize(width: 7, height: collectionNode.bounds.height)
+            return ASSizeRange(min: size, max: size)
+        } else {
+            let size = CGSize(width: collectionNode.bounds.width / 4.5, height: collectionNode.bounds.height)
+            return ASSizeRange(min: size, max: size)
+        }
     }
     
     // MARK: - ASCollectionDelegate
     
     func collectionNode(_ collectionNode: ASCollectionNode, didSelectItemAt indexPath: IndexPath) {
-
-        let chosenActor = actorShortInfo[indexPath.row]
-        let actorVC = ActorInfoViewControllerNode()
-        actorVC.actorId = String(chosenActor.id)
-        let navigationController = ASDKNavigationController(rootViewController: actorVC)
-        navigationController.modalPresentationStyle = .fullScreen
-
-        present(navigationController, animated: true, completion: nil)
-
+        if indexPath.item > 0 && indexPath.item <= actorShortInfo.count {
+            let chosenActor = actorShortInfo[indexPath.item - 1]
+            let actorVC = ActorInfoViewControllerNode()
+            actorVC.actorId = String(chosenActor.id)
+            let navigationController = ASDKNavigationController(rootViewController: actorVC)
+            navigationController.modalPresentationStyle = .fullScreen
+            present(navigationController, animated: true, completion: nil)
+        }
+        
     }
 }
 

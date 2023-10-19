@@ -48,13 +48,15 @@ class MainCellNode: ASCellNode {
                                                 alignItems: .center,
                                                 children: [sectionNameLabel, spacer, seeAllLabel])
         
+        let horizontalStackSpec =  ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16), child: horizontalStack)
+        
         let verticalStack = ASStackLayoutSpec(direction: .vertical,
                                               spacing: 16, // Space between label and collection
                                               justifyContent: .start,
                                               alignItems: .stretch, // Make sure to stretch the items to full width
-                                              children: [horizontalStack, ratio]) // Use ratio instead of innerHorizontalCollectionNode.node
+                                              children: [horizontalStackSpec, ratio]) // Use ratio instead of innerHorizontalCollectionNode.node
 
-        let insets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16) // Added some horizontal padding
+        let insets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) // Added some horizontal padding
         return ASInsetLayoutSpec(insets: insets, child: verticalStack)
     }
 

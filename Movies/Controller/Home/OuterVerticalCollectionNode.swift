@@ -21,6 +21,8 @@ class OuterVerticalCollectionNode: ASDKViewController<ASCollectionNode>, ASColle
         flowLayout.scrollDirection = .vertical
         let collectionNode = ASCollectionNode(collectionViewLayout: flowLayout)
         super.init(node: collectionNode)
+        node.view.showsVerticalScrollIndicator = false
+        node.view.showsHorizontalScrollIndicator = false
         node.delegate = self
         node.dataSource = self
         node.alwaysBounceHorizontal = true
