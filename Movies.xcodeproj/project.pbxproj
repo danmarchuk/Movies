@@ -30,6 +30,7 @@
 		934264812ABE2B9B00E80FDD /* ActorInfoNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934264802ABE2B9B00E80FDD /* ActorInfoNetworkManager.swift */; };
 		934264882ABEF9E500E80FDD /* TvInfoNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934264872ABEF9E500E80FDD /* TvInfoNetworkManager.swift */; };
 		9342648A2AC1FFDB00E80FDD /* GradientSegmentedNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934264892AC1FFDB00E80FDD /* GradientSegmentedNode.swift */; };
+		9347459D2AE15E6900286FAC /* BetterSegmentedControl in Frameworks */ = {isa = PBXBuildFile; productRef = 9347459C2AE15E6900286FAC /* BetterSegmentedControl */; };
 		9349EDD82AABC1CC00F8D960 /* MovieOrTvInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9349EDD72AABC1CC00F8D960 /* MovieOrTvInfo.swift */; };
 		936ABBC62A9A463500A8466B /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 936ABBC32A9A463500A8466B /* OpenSans-Bold.ttf */; };
 		936ABBC72A9A463500A8466B /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 936ABBC42A9A463500A8466B /* OpenSans-SemiBold.ttf */; };
@@ -46,6 +47,7 @@
 		938AF2432ACB024000EF6002 /* MovieScreenNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938AF2422ACB024000EF6002 /* MovieScreenNode.swift */; };
 		938AF2452ACC54B800EF6002 /* MovieOrTvViewControllerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 938AF2442ACC54B800EF6002 /* MovieOrTvViewControllerNode.swift */; };
 		939386722AD8233D00BA1757 /* MovieOrTvCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939386712AD8233D00BA1757 /* MovieOrTvCellNode.swift */; };
+		939C4B612AE30F7D00B93099 /* CustomSegmentedControlNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 939C4B602AE30F7D00B93099 /* CustomSegmentedControlNode.swift */; };
 		93C340882AC3671E0042B8A0 /* SearchVerticalTrendingControllerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C340872AC3671E0042B8A0 /* SearchVerticalTrendingControllerNode.swift */; };
 		93C3408A2AC387AE0042B8A0 /* SearchScreenNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C340892AC387AE0042B8A0 /* SearchScreenNode.swift */; };
 		93C3408C2AC38B050042B8A0 /* SearchBarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C3408B2AC38B050042B8A0 /* SearchBarNode.swift */; };
@@ -148,6 +150,7 @@
 		938AF2422ACB024000EF6002 /* MovieScreenNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieScreenNode.swift; sourceTree = "<group>"; };
 		938AF2442ACC54B800EF6002 /* MovieOrTvViewControllerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieOrTvViewControllerNode.swift; sourceTree = "<group>"; };
 		939386712AD8233D00BA1757 /* MovieOrTvCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieOrTvCellNode.swift; sourceTree = "<group>"; };
+		939C4B602AE30F7D00B93099 /* CustomSegmentedControlNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControlNode.swift; sourceTree = "<group>"; };
 		93C340872AC3671E0042B8A0 /* SearchVerticalTrendingControllerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVerticalTrendingControllerNode.swift; sourceTree = "<group>"; };
 		93C340892AC387AE0042B8A0 /* SearchScreenNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenNode.swift; sourceTree = "<group>"; };
 		93C3408B2AC38B050042B8A0 /* SearchBarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarNode.swift; sourceTree = "<group>"; };
@@ -204,6 +207,7 @@
 				93C3408F2AC49EE80042B8A0 /* SHSearchBar in Frameworks */,
 				93E3298A2A98F56400991843 /* SnapKit in Frameworks */,
 				25269EA5DC7D7F2725B973A6 /* Pods_Movies.framework in Frameworks */,
+				9347459D2AE15E6900286FAC /* BetterSegmentedControl in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +527,7 @@
 				938AF23A2AC774CB00EF6002 /* MainCellNode.swift */,
 				938AF1F32AC71B9400EF6002 /* InnerCellNode.swift */,
 				938AF1F52AC71D0600EF6002 /* CircularProgressBarNode.swift */,
+				939C4B602AE30F7D00B93099 /* CustomSegmentedControlNode.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -549,6 +554,7 @@
 				93E329892A98F56400991843 /* SnapKit */,
 				931A43C92AB148EA002AEFEB /* Alamofire */,
 				93C3408E2AC49EE80042B8A0 /* SHSearchBar */,
+				9347459C2AE15E6900286FAC /* BetterSegmentedControl */,
 			);
 			productName = Movies;
 			productReference = 93E3294F2A98C9E200991843 /* Movies.app */;
@@ -629,6 +635,7 @@
 				93E329882A98F56400991843 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				931A43C82AB148EA002AEFEB /* XCRemoteSwiftPackageReference "Alamofire" */,
 				93C3408D2AC49EE80042B8A0 /* XCRemoteSwiftPackageReference "SHSearchBar" */,
+				9347459B2AE15E6900286FAC /* XCRemoteSwiftPackageReference "BetterSegmentedControl" */,
 			);
 			productRefGroup = 93E329502A98C9E200991843 /* Products */;
 			projectDirPath = "";
@@ -837,6 +844,7 @@
 				934264722ABBC2BE00E80FDD /* ActingCell.swift in Sources */,
 				9342646E2ABBA7FC00E80FDD /* KnownForCell.swift in Sources */,
 				938AF2452ACC54B800EF6002 /* MovieOrTvViewControllerNode.swift in Sources */,
+				939C4B612AE30F7D00B93099 /* CustomSegmentedControlNode.swift in Sources */,
 				93D438C22ADA1BAF00784DAF /* SearchMovieNetworkManager.swift in Sources */,
 				9349EDD82AABC1CC00F8D960 /* MovieOrTvInfo.swift in Sources */,
 				93E329552A98C9E200991843 /* SceneDelegate.swift in Sources */,
@@ -1202,6 +1210,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		9347459B2AE15E6900286FAC /* XCRemoteSwiftPackageReference "BetterSegmentedControl" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gmarm/BetterSegmentedControl";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		93C3408D2AC49EE80042B8A0 /* XCRemoteSwiftPackageReference "SHSearchBar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Blackjacx/SHSearchBar";
@@ -1225,6 +1241,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 931A43C82AB148EA002AEFEB /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		9347459C2AE15E6900286FAC /* BetterSegmentedControl */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9347459B2AE15E6900286FAC /* XCRemoteSwiftPackageReference "BetterSegmentedControl" */;
+			productName = BetterSegmentedControl;
 		};
 		93C3408E2AC49EE80042B8A0 /* SHSearchBar */ = {
 			isa = XCSwiftPackageProductDependency;

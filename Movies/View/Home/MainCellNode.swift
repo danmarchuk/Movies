@@ -9,12 +9,14 @@ import Foundation
 import AsyncDisplayKit
 import LUNSegmentedControl
 import SnapKit
+import BetterSegmentedControl
 
 class MainCellNode: ASCellNode {
     
     private let sectionNameLabel = ASTextNode()
     private let seeAllLabel = ASTextNode()
     let innerHorizontalCollectionNode = InnerHorizontalCollectionNode()
+    
 
 
     init(withTitle title: String, withContents moviesOrTvs: [MovieOrTvInfo]) {
