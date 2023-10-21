@@ -28,8 +28,11 @@ struct K {
     
     // SearchCell constants
     static let seeAllColor = UIColor(red: 0.0, green: 0.7, blue: 0.9, alpha: 1.0)
+    
+    // CustomSegmentedControlNodeColors
     static let gradientColorOne =  UIColor(red: 0.56, green: 0.81, blue: 0.63, alpha: 1.0)
     static let gradientColorTwo =  UIColor(red: 0.24, green: 0.75, blue: 0.79, alpha: 1.0)
+    static let segmentedControlBorderColor = UIColor(red: 0.35, green: 0.78, blue: 0.98, alpha: 1).cgColor
     
     // TabBar
     static let tabBarSelectedItemColor = UIColor(red: 0/255, green: 179/255, blue: 229/255, alpha: 1)
@@ -53,6 +56,6 @@ struct K {
     static let searchTrendingCellHeightDivider: CGFloat = 20.0
     
     static let searchResultsCellHeightDivider: CGFloat = 4
-    static let homeMainCellHeightDivider: CGFloat = 4
+    static let homeMainCellHeightDivider: CGFloat = 3.5
     
 }

@@ -10,19 +10,34 @@ import AsyncDisplayKit
 import LUNSegmentedControl
 import SnapKit
 import BetterSegmentedControl
+import TTSegmentedControl
 
 class MainCellNode: ASCellNode {
     
     private let sectionNameLabel = ASTextNode()
     private let seeAllLabel = ASTextNode()
     let innerHorizontalCollectionNode = InnerHorizontalCollectionNode()
-    
+    let segmentedControl = CustomSegmentedControlNode(items: [])
+    var categories: [Category] = []
 
 
-    init(withTitle title: String, withContents moviesOrTvs: [MovieOrTvInfo]) {
+    init(withSection section: Section) {
         super.init()
         automaticallyManagesSubnodes = true
-        configure(withTitle: title, withContents: moviesOrTvs)
+        let title = section.name
+        let movies = section.categories[0].movies
+        categories = section.categories
+        configure(withTitle: title, withContents: movies)
+        
+        segmentedControl.segmentedControl.delegate = self
+        
+        var categoryNames: [String] = []
+        for category in section.categories {
+            categoryNames.append(category.name)
+        }
+        
+        segmentedControl.updateValues(withItems: categoryNames)
+
     }
     
     func configure(withTitle title: String, withContents moviesOrTvs: [MovieOrTvInfo]) {
@@ -39,11 +54,15 @@ class MainCellNode: ASCellNode {
 
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         // Use the ASRatioLayoutSpec to define a ratio for the innerHorizontalCollectionNode.
-        let ratio = ASRatioLayoutSpec(ratio: 0.7, child: innerHorizontalCollectionNode.node)
+//        let ratio = ASRatioLayoutSpec(ratio: 0.7, child: innerHorizontalCollectionNode.node)
+        innerHorizontalCollectionNode.node.style.preferredSize = CGSize(width: constrainedSize.max.width, height: constrainedSize.max.height/1.3)
 
         let spacer = ASLayoutSpec()
         spacer.style.flexGrow = 1.0
-
+        
+        segmentedControl.style.preferredSize = CGSize(width: constrainedSize.max.width, height: constrainedSize.max.height/7.5)
+        let segmentedControlSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16), child: segmentedControl)
+        
         let horizontalStack = ASStackLayoutSpec(direction: .horizontal,
                                                 spacing: 8, // Some spacing can be added if needed
                                                 justifyContent: .start,
@@ -56,13 +75,17 @@ class MainCellNode: ASCellNode {
                                               spacing: 16, // Space between label and collection
                                               justifyContent: .start,
                                               alignItems: .stretch, // Make sure to stretch the items to full width
-                                              children: [horizontalStackSpec, ratio]) // Use ratio instead of innerHorizontalCollectionNode.node
+                                              children: [horizontalStackSpec, segmentedControlSpec , innerHorizontalCollectionNode.node]) // Use ratio instead of innerHorizontalCollectionNode.node
 
         let insets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) // Added some horizontal padding
         return ASInsetLayoutSpec(insets: insets, child: verticalStack)
     }
+}
 
-
+extension MainCellNode: TTSegmentedControlDelegate {
     
+    func segmentedView(_ view: TTSegmentedControl, didEndAt index: Int) {
+        innerHorizontalCollectionNode.moviesOrTvs = categories[index].movies
+    }
 }
 

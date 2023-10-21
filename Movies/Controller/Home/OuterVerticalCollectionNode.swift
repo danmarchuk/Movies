@@ -28,6 +28,7 @@ class OuterVerticalCollectionNode: ASDKViewController<ASCollectionNode>, ASColle
         node.alwaysBounceHorizontal = true
         node.backgroundColor = .white
         node.view.isScrollEnabled = false
+        
     }
     
     required init?(coder: NSCoder) {
@@ -44,7 +45,8 @@ class OuterVerticalCollectionNode: ASDKViewController<ASCollectionNode>, ASColle
     func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode {
         // For demonstration purposes, passing an empty array for contents
         let section = sections[indexPath.row]
-        return MainCellNode(withTitle: section.name, withContents: section.categories[0].movies)
+        
+        return MainCellNode(withSection: section)
     }
     
     func collectionNode(_ collectionNode: ASCollectionNode, constrainedSizeForItemAt indexPath: IndexPath) -> ASSizeRange {

@@ -105,6 +105,7 @@ class HomeMainDisplayNode: ASDisplayNode {
         scrollNode.layoutSpecBlock = { (_, _) -> ASLayoutSpec in
             return overlaySpec
         }
+        scrollNode.style.preferredSize = CGSize(width: constrainedSize.max.width, height: verticalCollectionNodeHeight)
         
         return ASWrapperLayoutSpec(layoutElement: scrollNode)
 

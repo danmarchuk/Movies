@@ -11,6 +11,7 @@
 		92840E0FB07EBEB104C78BE4 /* Pods_MoviesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F924BBF71308E5119AD1382 /* Pods_MoviesTests.framework */; };
 		931A43C72AB148BF002AEFEB /* HomeNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A43C62AB148BF002AEFEB /* HomeNetworkManager.swift */; };
 		931A43CA2AB148EA002AEFEB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 931A43C92AB148EA002AEFEB /* Alamofire */; };
+		93313D9E2AE421FE00C2D67C /* TrailerCollectionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93313D9D2AE421FE00C2D67C /* TrailerCollectionNode.swift */; };
 		933318732AC23CC700AD3B2A /* TrendingCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933318722AC23CC700AD3B2A /* TrendingCellNode.swift */; };
 		9335DF882A9E449700B36397 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9335DF872A9E449700B36397 /* OpenSans-ExtraBold.ttf */; };
 		933C7FA52AD05E0B00693A15 /* ActingCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933C7FA42AD05E0B00693A15 /* ActingCellNode.swift */; };
@@ -114,6 +115,7 @@
 		6F924BBF71308E5119AD1382 /* Pods_MoviesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoviesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7657DF2D2A0A46E91AFA343D /* Pods_Movies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		931A43C62AB148BF002AEFEB /* HomeNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNetworkManager.swift; sourceTree = "<group>"; };
+		93313D9D2AE421FE00C2D67C /* TrailerCollectionNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerCollectionNode.swift; sourceTree = "<group>"; };
 		933318722AC23CC700AD3B2A /* TrendingCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCellNode.swift; sourceTree = "<group>"; };
 		9335DF872A9E449700B36397 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
 		933C7FA42AD05E0B00693A15 /* ActingCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActingCellNode.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 				938AF23E2AC865CA00EF6002 /* HomeViewControllerNode.swift */,
 				93C340902AC5AF880042B8A0 /* OuterVerticalCollectionNode.swift */,
 				938AF2362AC724F300EF6002 /* InnerHorizontalCollectionNode.swift */,
+				93313D9D2AE421FE00C2D67C /* TrailerCollectionNode.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -815,6 +818,7 @@
 				938AF23D2AC8650100EF6002 /* HomeMainDisplayNode.swift in Sources */,
 				938AF2412AC8928300EF6002 /* PlusScreen.swift in Sources */,
 				93C340912AC5AF880042B8A0 /* OuterVerticalCollectionNode.swift in Sources */,
+				93313D9E2AE421FE00C2D67C /* TrailerCollectionNode.swift in Sources */,
 				933C81602ACF78FE00161574 /* ActorScreenNode.swift in Sources */,
 				931A43C72AB148BF002AEFEB /* HomeNetworkManager.swift in Sources */,
 				938AF23F2AC865CA00EF6002 /* HomeViewControllerNode.swift in Sources */,
