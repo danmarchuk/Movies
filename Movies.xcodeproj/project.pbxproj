@@ -12,6 +12,8 @@
 		931A43C72AB148BF002AEFEB /* HomeNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 931A43C62AB148BF002AEFEB /* HomeNetworkManager.swift */; };
 		931A43CA2AB148EA002AEFEB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 931A43C92AB148EA002AEFEB /* Alamofire */; };
 		93313D9E2AE421FE00C2D67C /* TrailerCollectionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93313D9D2AE421FE00C2D67C /* TrailerCollectionNode.swift */; };
+		93313DA02AE422A900C2D67C /* InnerTrailerCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93313D9F2AE422A900C2D67C /* InnerTrailerCellNode.swift */; };
+		93313DA22AE4244A00C2D67C /* MainTrailerCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93313DA12AE4244A00C2D67C /* MainTrailerCellNode.swift */; };
 		933318732AC23CC700AD3B2A /* TrendingCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933318722AC23CC700AD3B2A /* TrendingCellNode.swift */; };
 		9335DF882A9E449700B36397 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9335DF872A9E449700B36397 /* OpenSans-ExtraBold.ttf */; };
 		933C7FA52AD05E0B00693A15 /* ActingCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933C7FA42AD05E0B00693A15 /* ActingCellNode.swift */; };
@@ -116,6 +118,8 @@
 		7657DF2D2A0A46E91AFA343D /* Pods_Movies.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Movies.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		931A43C62AB148BF002AEFEB /* HomeNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNetworkManager.swift; sourceTree = "<group>"; };
 		93313D9D2AE421FE00C2D67C /* TrailerCollectionNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerCollectionNode.swift; sourceTree = "<group>"; };
+		93313D9F2AE422A900C2D67C /* InnerTrailerCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerTrailerCellNode.swift; sourceTree = "<group>"; };
+		93313DA12AE4244A00C2D67C /* MainTrailerCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTrailerCellNode.swift; sourceTree = "<group>"; };
 		933318722AC23CC700AD3B2A /* TrendingCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingCellNode.swift; sourceTree = "<group>"; };
 		9335DF872A9E449700B36397 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
 		933C7FA42AD05E0B00693A15 /* ActingCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActingCellNode.swift; sourceTree = "<group>"; };
@@ -528,6 +532,8 @@
 			children = (
 				938AF23C2AC8650100EF6002 /* HomeMainDisplayNode.swift */,
 				938AF23A2AC774CB00EF6002 /* MainCellNode.swift */,
+				93313D9F2AE422A900C2D67C /* InnerTrailerCellNode.swift */,
+				93313DA12AE4244A00C2D67C /* MainTrailerCellNode.swift */,
 				938AF1F32AC71B9400EF6002 /* InnerCellNode.swift */,
 				938AF1F52AC71D0600EF6002 /* CircularProgressBarNode.swift */,
 				939C4B602AE30F7D00B93099 /* CustomSegmentedControlNode.swift */,
@@ -819,6 +825,7 @@
 				938AF2412AC8928300EF6002 /* PlusScreen.swift in Sources */,
 				93C340912AC5AF880042B8A0 /* OuterVerticalCollectionNode.swift in Sources */,
 				93313D9E2AE421FE00C2D67C /* TrailerCollectionNode.swift in Sources */,
+				93313DA02AE422A900C2D67C /* InnerTrailerCellNode.swift in Sources */,
 				933C81602ACF78FE00161574 /* ActorScreenNode.swift in Sources */,
 				931A43C72AB148BF002AEFEB /* HomeNetworkManager.swift in Sources */,
 				938AF23F2AC865CA00EF6002 /* HomeViewControllerNode.swift in Sources */,
@@ -836,6 +843,7 @@
 				93D438C62ADAB80400784DAF /* PersonInfo.swift in Sources */,
 				93D438B92AD9C9EB00784DAF /* SearchInnerController.swift in Sources */,
 				9342647F2ABDE6A900E80FDD /* MovieInfoNetworkManager.swift in Sources */,
+				93313DA22AE4244A00C2D67C /* MainTrailerCellNode.swift in Sources */,
 				93E329832A98CAB200991843 /* MoviesLaunchScreen.swift in Sources */,
 				933C81582ACE277500161574 /* ActorCellNode.swift in Sources */,
 				93E3298D2A98F81300991843 /* WelcomeScreen.swift in Sources */,

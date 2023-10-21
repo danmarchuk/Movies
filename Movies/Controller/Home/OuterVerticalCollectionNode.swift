@@ -45,8 +45,11 @@ class OuterVerticalCollectionNode: ASDKViewController<ASCollectionNode>, ASColle
     func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode {
         // For demonstration purposes, passing an empty array for contents
         let section = sections[indexPath.row]
-        
-        return MainCellNode(withSection: section)
+        if indexPath.row == 2 {
+            return MainTrailerCellNode(withSection: section)
+        } else {
+            return MainCellNode(withSection: section)
+        }
     }
     
     func collectionNode(_ collectionNode: ASCollectionNode, constrainedSizeForItemAt indexPath: IndexPath) -> ASSizeRange {

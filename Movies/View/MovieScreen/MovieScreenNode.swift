@@ -10,6 +10,7 @@ import AsyncDisplayKit
 
 final class MovieScreenNode: ASDisplayNode {
     
+    var isMovie: Bool = false
     let scrollNode = ASScrollNode()
     var buttons = ["My Lists", "Favorite", "Watchlist", "Rate"]
     // Constants for UI elements
@@ -177,7 +178,7 @@ final class MovieScreenNode: ASDisplayNode {
         
         // Configure current season elements (if it is a TV show)
         if !info.isMovie, let unwrappedCurrentSeasonDetails = info.currentSeasonDetails {
-            
+            isMovie = false
             currentSeasonCountLabel.attributedText = NSAttributedString(string: "Season \(unwrappedCurrentSeasonDetails.seasonNumber)", attributes: [
                 .font: UIFont(name: "OpenSans-Semibold", size: 14)!,
                 .foregroundColor: K.movieScreenDarkBlueTextColor
@@ -194,22 +195,11 @@ final class MovieScreenNode: ASDisplayNode {
             ])
             currentSeasonImage.url = URL(string: unwrappedCurrentSeasonDetails.posterUrl)
         } else {
+            isMovie = true
             movieOrSeriesCastLabel.attributedText = NSAttributedString(string: "Movie Cast", attributes: [
                 .font: UIFont(name: "OpenSans-Semibold", size: 18)!,
                 .foregroundColor: K.movieScreenDarkBlueTextColor
             ])
-            
-            currentSeasonCountLabel.removeFromSupernode()
-            yearAndEpisodesLabel.removeFromSupernode()
-            currentSeasonLabel.removeFromSupernode()
-            currentSeasonImage.removeFromSupernode()
-            seeAllSeasonsLabel.removeFromSupernode()
-            
-//            currentSeasonCountLabel.isHidden = true
-//            yearAndEpisodesLabel.isHidden = true
-//            currentSeasonLabel.isHidden = true
-//            currentSeasonImage.isHidden = true
-//            seeAllSeasonsLabel.isHidden = true
         }
         
         socialLabel.attributedText = NSAttributedString(string: "Social", attributes: [
@@ -256,7 +246,6 @@ final class MovieScreenNode: ASDisplayNode {
         
         return ASWrapperLayoutSpec(layoutElement: scrollNode)
     }
-    
     
     func createMoviePosterWithPlayButton(_ constrainedSize: ASSizeRange) -> ASDisplayNode {
         moviePoster.contentMode = .scaleAspectFill
@@ -365,26 +354,38 @@ final class MovieScreenNode: ASDisplayNode {
             mediaLabel]
         return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16), child: stack)
     }
-
+    
     private func seriesCastSpec() -> ASLayoutSpec {
         return horizontalSpec(leftNode: movieOrSeriesCastLabel, rightNode: seeAllActorsLabel)
     }
-
+    
     private func currentSeasonSpec() -> ASLayoutSpec {
-        return horizontalSpec(leftNode: currentSeasonLabel, rightNode: seeAllSeasonsLabel)
+        if !isMovie {
+            return horizontalSpec(leftNode: currentSeasonLabel, rightNode: seeAllSeasonsLabel)
+        } else {
+            let emptySpec = ASStackLayoutSpec.horizontal()
+            emptySpec.style.preferredSize = CGSize(width: 0, height: 0)
+            return emptySpec
+        }
     }
 
     private func seasonImageAndDetailsSpec() -> ASLayoutSpec {
-        currentSeasonImage.style.preferredSize = CGSize(width: 32, height: 48)
-        
-        let detailsSpec = ASStackLayoutSpec.vertical()
-        detailsSpec.children = [currentSeasonCountLabel, yearAndEpisodesLabel]
-        detailsSpec.spacing = 2
-        
-        let spec = ASStackLayoutSpec.horizontal()
-        spec.children = [currentSeasonImage, detailsSpec]
-        spec.spacing = 16
-        return spec
+        if !isMovie {
+            currentSeasonImage.style.preferredSize = CGSize(width: 32, height: 48)
+            
+            let detailsSpec = ASStackLayoutSpec.vertical()
+            detailsSpec.children = [currentSeasonCountLabel, yearAndEpisodesLabel]
+            detailsSpec.spacing = 2
+            
+            let spec = ASStackLayoutSpec.horizontal()
+            spec.children = [currentSeasonImage, detailsSpec]
+            spec.spacing = 16
+            return spec
+        } else {
+            let emptySpec = ASStackLayoutSpec.horizontal()
+            emptySpec.style.preferredSize = CGSize(width: 0, height: 0)
+            return emptySpec
+        }
     }
 
     private func dividerSpec(_ constrainedSize: ASSizeRange, _ divider: ASDisplayNode) -> ASLayoutSpec {

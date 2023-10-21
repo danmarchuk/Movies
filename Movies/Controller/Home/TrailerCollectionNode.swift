@@ -46,7 +46,7 @@ class TrailerCollectionNode: ASDKViewController<ASCollectionNode>, ASCollectionD
             return ghostCell
         } else if indexPath.item <= moviesOrTvs.count {
             let movie = moviesOrTvs[indexPath.item - 1]
-            let cellNode = InnerCellNode(movie: movie)
+            let cellNode = InnerTrailerCellNode(movie: movie)
             return cellNode
         } else {
             return ASCellNode()
@@ -58,7 +58,7 @@ class TrailerCollectionNode: ASDKViewController<ASCollectionNode>, ASCollectionD
             let size = CGSize(width: 7, height: collectionNode.bounds.height)
             return ASSizeRange(min: size, max: size)
         } else {
-            let size = CGSize(width: collectionNode.bounds.width / 2, height: collectionNode.bounds.height)
+            let size = CGSize(width: collectionNode.bounds.width / 1.4, height: collectionNode.bounds.height / 1.2)
             return ASSizeRange(min: size, max: size)
         }
     }

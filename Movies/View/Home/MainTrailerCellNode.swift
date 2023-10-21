@@ -1,8 +1,8 @@
 //
-//  HomeMainCellNode.swift
+//  MainTrailerCellNode.swift
 //  Movies
 //
-//  Created by Данік on 29/09/2023.
+//  Created by Данік on 21/10/2023.
 //
 
 import Foundation
@@ -11,11 +11,11 @@ import LUNSegmentedControl
 import BetterSegmentedControl
 import TTSegmentedControl
 
-class MainCellNode: ASCellNode {
+class MainTrailerCellNode: ASCellNode {
     
     private let sectionNameLabel = ASTextNode()
     private let seeAllLabel = ASTextNode()
-    let innerHorizontalCollectionNode = InnerHorizontalCollectionNode()
+    let innerHorizontalCollectionNode = TrailerCollectionNode()
     let segmentedControl = CustomSegmentedControlNode(items: [])
     var categories: [Category] = []
 
@@ -34,9 +34,7 @@ class MainCellNode: ASCellNode {
         for category in section.categories {
             categoryNames.append(category.name)
         }
-        
         segmentedControl.updateValues(withItems: categoryNames)
-
     }
     
     func configure(withTitle title: String, withContents moviesOrTvs: [MovieOrTvInfo]) {
@@ -81,10 +79,11 @@ class MainCellNode: ASCellNode {
     }
 }
 
-extension MainCellNode: TTSegmentedControlDelegate {
+extension MainTrailerCellNode: TTSegmentedControlDelegate {
     
     func segmentedView(_ view: TTSegmentedControl, didEndAt index: Int) {
         innerHorizontalCollectionNode.moviesOrTvs = categories[index].movies
     }
 }
+
 
