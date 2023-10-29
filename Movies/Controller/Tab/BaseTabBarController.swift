@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import AsyncDisplayKit
 
-class BaseTabBarController: ASTabBarController {
+final class BaseTabBarController: ASTabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

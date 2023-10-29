@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class HomeNetworkManager {
+final class HomeNetworkManager {
     func fetchContent(from url: String, completion: @escaping ([MovieOrTvInfo]) -> Void) {
         let apiKey = "b029500d19bf2e8230d0496bad4302ab"
         let fullURL = "\(url)?api_key=\(apiKey)"

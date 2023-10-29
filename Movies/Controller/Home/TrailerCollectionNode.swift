@@ -8,7 +8,7 @@
 import Foundation
 import AsyncDisplayKit
 
-class TrailerCollectionNode: ASDKViewController<ASCollectionNode>, ASCollectionDataSource, ASCollectionDelegate {
+final class TrailerCollectionNode: ASDKViewController<ASCollectionNode>, ASCollectionDataSource, ASCollectionDelegate {
     
     var moviesOrTvs: [MovieOrTvInfo] = [] {
         didSet {

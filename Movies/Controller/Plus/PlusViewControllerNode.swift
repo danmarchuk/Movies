@@ -8,6 +8,6 @@
 import Foundation
 import AsyncDisplayKit
 
-class PlusViewControllerNode: ASDisplayNode {
+final class PlusViewControllerNode: ASDisplayNode {
     
 }

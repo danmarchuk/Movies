@@ -8,7 +8,7 @@
 import Foundation
 import AsyncDisplayKit
 
-class SearchCompanyCellNode: ASCellNode {
+final class SearchCompanyCellNode: ASCellNode {
     
     let nameLabel: ASTextNode = {
         let node = ASTextNode()
@@ -21,7 +21,6 @@ class SearchCompanyCellNode: ASCellNode {
         $0.backgroundColor = UIColor(cgColor: K.movieScreenBorderColor)
     }
 
-    
     init(info: Company) {
         super.init()
         automaticallyManagesSubnodes = true
@@ -30,15 +29,11 @@ class SearchCompanyCellNode: ASCellNode {
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         grayDivider.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 1)
-        
-        let grayDividerSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 60, bottom: 0, right: 0), child: grayDivider)
-
+        let grayDividerSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: grayDivider)
         let mainStack = ASStackLayoutSpec.vertical()
         mainStack.spacing = 17
         mainStack.children = [nameLabel, grayDividerSpec]
-        
         let insetLayout = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: mainStack)
-        
         return insetLayout
     }
     

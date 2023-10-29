@@ -8,13 +8,12 @@
 import AsyncDisplayKit
 import TTSegmentedControl
 
-class CustomSegmentedControlNode: ASDisplayNode {
+final class CustomSegmentedControlNode: ASDisplayNode {
     let segmentedControl: TTSegmentedControl
     
     init(items: [String] =  []) {
         // Initialize the TTSegmentedControl
         segmentedControl = TTSegmentedControl(frame: CGRect.zero)
-        
         super.init()
         
         guard let openSansRegular = UIFont(name: "OpenSans-Regular", size: 14) else {return}
@@ -46,7 +45,6 @@ class CustomSegmentedControlNode: ASDisplayNode {
         segmentedControl.cornerCurve = .circular
         segmentedControl.padding = .init(width: 0, height: 0)
         
-        segmentedControl.delegate = self
         // Add the segmented control to the display node's view
         self.view.addSubview(segmentedControl)
     }
@@ -72,12 +70,3 @@ class CustomSegmentedControlNode: ASDisplayNode {
         segmentedControl.frame = CGRect(x: 0.0, y: 0.0, width: self.bounds.width, height: self.bounds.height)
     }
 }
-
-extension CustomSegmentedControlNode: TTSegmentedControlDelegate {
-    func segmentedView(_ view: TTSegmentedControl, didDragAt index: Int) {
-        print(index)
-    }
-}
-
-
-

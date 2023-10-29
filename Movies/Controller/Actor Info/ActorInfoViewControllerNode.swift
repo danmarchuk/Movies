@@ -8,7 +8,7 @@
 import Foundation
 import AsyncDisplayKit
 
-class ActorInfoViewControllerNode: ASDKViewController<ActorScreenNode> {
+final class ActorInfoViewControllerNode: ASDKViewController<ActorScreenNode> {
     
     private var backButton: UIBarButtonItem!
 

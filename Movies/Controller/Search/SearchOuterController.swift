@@ -8,7 +8,7 @@
 import Foundation
 import AsyncDisplayKit
 
-class SearchOuterController : ASDKViewController<ASCollectionNode>, ASCollectionDataSource, ASCollectionDelegate {
+final class SearchOuterController : ASDKViewController<ASCollectionNode>, ASCollectionDataSource, ASCollectionDelegate {
     
     var sections: [SearchSection] = [] {
         didSet {
@@ -46,22 +46,7 @@ class SearchOuterController : ASDKViewController<ASCollectionNode>, ASCollection
     
     func collectionNode(_ collectionNode: ASCollectionNode, constrainedSizeForItemAt indexPath: IndexPath) -> ASSizeRange {
         // change the height
-        let size = CGSize(width: collectionNode.bounds.width, height: collectionNode.bounds.height / 4)
+        let size = CGSize(width: collectionNode.bounds.width, height: collectionNode.bounds.height / K.searchOuterCellHeightDivider)
         return ASSizeRange(min: size, max: size)
     }
-    
-    // MARK: - ASCollectionDelegate
-    
-//    func collectionNode(_ collectionNode: ASCollectionNode, didSelectItemAt indexPath: IndexPath) {
-//
-//        let chosenMovie = moviesOrTvs[indexPath.row]
-//        let movieOrTvVC = MovieOrTvViewControllerNode()
-//        movieOrTvVC.movieOrTvId = String(chosenMovie.id)
-//        movieOrTvVC.isMovie = chosenMovie.movie
-//        let navigationController = ASDKNavigationController(rootViewController: movieOrTvVC)
-//        navigationController.modalPresentationStyle = .fullScreen
-//
-//        present(navigationController, animated: true, completion: nil)
-//
-//    }
 }

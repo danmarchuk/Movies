@@ -7,7 +7,7 @@
 
 import AsyncDisplayKit
 
-class SearchOuterCellNode: ASCellNode {
+final class SearchOuterCellNode: ASCellNode {
     
     private let sectionNameLabel = ASTextNode()
     private let seeAllButton = ASButtonNode().apply {
@@ -15,7 +15,6 @@ class SearchOuterCellNode: ASCellNode {
         $0.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8)
     }
     let innerHorizontalCollectionNode = SearchInnerController()
-
 
     init(withSection section: SearchSection) {
         super.init()
@@ -32,7 +31,6 @@ class SearchOuterCellNode: ASCellNode {
         if let companies = section.companies {
             configureCompaniesCell(withTitle: section.sectionName, withCompanies: companies)
         }
-        
     }
     
     func configure(withTitle title: String, withContents moviesOrTvs: [MovieOrTvInfo]) {
@@ -81,7 +79,4 @@ class SearchOuterCellNode: ASCellNode {
         let insets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 30) // Added some horizontal padding
         return ASInsetLayoutSpec(insets: insets, child: verticalStack)
     }
-
-
-    
 }

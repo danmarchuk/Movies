@@ -10,10 +10,8 @@ import MBCircularProgressBar
 import SnapKit
 import SDWebImage
 
-class InnerCellNode: ASCellNode {
-    
-    static let identifier = "SearchInnerCell"
-    
+final class InnerCellNode: ASCellNode {
+        
     let moviePoster = ASNetworkImageNode().apply {
         $0.cornerRadius = 15
         $0.clipsToBounds = true
@@ -64,14 +62,21 @@ class InnerCellNode: ASCellNode {
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        moviePoster.style.preferredSize = CGSize(width: constrainedSize.max.width, height: constrainedSize.max.height / 1.5)
+        moviePoster.style.preferredSize = CGSize(width: constrainedSize.max.width, height: constrainedSize.max.height * 0.7)
         circularProgressBarNode.style.preferredSize = CGSize(width: 15, height: 15)  // example size
 
         let progressBarWithPercentageStack = ASStackLayoutSpec.horizontal()
+        progressBarWithPercentageStack.spacing = 4
+        progressBarWithPercentageStack.alignItems = .center
         progressBarWithPercentageStack.children = [circularProgressBarNode, percentageLabel]
         
+        let posterAndPercentageStack = ASStackLayoutSpec.vertical()
+        posterAndPercentageStack.children = [moviePoster, progressBarWithPercentageStack]
+        posterAndPercentageStack.spacing = 8
+        
         let mainVerticalStack = ASStackLayoutSpec.vertical()
-        mainVerticalStack.children = [moviePoster, progressBarWithPercentageStack, titleLabel]
+        mainVerticalStack.spacing = 2
+        mainVerticalStack.children = [posterAndPercentageStack , titleLabel]
         
         return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: mainVerticalStack)
     }

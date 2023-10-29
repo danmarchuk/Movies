@@ -8,7 +8,7 @@
 import Foundation
 import AsyncDisplayKit
 
-class InnerHorizontalCollectionNode: ASDKViewController<ASCollectionNode>, ASCollectionDataSource, ASCollectionDelegate {
+final class InnerHorizontalCollectionNode: ASDKViewController<ASCollectionNode>, ASCollectionDataSource, ASCollectionDelegate {
     
     var moviesOrTvs: [MovieOrTvInfo] = [] {
         didSet {
@@ -48,6 +48,7 @@ class InnerHorizontalCollectionNode: ASDKViewController<ASCollectionNode>, ASCol
             let movie = moviesOrTvs[indexPath.item - 1]
             let cellNode = InnerCellNode(movie: movie)
             return cellNode
+            
         } else {
             return ASCellNode()
         }

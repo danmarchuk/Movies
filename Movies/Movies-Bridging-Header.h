@@ -9,6 +9,4 @@
 #define Movies_Bridging_Header_h
 #import <LUNSegmentedControl.h>
 
-
-
 #endif /* Movies_Bridging_Header_h */

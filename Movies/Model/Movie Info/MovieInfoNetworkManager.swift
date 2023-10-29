@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class MovieInfoNetworkManager {
+final class MovieInfoNetworkManager {
     
     func fetchAMovie(withMovieId id: String, completion: @escaping (MovieOrTVFullInfo?) -> Void) {
         let url = "https://api.themoviedb.org/3/movie/"

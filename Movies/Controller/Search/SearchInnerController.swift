@@ -8,7 +8,7 @@
 import Foundation
 import AsyncDisplayKit
 
-class SearchInnerController: ASDKViewController<ASCollectionNode>, ASCollectionDataSource, ASCollectionDelegate {
+final class SearchInnerController: ASDKViewController<ASCollectionNode>, ASCollectionDataSource, ASCollectionDelegate {
     
     var movieOrTvInfo: [MovieOrTvInfo]? = [] {
         didSet {

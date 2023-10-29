@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "6BE174C8-5989-4656-A4EB-5634F907399C"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9055C7CE-9DC2-4273-9ADE-87506930EEA0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Movies/View/SearchMainCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "numberOfStates(in:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9055C7CE-9DC2-4273-9ADE-87506930EEA0 - dc0e69d81bab167d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Movies.SearchMainCell.numberOfStates(in: Swift.Optional&lt;__C.LUNSegmentedControl&gt;) -&gt; Swift.Int"
+                  moduleName = "Movies"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danik/Desktop/IOS%20PROGRAMMING/Movies/Movies/View/SearchMainCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "9055C7CE-9DC2-4273-9ADE-87506930EEA0 - dc0e69d81bab1612"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Movies.SearchMainCell.numberOfStates(in: Swift.Optional&lt;__C.LUNSegmentedControl&gt;) -&gt; Swift.Int"
+                  moduleName = "Movies"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danik/Desktop/IOS%20PROGRAMMING/Movies/Movies/View/SearchMainCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "9055C7CE-9DC2-4273-9ADE-87506930EEA0 - dc0e69d81bab167d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Movies.SearchMainCell.numberOfStates(in: Swift.Optional&lt;__C.LUNSegmentedControl&gt;) -&gt; Swift.Int"
+                  moduleName = "Movies"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/danik/Desktop/IOS%20PROGRAMMING/Movies/Movies/View/SearchMainCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

@@ -50,8 +50,6 @@ class MainTrailerCellNode: ASCellNode {
     }
 
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        // Use the ASRatioLayoutSpec to define a ratio for the innerHorizontalCollectionNode.
-//        let ratio = ASRatioLayoutSpec(ratio: 0.7, child: innerHorizontalCollectionNode.node)
         innerHorizontalCollectionNode.node.style.preferredSize = CGSize(width: constrainedSize.max.width, height: constrainedSize.max.height/1.3)
 
         let spacer = ASLayoutSpec()
@@ -61,7 +59,7 @@ class MainTrailerCellNode: ASCellNode {
         let segmentedControlSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16), child: segmentedControl)
         
         let horizontalStack = ASStackLayoutSpec(direction: .horizontal,
-                                                spacing: 8, // Some spacing can be added if needed
+                                                spacing: 8,
                                                 justifyContent: .start,
                                                 alignItems: .center,
                                                 children: [sectionNameLabel, spacer, seeAllLabel])
@@ -69,18 +67,17 @@ class MainTrailerCellNode: ASCellNode {
         let horizontalStackSpec =  ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16), child: horizontalStack)
         
         let verticalStack = ASStackLayoutSpec(direction: .vertical,
-                                              spacing: 16, // Space between label and collection
+                                              spacing: 16,
                                               justifyContent: .start,
-                                              alignItems: .stretch, // Make sure to stretch the items to full width
-                                              children: [horizontalStackSpec, segmentedControlSpec , innerHorizontalCollectionNode.node]) // Use ratio instead of innerHorizontalCollectionNode.node
+                                              alignItems: .stretch,
+                                              children: [horizontalStackSpec, segmentedControlSpec , innerHorizontalCollectionNode.node])
 
-        let insets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) // Added some horizontal padding
+        let insets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         return ASInsetLayoutSpec(insets: insets, child: verticalStack)
     }
 }
 
 extension MainTrailerCellNode: TTSegmentedControlDelegate {
-    
     func segmentedView(_ view: TTSegmentedControl, didEndAt index: Int) {
         innerHorizontalCollectionNode.moviesOrTvs = categories[index].movies
     }

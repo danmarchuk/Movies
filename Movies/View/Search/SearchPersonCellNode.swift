@@ -8,7 +8,7 @@
 import Foundation
 import AsyncDisplayKit
 
-class SearchPersonCellNode: ASCellNode {
+final class SearchPersonCellNode: ASCellNode {
     
     let moviePoster = ASNetworkImageNode().apply {
         $0.contentMode = .scaleAspectFill
@@ -32,12 +32,9 @@ class SearchPersonCellNode: ASCellNode {
         return node
     }()
     
-    
-    
     let grayDivider = ASDisplayNode().apply {
         $0.backgroundColor = UIColor(cgColor: K.movieScreenBorderColor)
     }
-
     
     init(info: PersonInfo) {
         super.init()
@@ -48,8 +45,7 @@ class SearchPersonCellNode: ASCellNode {
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         grayDivider.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 1)
         moviePoster.style.preferredSize = CGSize(width: constrainedSize.max.width / 10, height: constrainedSize.max.width / 10 )
-        
-        let grayDividerSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 60, bottom: 0, right: 0), child: grayDivider)
+        let grayDividerSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 0), child: grayDivider)
         
         let nameAndJobStack = ASStackLayoutSpec(
             direction: .vertical,
@@ -62,9 +58,6 @@ class SearchPersonCellNode: ASCellNode {
         let horizontalStack = ASStackLayoutSpec.horizontal()
         horizontalStack.spacing = 16
         horizontalStack.children = [moviePoster, nameAndJobStack]
-
-        
-
         let mainStack = ASStackLayoutSpec.vertical()
         mainStack.spacing = 6
         mainStack.children = [horizontalStack, grayDividerSpec]

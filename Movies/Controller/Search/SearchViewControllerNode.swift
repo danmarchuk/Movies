@@ -8,7 +8,7 @@
 import Foundation
 import AsyncDisplayKit
 
-class SearchViewControllerNode: ASDKViewController<SearchScreenNode>, UISearchBarDelegate {
+final class SearchViewControllerNode: ASDKViewController<SearchScreenNode>, UISearchBarDelegate {
     let searchScreen = SearchScreenNode()
     
     var moviesOrTvs: [MovieOrTvInfo] = []

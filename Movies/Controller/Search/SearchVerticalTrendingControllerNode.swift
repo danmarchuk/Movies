@@ -8,7 +8,7 @@
 import Foundation
 import AsyncDisplayKit
 
-class SearchVerticalTrendingControllerNode: ASCollectionNode, ASCollectionDataSource, ASCollectionDelegate, ASCollectionDelegateFlowLayout {
+final class SearchVerticalTrendingControllerNode: ASCollectionNode, ASCollectionDataSource, ASCollectionDelegate, ASCollectionDelegateFlowLayout {
     
     var moviesOrTvs: [MovieOrTvInfo] = [] {
             didSet {

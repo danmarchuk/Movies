@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class SearchMovieNetworkManager {
+final class SearchMovieNetworkManager {
     
     func fetchAMovieOrTv(withTitle title: String, movieOrTv: String, completion: @escaping ([MovieOrTvInfo]) -> Void) {
         let url = "https://api.themoviedb.org/3/search/\(movieOrTv)"

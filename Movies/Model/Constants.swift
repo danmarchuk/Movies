@@ -17,11 +17,17 @@ struct K {
     static let loginButtonBlue = UIColor(red: 0.35, green: 0.78, blue: 0.98, alpha: 1.0)
     
     // SearchInnerCell constants
-    static let lightGreenProgresColor = UIColor(red: 189.0/255.0, green: 236.0/255.0, blue: 208.0/255.0, alpha: 1.0)
     static let percentageGray =  UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1.0)
     static let titleGray = UIColor(red: 0.31, green: 0.33, blue: 0.36, alpha: 1.0)
-    static let lightRedProgressColor = UIColor(red: 255.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
+
+    // progressBar
+    static let darkGreenProgresColor = UIColor(red: 0.2, green: 0.78, blue: 0.35, alpha: 1)
+    static let lightGreenProgresColor = UIColor(red: 189.0/255.0, green: 236.0/255.0, blue: 208.0/255.0, alpha: 1.0)
+    
+    static let darkOrangeProgressColor = UIColor(red: 0.97, green: 0.66, blue: 0.2, alpha: 1)
     static let lightOrangeProgressColor = UIColor(red: 255.0/255.0, green: 230.0/255.0, blue: 204.0/255.0, alpha: 1.0)
+    
+    static let lightRedProgressColor = UIColor(red: 255.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
     
     // TrendingCell constants
     static let searchBlack =  UIColor(red: 0.01, green: 0.15, blue: 0.25, alpha: 1.0)
@@ -57,5 +63,5 @@ struct K {
     
     static let searchResultsCellHeightDivider: CGFloat = 4
     static let homeMainCellHeightDivider: CGFloat = 3.5
-    
+    static let searchOuterCellHeightDivider: CGFloat = 3.2
 }

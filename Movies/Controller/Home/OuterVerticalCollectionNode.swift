@@ -8,7 +8,7 @@
 import Foundation
 import AsyncDisplayKit
 
-class OuterVerticalCollectionNode: ASDKViewController<ASCollectionNode>, ASCollectionDelegate, ASCollectionDataSource {
+final class OuterVerticalCollectionNode: ASDKViewController<ASCollectionNode>, ASCollectionDelegate, ASCollectionDataSource {
     
     var sections: [Section] = [] {
         didSet {

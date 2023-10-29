@@ -7,8 +7,7 @@
 
 import AsyncDisplayKit
 
-class GenresCollectionNodeController: ASDKViewController<ASCollectionNode>, ASCollectionDataSource, ASCollectionDelegate {
-    
+final class GenresCollectionNodeController: ASDKViewController<ASCollectionNode>, ASCollectionDataSource, ASCollectionDelegate {
     
     // Sample data for genres
     var genres: [String] = [] {
@@ -51,10 +50,6 @@ class GenresCollectionNodeController: ASDKViewController<ASCollectionNode>, ASCo
         return cellNode
     }
     
-    // MARK: ASCollectionDelegate
-    // Implement any delegate methods as needed
-    
-    // Required initializer
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -68,9 +63,9 @@ class GenresCollectionNodeController: ASDKViewController<ASCollectionNode>, ASCo
         ]
         let textSize = genre.size(withAttributes: attributes)
         
-        // Add some padding if necessary
-        let width = textSize.width + 20 // +20 for some horizontal padding, adjust as needed
-        let height = textSize.height + 10 // +10 for some vertical padding, adjust as needed
+        // Add some padding
+        let width = textSize.width + 20
+        let height = textSize.height + 10
         
         return ASSizeRangeMake(CGSize(width: width, height: height), CGSize(width: width, height: height))
     }

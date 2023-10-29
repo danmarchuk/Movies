@@ -76,7 +76,6 @@ class CastViewControllerNode: ASDKViewController<ASCollectionNode>, ASCollection
             navigationController.modalPresentationStyle = .fullScreen
             present(navigationController, animated: true, completion: nil)
         }
-        
     }
 }
 

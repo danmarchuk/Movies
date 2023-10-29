@@ -1,0 +1,95 @@
+PODS:
+  - HMSegmentedControl (1.5.6)
+  - LUNSegmentedControl (1.0.7)
+  - MBCircularProgressBar (0.3.5)
+  - PINCache (3.0.3):
+    - PINCache/Arc-exception-safe (= 3.0.3)
+    - PINCache/Core (= 3.0.3)
+  - PINCache/Arc-exception-safe (3.0.3):
+    - PINCache/Core
+  - PINCache/Core (3.0.3):
+    - PINOperation (~> 1.2.1)
+  - PINOperation (1.2.2)
+  - PINRemoteImage/Core (3.0.3):
+    - PINOperation
+  - PINRemoteImage/iOS (3.0.3):
+    - PINRemoteImage/Core
+  - PINRemoteImage/PINCache (3.0.3):
+    - PINCache (~> 3.0.3)
+    - PINRemoteImage/Core
+  - SDWebImage (5.16.0):
+    - SDWebImage/Core (= 5.16.0)
+  - SDWebImage/Core (5.16.0)
+  - SKSearchController (1.0.3)
+  - Texture (3.1.0):
+    - Texture/AssetsLibrary (= 3.1.0)
+    - Texture/Core (= 3.1.0)
+    - Texture/MapKit (= 3.1.0)
+    - Texture/Photos (= 3.1.0)
+    - Texture/PINRemoteImage (= 3.1.0)
+    - Texture/Video (= 3.1.0)
+  - Texture/AssetsLibrary (3.1.0):
+    - Texture/Core
+  - Texture/Core (3.1.0)
+  - Texture/MapKit (3.1.0):
+    - Texture/Core
+  - Texture/Photos (3.1.0):
+    - Texture/Core
+  - Texture/PINRemoteImage (3.1.0):
+    - PINRemoteImage/iOS (~> 3.0.0)
+    - PINRemoteImage/PINCache
+    - Texture/Core
+  - Texture/Video (3.1.0):
+    - Texture/Core
+  - TTSegmentedControl (0.5.0)
+
+DEPENDENCIES:
+  - HMSegmentedControl (from `https://github.com/danmarchuk/HMSegmentedControl`)
+  - LUNSegmentedControl
+  - MBCircularProgressBar
+  - SDWebImage
+  - SKSearchController
+  - Texture
+  - TTSegmentedControl (from `https://github.com/dumitruigor/TTSegmentedControl.git`, branch `swiftPackage`)
+
+SPEC REPOS:
+  trunk:
+    - LUNSegmentedControl
+    - MBCircularProgressBar
+    - PINCache
+    - PINOperation
+    - PINRemoteImage
+    - SDWebImage
+    - SKSearchController
+    - Texture
+
+EXTERNAL SOURCES:
+  HMSegmentedControl:
+    :git: https://github.com/danmarchuk/HMSegmentedControl
+  TTSegmentedControl:
+    :branch: swiftPackage
+    :git: https://github.com/dumitruigor/TTSegmentedControl.git
+
+CHECKOUT OPTIONS:
+  HMSegmentedControl:
+    :commit: 7a74a877409ab4f6203c22288aa0f3856fba99cf
+    :git: https://github.com/danmarchuk/HMSegmentedControl
+  TTSegmentedControl:
+    :commit: 74c04ff4e98d0a6e8fc8382908279e4d7b841ad1
+    :git: https://github.com/dumitruigor/TTSegmentedControl.git
+
+SPEC CHECKSUMS:
+  HMSegmentedControl: 34c1f54d822d8308e7b24f5d901ec674dfa31352
+  LUNSegmentedControl: f868b1ea740f9917f05dbcb4cded85c33ec606e6
+  MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
+  PINCache: 7a8fc1a691173d21dbddbf86cd515de6efa55086
+  PINOperation: daa34d4aa1d8449089be7d405b9d974abc4724c6
+  PINRemoteImage: f1295b29f8c5e640e25335a1b2bd9d805171bd01
+  SDWebImage: 2aea163b50bfcb569a2726b6a754c54a4506fcf6
+  SKSearchController: 74512639849b4f3200a0d6fd216ac73186f4fe27
+  Texture: 2e8ab2519452515f7f5a520f5a8f7e0a413abfa3
+  TTSegmentedControl: ddbe7096ba1b5088577144bf6dda71dec30ada85
+
+PODFILE CHECKSUM: 1e0bba5cffa59d54223de7c491b6ca3e46ce8cc7
+
+COCOAPODS: 1.12.1

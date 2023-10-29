@@ -7,7 +7,7 @@
 
 import AsyncDisplayKit
 
-class MovieOrTvCellNode: ASCellNode {
+final class MovieOrTvCellNode: ASCellNode {
     
     // Texture Nodes
     let moviePoster = ASNetworkImageNode().apply {
@@ -29,7 +29,6 @@ class MovieOrTvCellNode: ASCellNode {
         $0.backgroundColor = UIColor(cgColor: K.movieScreenBorderColor)
     }
 
-    
     init(info: MovieOrTvInfo) {
         super.init()
         automaticallyManagesSubnodes = true
@@ -39,22 +38,14 @@ class MovieOrTvCellNode: ASCellNode {
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         grayDivider.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 1)
         moviePoster.style.preferredSize = CGSize(width: constrainedSize.max.width / 10, height: constrainedSize.max.height - 7)
-
-        
-        let grayDividerSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 60, bottom: 0, right: 0), child: grayDivider)
-        
-        
+        let grayDividerSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 0), child: grayDivider)
         let horizontalStack = ASStackLayoutSpec.horizontal()
         horizontalStack.spacing = 16
         horizontalStack.children = [moviePoster, movieTitleLabel]
-        
-
         let mainStack = ASStackLayoutSpec.vertical()
         mainStack.spacing = 6
         mainStack.children = [horizontalStack, grayDividerSpec]
-        
         let insetLayout = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: mainStack)
-        
         return insetLayout
     }
     

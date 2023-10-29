@@ -9,7 +9,7 @@ import Foundation
 import AsyncDisplayKit
 
 
-class HomeViewControllerNode: ASDKViewController<HomeMainDisplayNode> {
+final class HomeViewControllerNode: ASDKViewController<HomeMainDisplayNode> {
     let homeScreen = HomeMainDisplayNode()
 
     var sections: [Section] = []

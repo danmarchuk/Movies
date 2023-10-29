@@ -30,7 +30,7 @@ final class SearchScreenNode: ASDisplayNode {
     private let trendingLabel: ASTextNode = {
         let node = ASTextNode()
         node.attributedText =
-        NSAttributedString(string: "Trending", attributes: [NSAttributedString.Key.font: UIFont(name: "OpenSans-Semibold", size: 18), NSAttributedString.Key
+        NSAttributedString(string: "Trending", attributes: [NSAttributedString.Key.font: UIFont(name: "OpenSans-Semibold", size: 18)!, NSAttributedString.Key
             .foregroundColor: K.movieScreenDarkBlueTextColor])
         return node
     }()
@@ -61,7 +61,7 @@ final class SearchScreenNode: ASDisplayNode {
         verticalCollectionNode.style.preferredSize = CGSize(width: constrainedSize.max.width, height: totalHeight)
         let verticalCollectionNodeSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: verticalCollectionNode)
         
-                
+        searchOuterController.node.style.preferredSize = CGSize(width: constrainedSize.max.width, height: totalHeight)
         let searchOuterControllerSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: searchOuterController.node)
         
         if isSearching {
@@ -86,18 +86,17 @@ final class SearchScreenNode: ASDisplayNode {
             }
         }
                 
-        var verticalStackContent: [ASLayoutElement] = [fullwidthSearchBar, containerNode]
+        let verticalStackContent: [ASLayoutElement] = [fullwidthSearchBar, containerNode]
                 
-        
         let verticalStack = ASStackLayoutSpec(
             direction: .vertical,
-            spacing: 10,
+            spacing: 20,
             justifyContent: .start,
             alignItems: .stretch,
             children: verticalStackContent
         )
         
-        
+        verticalStack.style.preferredSize = CGSize(width: constrainedSize.max.width, height: totalHeight)
         
         searchBarNode.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 40)
 
@@ -121,6 +120,5 @@ final class SearchScreenNode: ASDisplayNode {
         trendingLabel.removeFromSupernode()
         verticalCollectionNode.removeFromSupernode()
         containerNode.addSubnode(searchOuterController.node)
-        // Perform your search logic and update the results in searchOuterController
     }
 }

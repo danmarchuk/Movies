@@ -7,8 +7,13 @@
 
 import AsyncDisplayKit
 
-class ActingCellNode: ASCellNode {
-    
+protocol ActingCellDelegate {
+    func didTouchTheTitle(actingInfo: ActingInfo)
+}
+
+final class ActingCellNode: ASCellNode {
+    var actingInfo: ActingInfo?
+    var delegate: ActingCellDelegate?
     let moviePoster = ASNetworkImageNode().apply {
         $0.placeholderColor = .lightGray
         $0.placeholderEnabled = true
@@ -17,12 +22,7 @@ class ActingCellNode: ASCellNode {
         $0.clipsToBounds = true
     }
     
-    let movieTitleLabel: ASTextNode = {
-        let node = ASTextNode()
-        node.maximumNumberOfLines = 1
-        node.style.flexShrink = 1.0
-        return node
-    }()
+    let movieTitleButton = ASButtonNode()
     
     let numberOfEpisodesLabel: ASTextNode = {
         let node = ASTextNode()
@@ -54,7 +54,6 @@ class ActingCellNode: ASCellNode {
         $0.backgroundColor = UIColor(cgColor: K.movieScreenBorderColor)
     }
 
-    
     init(info: ActingInfo) {
         super.init()
         automaticallyManagesSubnodes = true
@@ -70,7 +69,7 @@ class ActingCellNode: ASCellNode {
         stack1.spacing = 0
         stack1.justifyContent = .start
         stack1.alignItems = .start
-        stack1.children = [movieTitleLabel, numberOfEpisodesLabel, releaseYearLabel]
+        stack1.children = [movieTitleButton, numberOfEpisodesLabel, releaseYearLabel]
         
         let stack2 = ASStackLayoutSpec.horizontal()
         stack2.spacing = 0
@@ -96,12 +95,13 @@ class ActingCellNode: ASCellNode {
     }
     
     private func configure(withActingInfo info: ActingInfo) {
+        actingInfo = info
         moviePoster.url = URL(string: info.posterUrl)
-        movieTitleLabel.attributedText = NSAttributedString(string: info.title, attributes: [
-            .font: UIFont(name: "OpenSans-Semibold", size: 14)!,
-            .foregroundColor: K.movieScreenDarkBlueTextColor
-        ])
+
+        movieTitleButton.setTitle(info.title, with: UIFont(name: "OpenSans-Semibold", size: 14)!, with: K.movieScreenDarkBlueTextColor, for: .normal)
         
+        movieTitleButton.addTarget(self, action: #selector(movieTitleButtonTapped), forControlEvents: .touchUpInside)
+
         if info.isMovie {
             numberOfEpisodesLabel.attributedText = nil
         } else {
@@ -126,5 +126,11 @@ class ActingCellNode: ASCellNode {
             .font: UIFont(name: "OpenSans-Regular", size: 14)!,
             .foregroundColor: K.darkGrayColor
         ])
+    }
+    
+    @objc func movieTitleButtonTapped() {
+        if let actingInfo = actingInfo {
+            delegate?.didTouchTheTitle(actingInfo: actingInfo)
+        }
     }
 }

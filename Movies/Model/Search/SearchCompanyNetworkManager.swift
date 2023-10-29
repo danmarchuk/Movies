@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class SearchCompanyNetworkManager {
+final class SearchCompanyNetworkManager {
     
     func fetchCompanies(withName name: String, completion: @escaping ([Company]) -> Void) {
         let url = "https://api.themoviedb.org/3/search/company"

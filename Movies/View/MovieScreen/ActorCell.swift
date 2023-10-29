@@ -10,8 +10,7 @@ import SnapKit
 import UIKit
 import SDWebImage
 
-class ActorCell: UICollectionViewCell {
-    static let identifier = "ActorCell"
+final class ActorCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

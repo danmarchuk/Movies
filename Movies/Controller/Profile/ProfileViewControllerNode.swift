@@ -8,7 +8,5 @@
 import Foundation
 import AsyncDisplayKit
 
-class ProfileViewControllerNode: ASDisplayNode {
-    
-    
+final class ProfileViewControllerNode: ASDisplayNode {
 }

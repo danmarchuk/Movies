@@ -19,7 +19,7 @@ final class ActorScreenNode: ASDisplayNode {
     let jobLabel = ASTextNode()
     let biographyLabel = ASTextNode()
     let knownForLabel = ASTextNode()
-    let knownForController = InnerHorizontalCollectionNode()
+    let knownForController = KnownForHorizontalViewController()
     let actingLabel = ASTextNode()
     let seeAllActing = ASTextNode()
     let actingVerticalControllerNode = ActingVerticalControllerNode()
@@ -71,8 +71,8 @@ final class ActorScreenNode: ASDisplayNode {
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         actorPhoto.style.preferredSize = CGSize(width: constrainedSize.max.width / 3, height: constrainedSize.max.height / 4.5)
-        knownForController.node.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 200)
-
+        knownForController.node.style.preferredSize = CGSize(width: constrainedSize.max.width, height: constrainedSize.max.height / 3.5)
+        
         let cellHeight = Int(actingVerticalControllerNode.node.bounds.height / K.actingCellHeightDivider)
         let totalSpacing: CGFloat = 11 * CGFloat(actingVerticalControllerNode.actingInfo.count) // spacing between cells
         
@@ -100,20 +100,16 @@ final class ActorScreenNode: ASDisplayNode {
             children: [ actorPhoto, verticalStack]
         )
         
-        let spacer = ASLayoutSpec()
-        spacer.style.flexGrow = 1.0
+        let horizontalStack2 = horizontalSpec(leftNode: actingLabel, rightNode: seeAllActing)
         
-        let horizontalStack2 = ASStackLayoutSpec.horizontal()
-        horizontalStack2.spacing = 16
-        horizontalStack2.children = [ actingLabel, spacer, seeAllActing]
-        
+        let nodeSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: -16, bottom: 0, right: -16), child: knownForController.node)
         
         let mainVerticalStack = ASStackLayoutSpec(
             direction: .vertical,
             spacing: 16,
             justifyContent: .start,
             alignItems: .start,
-            children: [ horizontalStack, knownForLabel, knownForController.node, horizontalStack2, actingVerticalControllerNode.node ]
+            children: [ horizontalStack, knownForLabel, nodeSpec, horizontalStack2, actingVerticalControllerNode.node]
         )
         
         let layout = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16), child: mainVerticalStack)
@@ -127,5 +123,14 @@ final class ActorScreenNode: ASDisplayNode {
         // Return the scroll view as the main layout spec:
         return ASWrapperLayoutSpec(layoutElement: scrollView)
     }
-
+    
+    private func horizontalSpec(leftNode: ASDisplayNode, rightNode: ASDisplayNode) -> ASLayoutSpec {
+        let spec = ASStackLayoutSpec.horizontal()
+        let spacer = ASLayoutSpec()
+        spacer.style.flexGrow = 1.0
+        spec.spacing = 120
+        spec.children = [leftNode, spacer, rightNode]
+        let layout = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16), child: spec)
+        return layout
+    }
 }

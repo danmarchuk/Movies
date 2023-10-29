@@ -8,7 +8,7 @@
 import Foundation
 import AsyncDisplayKit
 
-class TrendingCellNode: ASCellNode {
+final class TrendingCellNode: ASCellNode {
     
     let moviePoster = ASNetworkImageNode().apply {
         $0.cornerRadius = 15
@@ -58,11 +58,8 @@ class TrendingCellNode: ASCellNode {
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        
         let posterRatioSpec = ASRatioLayoutSpec(ratio: 1.0, child: moviePoster)
-        
         posterRatioSpec.style.flexBasis = ASDimensionMakeWithFraction(0.3)
-
 
         let titleAndDescriptionStack = ASStackLayoutSpec(
             direction: .vertical,
@@ -73,7 +70,6 @@ class TrendingCellNode: ASCellNode {
         )
         titleAndDescriptionStack.style.flexBasis = ASDimensionMakeWithFraction(0.65)
 
-        
         let mainStack = ASStackLayoutSpec(
             direction: .horizontal,
             spacing: 16,
@@ -81,7 +77,6 @@ class TrendingCellNode: ASCellNode {
             alignItems: .stretch,
             children: [posterRatioSpec, titleAndDescriptionStack]
         )
-        
         return mainStack
     }
 }

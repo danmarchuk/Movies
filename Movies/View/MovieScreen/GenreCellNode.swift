@@ -7,20 +7,17 @@
 
 import AsyncDisplayKit
 
-class GenreCellNode: ASCellNode {
+final class GenreCellNode: ASCellNode {
     
     let customLabel = ASTextNode()
     
     override init() {
         super.init()
-        
         // Setup default style (this can be modified as needed)
         customLabel.maximumNumberOfLines = 1
         customLabel.truncationMode = .byTruncatingTail
         customLabel.style.alignSelf = .center
-        
         addSubnode(customLabel)
-
         // Border style
         self.borderWidth = 1.0
         self.cornerRadius = 5.0

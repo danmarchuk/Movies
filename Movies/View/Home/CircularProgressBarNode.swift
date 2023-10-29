@@ -8,49 +8,37 @@
 import AsyncDisplayKit
 import MBCircularProgressBar
 
-class CircularProgressBarNode: ASDisplayNode {
+final class CircularProgressBarNode: ASDisplayNode {
+    let progressBar: MBCircularProgressBarView
     
-    init(value: CGFloat = 50) {
+    override init() {
+        progressBar = MBCircularProgressBarView(frame: CGRect.zero)
         super.init()
+        progressBar.backgroundColor = .clear
         backgroundColor = .clear
-        self.setViewBlock {
-            let progressBar = MBCircularProgressBarView()
-            progressBar.value = value
-            progressBar.showValueString = false
-            progressBar.progressCapType = 1
-            progressBar.progressAngle = 100
-            progressBar.progressLineWidth = 1
-            progressBar.progressRotationAngle = 50
-            progressBar.contentMode = .scaleAspectFill
-            progressBar.clipsToBounds = true
-            return progressBar
-        }
-        
-        // Directly configure the progress bar after its creation
-        if let progressBar = self.view as? MBCircularProgressBarView {
-            Self.configureProgressBar(progressBar, withRating: Double(value / 10))
-        }
-    }
-    
-    var progressBarView: MBCircularProgressBarView? {
-        return self.view as? MBCircularProgressBarView
+        progressBar.showValueString = false
+        progressBar.progressCapType = 1
+        progressBar.progressAngle = 100
+        progressBar.progressLineWidth = 1
+        progressBar.progressRotationAngle = 50
+        progressBar.contentMode = .scaleAspectFill
+        progressBar.clipsToBounds = true
+        self.view.addSubview(progressBar)
     }
     
     func updateValue(to value: CGFloat) {
-        if let progressBar = progressBarView {
-            Self.configureProgressBar(progressBar, withRating: value )
-        }
+        configureProgressBar(progressBar, withRating: value)
     }
     
-    static func configureProgressBar(_ progressBar: MBCircularProgressBarView, withRating rating: Double) {
-        if rating >= 7.0 {
-            progressBar.progressColor = .green
-            progressBar.progressStrokeColor = .green
+    private func configureProgressBar(_ progressBar: MBCircularProgressBarView, withRating rating: Double) {
+        if rating >= 70.0 {
+            progressBar.progressColor = K.darkGreenProgresColor
+            progressBar.progressStrokeColor = K.darkGreenProgresColor
             progressBar.emptyLineColor = K.lightGreenProgresColor
             progressBar.emptyLineStrokeColor = K.lightGreenProgresColor
-        } else if rating >= 5.0 {
-            progressBar.progressColor = .orange
-            progressBar.progressStrokeColor = .orange
+        } else if rating >= 50.0 {
+            progressBar.progressColor = K.darkOrangeProgressColor
+            progressBar.progressStrokeColor = K.darkOrangeProgressColor
             progressBar.emptyLineColor = K.lightOrangeProgressColor
             progressBar.emptyLineStrokeColor = K.lightOrangeProgressColor
         } else {
@@ -61,6 +49,11 @@ class CircularProgressBarNode: ASDisplayNode {
         }
         
         progressBar.value = CGFloat(rating)
+    }
+    override func layout() {
+        super.layout()
+        // Update the frame of the segmented control to fit the node's bounds
+        progressBar.frame = CGRect(x: 0.0, y: 0.0, width: self.bounds.width, height: self.bounds.height)
     }
 }
 

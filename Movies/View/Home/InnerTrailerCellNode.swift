@@ -9,10 +9,8 @@ import AsyncDisplayKit
 import MBCircularProgressBar
 import SDWebImage
 
-class InnerTrailerCellNode: ASCellNode {
-    
-    static let identifier = "SearchInnerCell"
-    
+final class InnerTrailerCellNode: ASCellNode {
+        
     let moviePoster = ASNetworkImageNode().apply {
         $0.cornerRadius = 15
         $0.clipsToBounds = true
@@ -68,11 +66,17 @@ class InnerTrailerCellNode: ASCellNode {
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         moviePoster.style.preferredSize = CGSize(width: constrainedSize.max.width, height: constrainedSize.max.height / 1.5)
         
+        // Create a layout spec for the play button
+        let playButtonInset = UIEdgeInsets(top: .infinity, left: 16, bottom: 16, right: .infinity)
+        let playButtonInsetSpec = ASInsetLayoutSpec(insets: playButtonInset, child: playButton)
         
-        
+        // Overlay the play button on top of the movie poster
+        let overlaySpec = ASOverlayLayoutSpec(child: moviePoster, overlay: playButtonInsetSpec)
+
+        // Create a vertical stack with the movie poster and other elements
         let mainVerticalStack = ASStackLayoutSpec.vertical()
-        mainVerticalStack.children = [moviePoster, titleLabel, sloganLabel]
-        
+        mainVerticalStack.children = [overlaySpec, titleLabel, sloganLabel]
+
         return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: mainVerticalStack)
     }
 }

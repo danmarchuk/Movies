@@ -10,7 +10,7 @@ import Alamofire
 
 import Alamofire
 
-class TvInfoNetworkManager {
+final class TvInfoNetworkManager {
     
     func fetchATvSeries(withMovieId id: String, completion: @escaping (MovieOrTVFullInfo?) -> Void) {
         let url = "https://api.themoviedb.org/3/tv/"
@@ -33,7 +33,7 @@ class TvInfoNetworkManager {
 
                 let title = jsonDict["name"] as? String ?? ""
                 let releaseYear = (jsonDict["first_air_date"] as? String)?.prefix(4) ?? ""
-                var rating = jsonDict["vote_average"] as? Double ?? 0.0
+                let rating = jsonDict["vote_average"] as? Double ?? 0.0
                 // length
                 guard let lastEpisodeToAirDict = jsonDict["last_episode_to_air"] as? [String: Any] else {return}
                 let length = lastEpisodeToAirDict["runtime"] as? Int ?? 0

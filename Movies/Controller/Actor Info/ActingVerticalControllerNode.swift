@@ -7,7 +7,7 @@
 import Foundation
 import AsyncDisplayKit
 
-class ActingVerticalControllerNode: ASDKViewController<ASCollectionNode>, ASCollectionDataSource, ASCollectionDelegate {
+final class ActingVerticalControllerNode: ASDKViewController<ASCollectionNode>, ASCollectionDataSource, ASCollectionDelegate {
         
     var actingInfo: [ActingInfo] = [] {
         didSet {
@@ -41,6 +41,7 @@ class ActingVerticalControllerNode: ASDKViewController<ASCollectionNode>, ASColl
     func collectionNode(_ collectionNode: ASCollectionNode, nodeForItemAt indexPath: IndexPath) -> ASCellNode {
         let movie = actingInfo[indexPath.item]
         let cellNode = ActingCellNode(info: movie)
+        cellNode.delegate = self
         return cellNode
     }
     
@@ -48,20 +49,16 @@ class ActingVerticalControllerNode: ASDKViewController<ASCollectionNode>, ASColl
         let size = CGSize(width: collectionNode.bounds.width, height: collectionNode.bounds.height / K.actingCellHeightDivider)
         return ASSizeRange(min: size, max: size)
     }
-    
-    // MARK: - ASCollectionDelegate
-    
-//    func collectionNode(_ collectionNode: ASCollectionNode, didSelectItemAt indexPath: IndexPath) {
-//
-//        let chosenMovie = moviesOrTvs[indexPath.row]
-//        let movieOrTvVC = MovieOrTvViewControllerNode()
-//        movieOrTvVC.movieOrTvId = String(chosenMovie.id)
-//        movieOrTvVC.isMovie = chosenMovie.movie
-//        let navigationController = ASDKNavigationController(rootViewController: movieOrTvVC)
-//        navigationController.modalPresentationStyle = .fullScreen
-//
-//        present(navigationController, animated: true, completion: nil)
-//
-//    }
 }
 
+// MARK: - ActingCellDelegate
+extension ActingVerticalControllerNode: ActingCellDelegate {
+    func didTouchTheTitle(actingInfo: ActingInfo) {
+        let movieOrTvVC = MovieOrTvViewControllerNode()
+        movieOrTvVC.movieOrTvId = String(actingInfo.id)
+        movieOrTvVC.isMovie = actingInfo.isMovie
+        let navigationController = ASDKNavigationController(rootViewController: movieOrTvVC)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true, completion: nil)
+    }
+}

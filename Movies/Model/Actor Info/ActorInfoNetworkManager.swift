@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class ActorInfoNetworkManager {
+final class ActorInfoNetworkManager {
     
     func fetchAnActor(withPersonId id: String, completion: @escaping (ActorFullInfo?) -> Void) {
         let url = "https://api.themoviedb.org/3/person/"

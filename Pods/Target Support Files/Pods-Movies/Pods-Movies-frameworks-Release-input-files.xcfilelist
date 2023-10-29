@@ -1,0 +1,11 @@
+${PODS_ROOT}/Target Support Files/Pods-Movies/Pods-Movies-frameworks.sh
+${BUILT_PRODUCTS_DIR}/HMSegmentedControl/HMSegmentedControl.framework
+${BUILT_PRODUCTS_DIR}/LUNSegmentedControl/LUNSegmentedControl.framework
+${BUILT_PRODUCTS_DIR}/MBCircularProgressBar/MBCircularProgressBar.framework
+${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework
+${BUILT_PRODUCTS_DIR}/PINOperation/PINOperation.framework
+${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework
+${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
+${BUILT_PRODUCTS_DIR}/SKSearchController/SKSearchController.framework
+${BUILT_PRODUCTS_DIR}/TTSegmentedControl/TTSegmentedControl.framework
+${BUILT_PRODUCTS_DIR}/Texture/AsyncDisplayKit.framework

@@ -8,7 +8,7 @@
 import Foundation
 import AsyncDisplayKit
 
-class HomeMainDisplayNode: ASDisplayNode {
+final class HomeMainDisplayNode: ASDisplayNode {
     
     let backgroundImageNode = ASImageNode().apply {
         $0.image = UIImage(named: "rickBackgroundImage")
@@ -66,18 +66,15 @@ class HomeMainDisplayNode: ASDisplayNode {
     }
 
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        
         // Calculate the height for the background image (3/5 of the screen height)
         backgroundImageNode.style.preferredSize = CGSize(width: constrainedSize.max.width, height: constrainedSize.max.height * 3 / 5)
-        
         let spacer = ASLayoutSpec()
         spacer.style.flexGrow = 1.0
         
         let backgroundSpec = ASStackLayoutSpec()
-
         backgroundSpec.children = [backgroundImageNode, spacer]
-        let scrollNodeLayoutSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: -70, left: 0, bottom: 0, right: 0), child: backgroundSpec)
         
+        let scrollNodeLayoutSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: -70, left: 0, bottom: 0, right: 0), child: backgroundSpec)
         let cellHeight = Int(verticalCollectionNode.node.bounds.height / K.homeMainCellHeightDivider)
         let totalSpacing: CGFloat = 100 * CGFloat(4) // spacing between cells
         let verticalCollectionNodeHeight = CGFloat(4 * cellHeight) + totalSpacing
@@ -99,16 +96,13 @@ class HomeMainDisplayNode: ASDisplayNode {
                                               children: [horizontalButtonStack, verticalCollectionNode.node])
         
         let overlaySpec = ASOverlayLayoutSpec(child: scrollNodeLayoutSpec, overlay: verticalStack)
-
         scrollNode.automaticallyManagesContentSize = true
         scrollNode.automaticallyManagesSubnodes = true
         scrollNode.layoutSpecBlock = { (_, _) -> ASLayoutSpec in
             return overlaySpec
         }
         scrollNode.style.preferredSize = CGSize(width: constrainedSize.max.width, height: verticalCollectionNodeHeight)
-        
         return ASWrapperLayoutSpec(layoutElement: scrollNode)
-
     }
 
 }

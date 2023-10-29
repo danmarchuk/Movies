@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import AsyncDisplayKit
 
-class MovieOrTvViewControllerNode: ASDKViewController<MovieScreenNode> {
+final class MovieOrTvViewControllerNode: ASDKViewController<MovieScreenNode> {
     
     private var backButton: UIBarButtonItem!
     
@@ -76,7 +76,6 @@ class MovieOrTvViewControllerNode: ASDKViewController<MovieScreenNode> {
     func setupNavigationBar() {
         navigationController?.navigationBar.barTintColor = .white
         navigationController?.navigationBar.backgroundColor = .white
-//        navigationController?.navigationBar.isTranslucent = false  // Make it non-translucent
         
         backButton = UIBarButtonItem(image: UIImage(named: "chevron.left"), style: .plain, target: self, action: #selector(backButtonTapped))
         

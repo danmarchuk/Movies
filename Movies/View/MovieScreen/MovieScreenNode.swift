@@ -7,10 +7,12 @@
 
 import Foundation
 import AsyncDisplayKit
+import HMSegmentedControl
 
 final class MovieScreenNode: ASDisplayNode {
-    
+    // Bool for removing or adding the info for TV Series
     var isMovie: Bool = false
+    
     let scrollNode = ASScrollNode()
     var buttons = ["My Lists", "Favorite", "Watchlist", "Rate"]
     // Constants for UI elements
@@ -49,9 +51,12 @@ final class MovieScreenNode: ASDisplayNode {
     let grayDivider = ASDisplayNode()
     
     let socialLabel = ASTextNode()
+    let segmentedControl1 = CustomControl(items: [])
+
     let seeAllSocialLabel = ASTextNode()
     let socialDescriptionLabel = ASTextNode()
     let mediaLabel = ASTextNode()
+    let segmentedControl2 = CustomControl(items: [])
     let moviePoster2 = ASNetworkImageNode().apply {
         $0.placeholderColor = .lightGray
         $0.placeholderEnabled = true
@@ -223,6 +228,11 @@ final class MovieScreenNode: ASDisplayNode {
             .font: UIFont(name: "OpenSans-Semibold", size: 18)!,
             .foregroundColor: K.movieScreenDarkBlueTextColor
         ])
+        
+        segmentedControl1.updateValues(withItems: ["Review(0)", "Discussion(1)"])
+        segmentedControl2.updateValues(withItems: ["Most Popular", "Videos(\(info.videoUrls.count))", "Backdrops(14)"])
+
+
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
@@ -235,7 +245,8 @@ final class MovieScreenNode: ASDisplayNode {
             createMoviePosterWithPlayButton(constrainedSize),
             stackAfterThePosterSpec(constrainedSize),
             createMoviePosterWithPlayButton2(constrainedSize),
-            stackAfterThePoster2Spec(constrainedSize)
+            stackAfterThePoster2Spec(constrainedSize),
+            recommendationsController.node
         ]
 
         let insetSpec = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: mainStack)
@@ -349,9 +360,9 @@ final class MovieScreenNode: ASDisplayNode {
             currentSeasonSpec(),
             seasonImageAndDetailsSpec(),
             dividerSpec(constrainedSize, grayDivider),
-            socialSpec(),
+            socialSpec(constrainedSize),
             socialDescriptionLabel,
-            mediaLabel]
+            mediaSpec(constrainedSize)]
         return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16), child: stack)
     }
     
@@ -394,10 +405,22 @@ final class MovieScreenNode: ASDisplayNode {
         return ASInsetLayoutSpec(insets: UIEdgeInsets.zero, child: divider)
     }
 
-    private func socialSpec() -> ASLayoutSpec {
-        return horizontalSpec(leftNode: socialLabel, rightNode: seeAllSocialLabel)
+    // MARK: - segmentedControll
+    private func socialSpec(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+        let spec = ASStackLayoutSpec.horizontal()
+        segmentedControl1.style.flexGrow = 1.0
+        spec.children = [socialLabel, segmentedControl1, seeAllSocialLabel]
+        return spec
     }
-
+    
+    private func mediaSpec(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+        let spec = ASStackLayoutSpec.horizontal()
+        segmentedControl2.style.flexGrow = 1.0
+        spec.children = [mediaLabel, segmentedControl2]
+        spec.spacing = 20
+        return spec
+    }
+    
     private func horizontalSpec(leftNode: ASDisplayNode, rightNode: ASDisplayNode) -> ASLayoutSpec {
         let spec = ASStackLayoutSpec.horizontal()
         let spacer = ASLayoutSpec()
@@ -405,24 +428,17 @@ final class MovieScreenNode: ASDisplayNode {
         spec.children = [leftNode, spacer, rightNode]
         return spec
     }
-
-//    private func moviePoster2Spec(_ constrainedSize: ASSizeRange) -> ASNetworkImageNode {
-//        moviePoster2.style.preferredSize = CGSize(width: constrainedSize.max.width, height: UIScreen.main.bounds.height * 0.25)
-//        return moviePoster2
-//    }
     
     private func stackAfterThePoster2Spec(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         let stack = ASStackLayoutSpec.vertical()
         stack.spacing = 16
         
-        recommendationsController.node.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 200)
+        recommendationsController.node.style.preferredSize = CGSize(width: constrainedSize.max.width, height: 250)
         recommendationsController.node.style.flexGrow = 1.0
         
         stack.children = [
             dividerSpec(constrainedSize, grayDivider2),
-            recommendationsLabel,
-            recommendationsController.node
-        ]
+            recommendationsLabel        ]
         return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16), child: stack)
     }
 }
