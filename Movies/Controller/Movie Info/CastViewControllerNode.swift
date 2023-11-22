@@ -49,10 +49,14 @@ class CastViewControllerNode: ASDKViewController<ASCollectionNode>, ASCollection
         } else if indexPath.item <= actorShortInfo.count {
             let actor = actorShortInfo[indexPath.item - 1]
             let cellNode = ActorCellNode(actor: actor)
+            cellNode.accessibilityIdentifier = "actorCell\(indexPath.item)"
+            print("=============================")
+            print(cellNode.accessibilityIdentifier)
             return cellNode
         } else {
             return ASCellNode()
         }
+        
     }
     
     func collectionNode(_ collectionNode: ASCollectionNode, constrainedSizeForItemAt indexPath: IndexPath) -> ASSizeRange {
