@@ -73,7 +73,6 @@
 		93E329532A98C9E200991843 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E329522A98C9E200991843 /* AppDelegate.swift */; };
 		93E329552A98C9E200991843 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E329542A98C9E200991843 /* SceneDelegate.swift */; };
 		93E3295C2A98C9E300991843 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93E3295B2A98C9E300991843 /* Assets.xcassets */; };
-		93E3295F2A98C9E300991843 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93E3295D2A98C9E300991843 /* LaunchScreen.storyboard */; };
 		93E3296A2A98C9E400991843 /* MoviesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E329692A98C9E400991843 /* MoviesTests.swift */; };
 		93E329742A98C9E400991843 /* MoviesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E329732A98C9E400991843 /* MoviesUITests.swift */; };
 		93E329762A98C9E400991843 /* MoviesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E329752A98C9E400991843 /* MoviesUITestsLaunchTests.swift */; };
@@ -172,7 +171,6 @@
 		93E329522A98C9E200991843 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93E329542A98C9E200991843 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		93E3295B2A98C9E300991843 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		93E3295E2A98C9E300991843 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		93E329602A98C9E300991843 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93E329652A98C9E400991843 /* MoviesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		93E329692A98C9E400991843 /* MoviesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesTests.swift; sourceTree = "<group>"; };
@@ -459,7 +457,6 @@
 				93E3298B2A98F79700991843 /* View */,
 				93744B742AAE510100A78E00 /* Model */,
 				93E3295B2A98C9E300991843 /* Assets.xcassets */,
-				93E3295D2A98C9E300991843 /* LaunchScreen.storyboard */,
 				93E329602A98C9E300991843 /* Info.plist */,
 				936ABBC22A9A462300A8466B /* Fonts */,
 				9349EDD62AA7BDB100F8D960 /* Movies-Bridging-Header.h */,
@@ -641,7 +638,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93E3295F2A98C9E300991843 /* LaunchScreen.storyboard in Resources */,
 				93E3295C2A98C9E300991843 /* Assets.xcassets in Resources */,
 				93C3E1382AB8F91100471FDF /* OpenSans-Light.ttf in Resources */,
 				9335DF882A9E449700B36397 /* OpenSans-ExtraBold.ttf in Resources */,
@@ -869,17 +865,6 @@
 			targetProxy = 93E329702A98C9E400991843 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		93E3295D2A98C9E300991843 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				93E3295E2A98C9E300991843 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		93E329772A98C9E400991843 /* Debug */ = {
